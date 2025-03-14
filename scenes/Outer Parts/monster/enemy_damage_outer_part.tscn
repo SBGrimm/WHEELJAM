@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgr1npvklicip"]
+
+[ext_resource type="PackedScene" uid="uid://bkxfj3cryqg52" path="res://scenes/Outer Parts/!outer_part_base.tscn" id="1_jnly2"]
+[ext_resource type="Script" path="res://resources/effects/EnemyDamageEffect.gd" id="2_thv2e"]
+
+[node name="EnemyDamageOuterPart" instance=ExtResource("1_jnly2")]
+
+[node name="selector(for reference)" parent="." index="0"]
+visible = false
+
+[node name="EnemyDamageEffect" type="Node" parent="EffectsList" index="0"]
+script = ExtResource("2_thv2e")
+amount = 6.0
+
+[node name="ColorRect" type="ColorRect" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -119.0
+offset_right = 48.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 0, 0, 1)

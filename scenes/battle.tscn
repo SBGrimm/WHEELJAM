@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxlklmk3ea0bt"]
+
+[ext_resource type="PackedScene" uid="uid://far3xviy2rnv" path="res://scenes/wheel/wheel.tscn" id="1_1f2s6"]
+[ext_resource type="Script" path="res://scenes/battle.gd" id="1_lo6wo"]
+[ext_resource type="Script" path="res://resources_scripts/gamestate.gd" id="2_acwa5"]
+[ext_resource type="PackedScene" uid="uid://cmxdie8w8t606" path="res://scenes/start_turn_screen.tscn" id="4_ntuqt"]
+
+[sub_resource type="Resource" id="Resource_xf4us"]
+script = ExtResource("2_acwa5")
+_player_hp = 10
+_enemy_hp = 20
+_player_block = 1
+_enemy_block = 1
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e2h7y"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ihrv3"]
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_lo6wo")
+gamestate = SubResource("Resource_xf4us")
+
+[node name="Enemy" type="Sprite2D" parent="."]
+position = Vector2(919, 178)
+scale = Vector2(96.5, 149.5)
+texture = SubResource("PlaceholderTexture2D_e2h7y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(603, 417)
+scale = Vector2(132.5, 171.5)
+texture = SubResource("PlaceholderTexture2D_ihrv3")
+
+[node name="Wheel" parent="." instance=ExtResource("1_1f2s6")]
+layout_mode = 1
+anchors_preset = 4
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 238.0
+offset_top = -4.0
+offset_right = 238.0
+offset_bottom = -4.0
+grow_horizontal = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 277.0
+offset_right = 486.0
+offset_bottom = 300.0
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 144.0
+offset_right = 475.0
+offset_bottom = 167.0
+
+[node name="FadeOut" parent="." instance=ExtResource("4_ntuqt")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+mouse_filter = 1

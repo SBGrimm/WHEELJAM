@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxlklmk3ea0bt"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e2h7y"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ihrv3"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Enemy" type="Sprite2D" parent="."]
+position = Vector2(956, 205)
+scale = Vector2(96.5, 149.5)
+texture = SubResource("PlaceholderTexture2D_e2h7y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(560, 455)
+scale = Vector2(132.5, 171.5)
+texture = SubResource("PlaceholderTexture2D_ihrv3")
