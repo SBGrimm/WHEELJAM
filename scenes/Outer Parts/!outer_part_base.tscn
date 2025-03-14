@@ -11,16 +11,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_sxyhg")
 
 [node name="selector(for reference)" type="TextureRect" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -40,5 +37,5 @@ expand_mode = 1
 
 [node name="EffectsList" type="Node" parent="."]
 
-[node name="DraggableComponent" type="Area2D" parent="."]
+[node name="DraggableComponent" type="Area2D" parent="." groups=["droppable"]]
 script = ExtResource("3_5j5hb")

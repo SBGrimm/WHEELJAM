@@ -6,14 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80eol"]
 size = Vector2(64, 6)
 
-[node name="BlockOuterPart" instance=ExtResource("1_jkiri")]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
-
-[node name="selector(for reference)" parent="." index="0"]
-visible = false
+[node name="BlockOuterPart" groups=["droppable"] instance=ExtResource("1_jkiri")]
 
 [node name="BlockEffect" type="Node" parent="EffectsList" index="0"]
 script = ExtResource("2_1ectu")

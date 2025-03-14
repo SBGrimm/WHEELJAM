@@ -101,6 +101,16 @@ func end_check()->void:
 		puzzle_finished.emit()
 	else:
 		_state = WheelState.AWAITING_SELECTION
+
+func spin():
+	pass
+
+func set_outer_parts(parts: Array[OuterPart]):
+	for child in outer_gimbal.get_children():
+		outer_gimbal.remove_child(child)
+	for part in parts:
+		part.reparent(outer_gimbal)
+		part.set_offsets_preset(Control.PRESET_CENTER)
 		
 func get_current_wheel_selection()->WheelSelection:
 	var ws = WheelSelection.new()

@@ -1,10 +1,12 @@
 extends Area2D
+class_name DraggableComponent
 
 @export var draggable = false
 var lifted = false
 var lift_timeout = false
 @onready var root = $".."
 var drag_timer: Timer
+
 
 func _ready():
 	drag_timer = Timer.new()
@@ -22,6 +24,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton and not event.pressed:
 		if not lift_timeout:
 			lifted = false
+			EventBus.ended_drag.emit(self)
 	if lifted and event is InputEventMouseMotion:
 		root.global_position += event.relative
 
@@ -30,6 +33,7 @@ func _input_event(viewport, event, shape_idx):
 		return
 	if event is InputEventMouseButton and event.pressed:
 		if not lifted:
+			EventBus.started_drag.emit(self)
 			lifted = true
 			lift_timeout = true
 			drag_timer.start()

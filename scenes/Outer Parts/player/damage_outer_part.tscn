@@ -8,15 +8,12 @@ size = Vector2(39, 10)
 
 [node name="DamageOuterPart" instance=ExtResource("1_6f4hp")]
 
-[node name="selector(for reference)" parent="." index="0"]
-visible = false
-
 [node name="DamageEffect" type="Node" parent="EffectsList" index="0"]
 script = ExtResource("3_g2tep")
 amount = 6.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DraggableComponent" index="0"]
-position = Vector2(20.5, -97)
+position = Vector2(0, -117)
 shape = SubResource("RectangleShape2D_jo5fy")
 
 [node name="ColorRect" type="ColorRect" parent="." index="3"]

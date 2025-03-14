@@ -15,6 +15,14 @@ run/main_scene="res://scenes/battle.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EventBus="*res://globals/event_bus.gd"
+
+[global_group]
+
+droppable=""
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

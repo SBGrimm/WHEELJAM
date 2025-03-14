@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmxdie8w8t606"]
+[gd_scene load_steps=7 format=3 uid="uid://cmxdie8w8t606"]
 
 [ext_resource type="Texture2D" uid="uid://c7f57bkxn7noc" path="res://the-wheel-godot-main/Assets/wheel-simple/underlay.png" id="1_fha3t"]
 [ext_resource type="Script" path="res://scenes/start_turn_screen.gd" id="1_unjpi"]
 [ext_resource type="PackedScene" uid="uid://ryd6fkbgff77" path="res://scenes/wheel/slice.tscn" id="2_ws5h1"]
 [ext_resource type="PackedScene" uid="uid://cgr1npvklicip" path="res://scenes/Outer Parts/monster/enemy_damage_outer_part.tscn" id="4_db1jh"]
 [ext_resource type="PackedScene" uid="uid://bpkj4ufg524s" path="res://scenes/Outer Parts/monster/enemy_block_outer_part.tscn" id="6_2xhie"]
+[ext_resource type="Script" path="res://scripts/droppable_component.gd" id="6_y0gfl"]
 
 [node name="FadeOut" type="ColorRect"]
 anchors_preset = 15
@@ -15,7 +16,7 @@ grow_vertical = 2
 size_flags_horizontal = 10
 size_flags_vertical = 3
 mouse_filter = 2
-color = Color(0, 0, 0, 0.756863)
+color = Color(0, 0, 0, 0.607843)
 script = ExtResource("1_unjpi")
 
 [node name="underlay" type="TextureRect" parent="."]
@@ -44,10 +45,6 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(32, 32)
@@ -113,30 +110,27 @@ pivot_offset = Vector2(0, 0)
 mod = 0.5
 
 [node name="pre_placed" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 576.0
-offset_top = 324.0
-offset_right = 576.0
-offset_bottom = 324.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 
 [node name="EnemyDamageOuterPart" parent="pre_placed" instance=ExtResource("4_db1jh")]
 layout_mode = 1
-offset_right = -20.0
-offset_bottom = -20.0
 mouse_filter = 0
 
 [node name="EnemyDamageOuterPart2" parent="pre_placed" instance=ExtResource("4_db1jh")]
 layout_mode = 1
-offset_right = -20.0
-offset_bottom = -20.0
 rotation = 2.0944
 mouse_filter = 0
 
 [node name="EnemyBlockOuterPart" parent="pre_placed" instance=ExtResource("6_2xhie")]
 layout_mode = 1
-offset_right = -20.0
-offset_bottom = -20.0
 rotation = 4.18879
 mouse_filter = 0
 
@@ -145,21 +139,41 @@ anchors_preset = 0
 mouse_filter = 2
 
 [node name="Place6" type="Area2D" parent="."]
+script = ExtResource("6_y0gfl")
+target_coords = Vector2(576, 324)
+target_degrees = 300
+anim_time = 0.4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Place6"]
 position = Vector2(3, 8)
 polygon = PackedVector2Array(462, 260, 507, 217, 569, 316, 440, 316)
 
-[node name="Place2" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Place2"]
-position = Vector2(1117, -40)
-rotation = 2.03505
-polygon = PackedVector2Array(462, 260, 513.084, 213.902, 569, 316, 440, 316)
-
 [node name="Place4" type="Area2D" parent="."]
+script = ExtResource("6_y0gfl")
+target_coords = Vector2(576, 324)
+target_degrees = 180
+anim_time = 0.4
+id = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Place4"]
-position = Vector2(626, 971)
-rotation = 4.12945
-polygon = PackedVector2Array(462, 260, 513.084, 213.902, 569, 316, 440, 316)
+position = Vector2(3, 8)
+rotation = 2.0944
+polygon = PackedVector2Array(-9.96998, -651.268, 116.757, -659.771, 54.3909, -765.792)
+
+[node name="Place2" type="Area2D" parent="."]
+script = ExtResource("6_y0gfl")
+target_coords = Vector2(576, 324)
+target_degrees = 60
+anim_time = 0.4
+id = 6
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Place2"]
+position = Vector2(3, 8)
+polygon = PackedVector2Array(571, 313, 639, 207, 702, 312)
+
+[connection signal="area_entered" from="Place6" to="Place6" method="_on_area_entered"]
+[connection signal="area_exited" from="Place6" to="Place6" method="_on_area_exited"]
+[connection signal="area_entered" from="Place4" to="Place4" method="_on_area_entered"]
+[connection signal="area_exited" from="Place4" to="Place4" method="_on_area_exited"]
+[connection signal="area_entered" from="Place2" to="Place2" method="_on_area_entered"]
+[connection signal="area_exited" from="Place2" to="Place2" method="_on_area_exited"]

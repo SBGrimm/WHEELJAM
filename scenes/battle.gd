@@ -11,6 +11,7 @@ func _ready():
 	wheel.puzzle_finished.connect(_process_end_turn)
 	gamestate.gamestate_changed.connect(update_gamestate_display)
 	fadeout.visible = false
+	fadeout.parts_chosen.connect(_on_parts_chosen)
 	update_gamestate_display()
 	
 func _activate_selection(selection: WheelSelection):
@@ -24,7 +25,10 @@ func update_gamestate_display():
 	label_2.text = str(gamestate.enemy_hp)
 
 func _process_end_turn():
-	#сброситься колесо
-	#зум колеса
-	#набор колеса
-	pass
+	fadeout.visible = true
+	fadeout.activate()
+
+func _on_parts_chosen(parts: Array[OuterPart]):
+	wheel.set_outer_parts(parts)
+	wheel.reset()
+	wheel.spin()
