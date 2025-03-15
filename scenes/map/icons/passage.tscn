@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bokfcqulwjmjd"]
+
+[ext_resource type="Texture2D" uid="uid://cy7jd57v10qc1" path="res://assets/map_icons/passage.png" id="1_y51by"]
+
+[node name="Passage" type="Node2D"]
+
+[node name="Passage" type="Sprite2D" parent="."]
+position = Vector2(187, 0)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_y51by")
+
+[node name="NextEncoutnerMarker" type="Marker2D" parent="."]
+position = Vector2(340, 0)

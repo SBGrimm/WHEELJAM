@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh37on2tk2jjx"]
+
+[ext_resource type="Script" path="res://scenes/map/icons/dark_shrine.gd" id="1_0f521"]
+[ext_resource type="Texture2D" uid="uid://qy7v8n8cxsxi" path="res://assets/map_icons/dark_shrine.png" id="1_hht0a"]
+
+[node name="DarkShrine" type="Node2D"]
+script = ExtResource("1_0f521")
+
+[node name="DarkShrineSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_hht0a")
