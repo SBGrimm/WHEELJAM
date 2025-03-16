@@ -17,6 +17,12 @@ var possible_drops: Array[Area2D] = []
 func _ready():
 	EventBus.ended_drag.connect(_on_dropped)
 
+func reset():
+	for child in get_children():
+		if child.is_in_group("droppable"):
+			remove_child(child)
+	state = STATE.AWAITING_DROP
+
 func _on_dropped(area: Area2D):
 	if state != STATE.AWAITING_DROP: 
 		return
@@ -30,7 +36,12 @@ func _on_dropped(area: Area2D):
 	var tween:Tween = create_tween()
 	tween.set_trans(7)
 	tween.set_parallel(true)
-	tween.tween_property(area.root, "rotation_degrees", target_degrees,anim_time).from_current()
+	if abs(area.root.rotation_degrees - target_degrees) < 180:
+		tween.tween_property(area.root, "rotation_degrees", target_degrees, anim_time).from_current()
+	elif abs(area.root.rotation_degrees - (target_degrees - 360)) < 180:
+		tween.tween_property(area.root, "rotation_degrees", target_degrees-360, anim_time).from_current()
+	elif abs(area.root.rotation_degrees - (target_degrees + 360)) < 180:
+		tween.tween_property(area.root, "rotation_degrees", target_degrees+360, anim_time).from_current()
 	tween.tween_property(area.root, "global_position", target_coords, anim_time).from_current()
 	tween.finished.connect(_on_slot_animation_ended)
 	area.root.reparent(self)

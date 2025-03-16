@@ -6,11 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80eol"]
 size = Vector2(64, 6)
 
-[node name="BlockOuterPart" groups=["droppable"] instance=ExtResource("1_jkiri")]
+[node name="BlockOuterPart" instance=ExtResource("1_jkiri")]
 
 [node name="BlockEffect" type="Node" parent="EffectsList" index="0"]
 script = ExtResource("2_1ectu")
-amount = 0.5
+amount = 4.0
 
 [node name="ColorRect" type="ColorRect" parent="." index="2"]
 layout_mode = 1

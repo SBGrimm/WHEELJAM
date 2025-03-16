@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ryd6fkbgff77"]
 
-[ext_resource type="Texture2D" uid="uid://do6nve628fj42" path="res://the-wheel-godot-main/Assets/wheel-simple/slice2.png" id="1_7oehy"]
 [ext_resource type="Script" path="res://scenes/wheel/slice.gd" id="1_myxno"]
 [ext_resource type="Texture2D" uid="uid://vykvlqf1dvc4" path="res://the-wheel-godot-main/Assets/wheel-simple/selector.png" id="2_8r2gf"]
+[ext_resource type="Texture2D" uid="uid://cs4yx87abb4fd" path="res://scenes/wheel/shade_base.tres" id="3_ir2s7"]
 
 [node name="Slice" type="Control"]
 texture_filter = 1
@@ -12,15 +12,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -128.0
-offset_right = 75.0
-offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(75, 128)
 size_flags_horizontal = 4
 script = ExtResource("1_myxno")
+mod = 3.0
 
 [node name="selector(for reference)" type="TextureRect" parent="."]
 visible = false
@@ -45,17 +41,17 @@ expand_mode = 1
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -128.0
-offset_right = 75.0
-offset_bottom = 128.0
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -115.0
+offset_right = 55.0
+offset_bottom = -14.0
 grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(75, 128)
-texture = ExtResource("1_7oehy")
+grow_vertical = 0
+pivot_offset = Vector2(55, 116)
+texture = ExtResource("3_ir2s7")
 expand_mode = 1

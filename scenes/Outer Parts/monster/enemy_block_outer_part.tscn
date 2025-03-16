@@ -5,12 +5,9 @@
 
 [node name="EnemyBlockOuterPart" instance=ExtResource("1_dgkw1")]
 
-[node name="selector(for reference)" parent="." index="0"]
-visible = false
-
 [node name="EnemyBlockEffect" type="Node" parent="EffectsList" index="0"]
 script = ExtResource("2_wubtb")
-amount = 1.0
+amount = 8.0
 
 [node name="ColorRect" type="ColorRect" parent="." index="2"]
 layout_mode = 1

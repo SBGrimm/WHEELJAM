@@ -1,69 +1,184 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxlklmk3ea0bt"]
+[gd_scene load_steps=17 format=3 uid="uid://bxlklmk3ea0bt"]
 
 [ext_resource type="PackedScene" uid="uid://far3xviy2rnv" path="res://scenes/wheel/wheel.tscn" id="1_1f2s6"]
 [ext_resource type="Script" path="res://scenes/battle.gd" id="1_lo6wo"]
 [ext_resource type="Script" path="res://resources_scripts/gamestate.gd" id="2_acwa5"]
+[ext_resource type="PackedScene" uid="uid://dfm7k135i8gvt" path="res://scenes/Outer Parts/player/damage_outer_part.tscn" id="2_m0c5s"]
+[ext_resource type="PackedScene" uid="uid://dw3dk1rrn7ulb" path="res://scenes/Outer Parts/player/block_outer_part.tscn" id="3_1l3e3"]
 [ext_resource type="PackedScene" uid="uid://cmxdie8w8t606" path="res://scenes/start_turn_screen.tscn" id="4_ntuqt"]
+[ext_resource type="Script" path="res://scenes/enemies/behaviours/base_behaviour.gd" id="5_6dmas"]
+[ext_resource type="Script" path="res://scenes/enemies/base_enemy.gd" id="5_h7py5"]
+[ext_resource type="Texture2D" uid="uid://ckstjpkxd7cej" path="res://assets/monsters/monster_1/monster_1_1.png" id="7_xvckr"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="8_5abvd"]
+[ext_resource type="Texture2D" uid="uid://ddaxpu2i6euoh" path="res://assets/monsters/monster_1/monster_1_2.png" id="8_pgksq"]
+[ext_resource type="Texture2D" uid="uid://dlbpxvv4uo5nh" path="res://assets/monsters/monster_1/monster_1_3.png" id="9_hu3c2"]
+[ext_resource type="Texture2D" uid="uid://dpcfepjjkhmb0" path="res://assets/monsters/monster_1/monster_1_4.png" id="10_kwcdd"]
 
-[sub_resource type="Resource" id="Resource_xf4us"]
+[sub_resource type="Resource" id="Resource_ud741"]
 script = ExtResource("2_acwa5")
 _player_hp = 10
 _enemy_hp = 20
-_player_block = 1
-_enemy_block = 1
+_player_block = 0
+_enemy_block = 0
+hand_size = 5
+deck = [ExtResource("2_m0c5s"), ExtResource("3_1l3e3")]
+amounts = null
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e2h7y"]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_fp7on"]
+frames = 4
+speed_scale = 4.0
+frame_0/texture = ExtResource("7_xvckr")
+frame_1/texture = ExtResource("8_pgksq")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("9_hu3c2")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("10_kwcdd")
+frame_3/duration = 1.0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ihrv3"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_su4ji"]
+size = Vector2(10, 10)
 
 [node name="Battle" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_lo6wo")
-gamestate = SubResource("Resource_xf4us")
+gamestate = SubResource("Resource_ud741")
 
-[node name="Enemy" type="Sprite2D" parent="."]
-position = Vector2(919, 178)
-scale = Vector2(96.5, 149.5)
-texture = SubResource("PlaceholderTexture2D_e2h7y")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(603, 417)
-scale = Vector2(132.5, 171.5)
-texture = SubResource("PlaceholderTexture2D_ihrv3")
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Wheel" parent="." instance=ExtResource("1_1f2s6")]
 layout_mode = 1
-anchors_preset = 4
-anchor_left = 0.0
-anchor_right = 0.0
-offset_left = 238.0
-offset_top = -4.0
-offset_right = 238.0
-offset_bottom = -4.0
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 0.25
 grow_horizontal = 1
+scale = Vector2(1.5, 1.5)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 446.0
-offset_top = 277.0
-offset_right = 486.0
-offset_bottom = 300.0
+[node name="Labels" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label2" type="Label" parent="."]
+[node name="EnemyHPLabel" type="Label" parent="Labels"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -239.0
+offset_right = -152.0
+offset_bottom = 44.0
+grow_horizontal = 0
+
+[node name="EnemyBlockLabel" type="Label" parent="Labels"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="PlayerHPLabel" type="Label" parent="Labels"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -392.0
+offset_top = -101.0
+offset_right = -296.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="PlayerBlockLabel" type="Label" parent="Labels"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -267.0
+offset_top = -106.0
+offset_right = -85.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Enemy" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("5_h7py5")
+
+[node name="TextureRect" type="TextureRect" parent="Enemy"]
 layout_mode = 0
-offset_left = 435.0
-offset_top = 144.0
-offset_right = 475.0
-offset_bottom = 167.0
+offset_left = -473.0
+offset_top = -367.0
+offset_right = -118.0
+offset_bottom = 165.5
+texture = SubResource("AnimatedTexture_fp7on")
+expand_mode = 5
+
+[node name="EnemyBehaviour" type="Node" parent="Enemy"]
+script = ExtResource("5_6dmas")
+
+[node name="Player" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("8_5abvd")
+
+[node name="TextureRect" type="TextureRect" parent="Player"]
+layout_mode = 0
+offset_left = -634.0
+offset_top = -10.0
+offset_right = -401.0
+offset_bottom = 272.0
+texture = SubResource("PlaceholderTexture2D_su4ji")
+
+[node name="MouseStopper" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="FadeOut" parent="." instance=ExtResource("4_ntuqt")]
 visible = false
+z_index = 1
 layout_mode = 1
-mouse_filter = 1

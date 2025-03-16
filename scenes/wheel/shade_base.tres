@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cs4yx87abb4fd"]
+
+[ext_resource type="Texture2D" uid="uid://bcasrevb0lwg0" path="res://assets/wheel/mods merged.png" id="1_u871f"]
+
+[resource]
+resource_local_to_scene = true
+atlas = ExtResource("1_u871f")
+region = Rect2(0, 0, 313, 284)
