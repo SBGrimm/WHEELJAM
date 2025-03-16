@@ -1,4 +1,0 @@
-extends Node2D
-
-func start_encounter():
-	print("THE GOD DOES NOT LOVE YOU. NOR DOES IT WANT YOUR WORSHIP. YOU ARE BUT A MERE PLAY THING TO IT.")

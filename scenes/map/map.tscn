@@ -1,28 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm8crwojt34og"]
+[gd_scene load_steps=2 format=3 uid="uid://dm8crwojt34og"]
 
-[ext_resource type="PackedScene" uid="uid://cvdqsgdsvhi1n" path="res://scenes/map/icons/battle.tscn" id="1_xtxjc"]
-[ext_resource type="PackedScene" uid="uid://dh37on2tk2jjx" path="res://scenes/map/icons/dark_shrine.tscn" id="2_oonyj"]
-[ext_resource type="PackedScene" uid="uid://doklfkech0s5e" path="res://scenes/map/icons/campfire.tscn" id="3_dqa3m"]
-[ext_resource type="PackedScene" uid="uid://bokfcqulwjmjd" path="res://scenes/map/icons/passage.tscn" id="4_idl3g"]
+[ext_resource type="Script" path="res://scenes/map/map.gd" id="1_53pfr"]
 
 [node name="Map" type="Node2D"]
+script = ExtResource("1_53pfr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 1
 color = Color(0.86, 0.8342, 0.8342, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="Battle" parent="." instance=ExtResource("1_xtxjc")]
-position = Vector2(176, 324)
-
-[node name="DarkShrine" parent="." instance=ExtResource("2_oonyj")]
-position = Vector2(518, 324)
-
-[node name="Campfire" parent="." instance=ExtResource("3_dqa3m")]
-position = Vector2(857, 325)
-
-[node name="Passage" parent="." instance=ExtResource("4_idl3g")]
-position = Vector2(178, 324)
-
-[node name="Passage2" parent="." instance=ExtResource("4_idl3g")]
-position = Vector2(518, 324)
+[node name="MapEntrance" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(111, 321)
