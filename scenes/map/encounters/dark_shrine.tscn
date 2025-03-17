@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://crycjjn6o4348"]
+
+[ext_resource type="Script" path="res://scenes/map/encounters/dark_shrine.gd" id="1_0f521"]
+[ext_resource type="PackedScene" uid="uid://bnhmv5bs0a1ki" path="res://scenes/map/encounters/encounter.tscn" id="1_7kpsd"]
+[ext_resource type="Texture2D" uid="uid://qy7v8n8cxsxi" path="res://assets/map_icons/dark_shrine.png" id="1_hht0a"]
+
+[node name="DarkShrine" instance=ExtResource("1_7kpsd")]
+script = ExtResource("1_0f521")
+
+[node name="DarkShrineSprite" type="Sprite2D" parent="." index="1"]
+unique_name_in_owner = true
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_hht0a")

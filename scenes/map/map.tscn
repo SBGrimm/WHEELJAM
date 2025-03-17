@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm8crwojt34og"]
+
+[ext_resource type="Script" path="res://scenes/map/map.gd" id="1_53pfr"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_53pfr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 1
+color = Color(0.86, 0.8342, 0.8342, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MapEntrance" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(111, 321)
