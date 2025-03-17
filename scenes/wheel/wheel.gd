@@ -116,10 +116,11 @@ func set_outer_parts(parts: Array[OuterPart]):
 	for child in outer_gimbal.get_children():
 		outer_gimbal.remove_child(child)
 	for part in parts:
-		part.reparent(outer_gimbal)
-		part.z_as_relative = true
-		part.z_index = 0
-		part.set_offsets_preset(Control.PRESET_CENTER)
+		var new_part = part.duplicate()
+		outer_gimbal.add_child(new_part)
+		new_part.z_as_relative = true
+		new_part.z_index = 0
+		new_part.set_offsets_preset(Control.PRESET_CENTER)
 		
 func get_current_wheel_selection()->WheelSelection:
 	var ws = WheelSelection.new()

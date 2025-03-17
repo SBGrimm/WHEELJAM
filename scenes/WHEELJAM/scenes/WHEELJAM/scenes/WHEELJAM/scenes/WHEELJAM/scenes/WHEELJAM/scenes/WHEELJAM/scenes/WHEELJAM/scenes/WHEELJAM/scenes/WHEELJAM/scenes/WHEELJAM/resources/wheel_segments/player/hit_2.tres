@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="WheelSegment" load_steps=3 format=3 uid="uid://bb5v1rc442ifv"]
-
-[ext_resource type="Script" path="res://resources_scripts/wheel_segment.gd" id="1_2r3yg"]
-
-[sub_resource type="PlaceholderTexture3D" id="PlaceholderTexture3D_yqmtr"]
-
-[resource]
-script = ExtResource("1_2r3yg")
-texture = SubResource("PlaceholderTexture3D_yqmtr")

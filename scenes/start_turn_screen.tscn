@@ -31,6 +31,7 @@ anchor_right = 0.25
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(128, 128)
 texture = ExtResource("2_r0ncn")
 expand_mode = 1
@@ -46,7 +47,7 @@ anchor_right = 0.25
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(32, 32)
+scale = Vector2(1.5, 1.5)
 mouse_filter = 1
 
 [node name="slice1" parent="slice_gimbal" instance=ExtResource("2_ws5h1")]
@@ -86,6 +87,7 @@ mod = 0.5
 [node name="to_place" type="Control" parent="."]
 z_index = 1
 anchors_preset = 0
+scale = Vector2(1.5, 1.5)
 mouse_filter = 1
 
 [node name="Place1" type="Control" parent="."]
@@ -97,6 +99,7 @@ anchor_right = 0.25
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.5, 1.5)
 mouse_filter = 1
 
 [node name="Place3" type="Control" parent="."]
@@ -109,6 +112,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 2.0944
+scale = Vector2(1.5, 1.5)
 mouse_filter = 1
 
 [node name="Place5" type="Control" parent="."]
@@ -121,11 +125,13 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 4.18879
+scale = Vector2(1.5, 1.5)
 mouse_filter = 1
 
 [node name="Place6" type="Area2D" parent="."]
 z_index = 1
 position = Vector2(288, 324)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("6_y0gfl")
 target_coords = Vector2(288, 324)
 target_degrees = 300
@@ -138,6 +144,7 @@ polygon = PackedVector2Array(0, 0, 62, -104, 90, -81, 110, -50, 119, -23, 121, 0
 [node name="Place4" type="Area2D" parent="."]
 z_index = 1
 position = Vector2(288, 324)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("6_y0gfl")
 target_coords = Vector2(288, 324)
 target_degrees = 180
@@ -151,6 +158,7 @@ polygon = PackedVector2Array(0, 0, 62, -104, 90, -81, 110, -50, 119, -23, 121, 0
 [node name="Place2" type="Area2D" parent="."]
 z_index = 1
 position = Vector2(288, 324)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("6_y0gfl")
 target_coords = Vector2(288, 324)
 target_degrees = 60

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ryd6fkbgff77"]
 
 [ext_resource type="Script" path="res://scenes/wheel/slice.gd" id="1_myxno"]
-[ext_resource type="Texture2D" uid="uid://vykvlqf1dvc4" path="res://the-wheel-godot-main/Assets/wheel-simple/selector.png" id="2_8r2gf"]
+[ext_resource type="Texture2D" uid="uid://vykvlqf1dvc4" path="res://assets/wheel-simple/selector.png" id="2_8r2gf"]
 [ext_resource type="Texture2D" uid="uid://cs4yx87abb4fd" path="res://scenes/wheel/shade_base.tres" id="3_ir2s7"]
 
 [node name="Slice" type="Control"]

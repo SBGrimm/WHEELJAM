@@ -5,7 +5,7 @@ var rng = RandomNumberGenerator.new()
 @onready var place_6 = $Place6
 @onready var place_4 = $Place4
 @onready var place_2 = $Place2
-@onready var pre_places = [$Place1, $Place3, $Place5]
+@onready var pre_places: Array[Control] = [$Place1, $Place3, $Place5]
 @onready var places: Array[Area2D] = [place_2, place_4, place_6]
 
 signal parts_chosen(parts: Array[OuterPart])
@@ -18,8 +18,12 @@ func _ready():
 func reset(player_parts, enemy_parts):
 	for place in places:
 		place.reset()
+	for place in pre_places:
+		var child = place.get_child(0)
+		place.remove_child(child)
 	for child in to_place.get_children():
 		to_place.remove_child(child)
+	
 	spawn(player_parts)
 	pre_place(enemy_parts)
 
@@ -64,5 +68,5 @@ func setup_turn():
 		pre_places[2].get_child(0) as OuterPart,
 		place_6.get_child(1) as OuterPart
 	]
-	deactivate()
 	parts_chosen.emit(parts)
+	deactivate()

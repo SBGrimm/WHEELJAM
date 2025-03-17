@@ -16,7 +16,7 @@
 
 [sub_resource type="Resource" id="Resource_ud741"]
 script = ExtResource("2_acwa5")
-_player_hp = 10
+_player_hp = 100
 _enemy_hp = 20
 _player_block = 0
 _enemy_block = 0
