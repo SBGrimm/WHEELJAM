@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://nd7fexl8rjtb"]
+
+[ext_resource type="Texture2D" uid="uid://0uip8alsw51t" path="res://assets/map_icons/visited_location_mark.png" id="1_yhk8j"]
+
+[node name="VisitedLocationMark" type="Node2D"]
+
+[node name="VisitedLocationMark" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_yhk8j")
