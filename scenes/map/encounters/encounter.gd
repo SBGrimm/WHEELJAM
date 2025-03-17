@@ -4,7 +4,7 @@ extends Node2D
 @export var available_next_encounters: Array[Node] = []
 var is_mouse_hovering = false
 var hover_sprite_scale = 1.0
-	
+
 func _on_mouse_entered() -> void:
 	is_mouse_hovering = true
 
@@ -33,9 +33,7 @@ func encounter_clicked():
 	var visited_encounter_marker = preload("res://scenes/map/encounters/visited_location_mark.tscn").instantiate()
 	visited_encounter_marker.global_position = global_position
 	get_parent().add_child(visited_encounter_marker)
-	selection_enabled = false
-	for next_encounter in available_next_encounters:
-		next_encounter.selection_enabled = true
+	EventBus.selectable_encounters_changed.emit(available_next_encounters)
 	encounter()
 
 func encounter():

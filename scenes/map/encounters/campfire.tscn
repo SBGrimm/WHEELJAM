@@ -6,7 +6,6 @@
 
 [node name="Campfire" instance=ExtResource("1_v6wtq")]
 script = ExtResource("2_n1p07")
-selection_enabled = true
 
 [node name="CampfireSprite" type="Sprite2D" parent="." index="0"]
 scale = Vector2(0.2, 0.2)
