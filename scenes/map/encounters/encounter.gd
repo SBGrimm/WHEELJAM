@@ -1,15 +1,9 @@
 extends Node2D
 
 @export var selection_enabled = false
-@export var available_next_encounters : Array[Node] = []
+@export var available_next_encounters: Array[Node] = []
 var is_mouse_hovering = false
 var hover_sprite_scale = 1.0
-
-func enable_selection() -> void:
-	selection_enabled = true
-
-func disable_seelction() -> void:
-	selection_enabled = false
 	
 func _on_mouse_entered() -> void:
 	is_mouse_hovering = true
@@ -18,11 +12,15 @@ func _on_mouse_exited() -> void:
 	is_mouse_hovering = false
 
 func update_sprite_hover_scale(delta: float) -> void:
-	var animation_time = .6
+	var animation_time = .4
 	var dest = 1.0
 	if is_mouse_hovering and selection_enabled:
 		dest = 1.3
 	hover_sprite_scale = lerp(dest, hover_sprite_scale, exp(-delta/animation_time))
+	scale = hover_sprite_scale * Vector2(1, 1)
+
+func _physics_process(delta: float) -> void:
+	update_sprite_hover_scale(delta)
 
 func _on_mouse_hover_detection_input_event(
 	viewport: Node,

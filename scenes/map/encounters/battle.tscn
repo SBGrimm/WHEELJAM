@@ -2,12 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bnhmv5bs0a1ki" path="res://scenes/map/encounters/encounter.tscn" id="1_lida2"]
 [ext_resource type="Texture2D" uid="uid://dn6i40dxvx15j" path="res://assets/map_icons/battle.png" id="1_qqe0i"]
-[ext_resource type="Script" path="res://battle.gd" id="2_sgkbp"]
+[ext_resource type="Script" path="res://scenes/map/encounters/battle.gd" id="2_7bgio"]
 
 [node name="Battle" instance=ExtResource("1_lida2")]
-script = ExtResource("2_sgkbp")
+script = ExtResource("2_7bgio")
 
 [node name="BattleSprite" type="Sprite2D" parent="." index="1"]
-unique_name_in_owner = true
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_qqe0i")

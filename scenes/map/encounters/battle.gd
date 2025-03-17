@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://scenes/map/encounters/encounter.gd"
 
-func start_encounter():
-	print("<PlayerName> was clubbed to death my Zombie.")
+func encounter():
+	print("<PlayerName> was clubbed to death by a Zombie...")

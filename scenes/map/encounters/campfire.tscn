@@ -9,6 +9,5 @@ script = ExtResource("2_n1p07")
 selection_enabled = true
 
 [node name="CampfireSprite" type="Sprite2D" parent="." index="0"]
-unique_name_in_owner = true
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_gbnis")

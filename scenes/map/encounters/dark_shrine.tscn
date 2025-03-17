@@ -8,6 +8,5 @@
 script = ExtResource("1_0f521")
 
 [node name="DarkShrineSprite" type="Sprite2D" parent="." index="1"]
-unique_name_in_owner = true
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_hht0a")
