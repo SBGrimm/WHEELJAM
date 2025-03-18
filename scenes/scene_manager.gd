@@ -13,7 +13,7 @@ var scenes: Dictionary = {
 	Scene.MAP: preload("res://scenes/map/map.tscn").instantiate(),
 	Scene.MAIN_MENU: preload("res://scenes/menus/menu.tscn").instantiate(),
 	Scene.LOSS_SCREEN: preload("res://scenes/menus/loss_screen.tscn").instantiate(),
-	Scene.BATTLE: preload("res://scenes/battle.tscn").instantiate(),
+	Scene.BATTLE: preload("res://scenes/battle/battle.tscn").instantiate(),
 }
 
 func go_to_scene(scene_name: Scene):

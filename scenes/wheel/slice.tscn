@@ -56,9 +56,5 @@ pivot_offset = Vector2(55, 116)
 texture = ExtResource("3_ir2s7")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = -5.0
-offset_top = -139.0
-offset_right = 35.0
-offset_bottom = -116.0
+[connection signal="mouse_entered" from="selector(for reference)" to="." method="_on_selectorfor_reference_mouse_entered"]
+[connection signal="mouse_entered" from="art" to="." method="_on_art_mouse_entered"]

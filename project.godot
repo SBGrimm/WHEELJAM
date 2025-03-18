@@ -19,6 +19,10 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 EventBus="*res://globals/event_bus.gd"
 GlobalGamestate="*res://globals/global_gamestate.gd"
 
+[display]
+
+window/size/resizable=false
+
 [editor]
 
 version_control/plugin_name="GitPlugin"

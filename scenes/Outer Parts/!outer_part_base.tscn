@@ -1,15 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkxfj3cryqg52"]
+[gd_scene load_steps=4 format=3 uid="uid://bkxfj3cryqg52"]
 
 [ext_resource type="Script" path="res://scenes/Outer Parts/outer_part.gd" id="1_sxyhg"]
-[ext_resource type="Script" path="res://scripts/draggable_component.gd" id="3_5j5hb"]
+[ext_resource type="Texture2D" uid="uid://cvvmmvsg8e2yn" path="res://assets/wheel/wheel_base.png" id="3_ysr6x"]
+[ext_resource type="Script" path="res://scenes/Outer Parts/art.gd" id="4_8j2df"]
 
 [node name="OuterPartBase" type="Control" groups=["droppable"]]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -17,5 +16,38 @@ script = ExtResource("1_sxyhg")
 
 [node name="EffectsList" type="Node" parent="."]
 
-[node name="DraggableComponent" type="Area2D" parent="." groups=["droppable"]]
-script = ExtResource("3_5j5hb")
+[node name="ref" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(128, 128)
+texture = ExtResource("3_ysr6x")
+expand_mode = 4
+
+[node name="art" type="TextureRect" parent="." groups=["droppable"]]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -173.0
+offset_right = 20.0
+offset_bottom = -133.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+script = ExtResource("4_8j2df")

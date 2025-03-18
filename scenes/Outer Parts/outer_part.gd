@@ -2,7 +2,7 @@ extends Control
 class_name OuterPart
 
 @onready var effects_list = $EffectsList
-@onready var draggable_component = $DraggableComponent
+@onready var draggable_component = $art
 
 func get_effects() -> Array[Effect]:
 	var effects: Array[Effect] = []

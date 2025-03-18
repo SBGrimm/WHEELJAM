@@ -1,5 +1,5 @@
-extends Area2D
-class_name DraggableComponent2
+extends TextureRect
+class_name DraggableComponent
 
 @export var draggable = false
 var lifted = false
@@ -28,7 +28,7 @@ func _unhandled_input(event):
 	if lifted and event is InputEventMouseMotion:
 		root.global_position += event.relative
 
-func _input_event(viewport, event, shape_idx):
+func _gui_input(event):
 	if !draggable:
 		return
 	if event is InputEventMouseButton and event.pressed:

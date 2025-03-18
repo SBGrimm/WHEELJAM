@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmxdie8w8t606"]
+[gd_scene load_steps=6 format=3 uid="uid://cmxdie8w8t606"]
 
-[ext_resource type="Script" path="res://scenes/start_turn_screen.gd" id="1_unjpi"]
+[ext_resource type="Script" path="res://scenes/battle/start_turn_screen.gd" id="1_unjpi"]
 [ext_resource type="Texture2D" uid="uid://cvvmmvsg8e2yn" path="res://assets/wheel/wheel_base.png" id="2_r0ncn"]
 [ext_resource type="PackedScene" uid="uid://ryd6fkbgff77" path="res://scenes/wheel/slice.tscn" id="2_ws5h1"]
+[ext_resource type="Script" path="res://scenes/battle/place_for_action.gd" id="5_pb0uu"]
 [ext_resource type="Script" path="res://scripts/droppable_component.gd" id="6_y0gfl"]
 
 [node name="FadeOut" type="ColorRect"]
@@ -132,6 +133,8 @@ mouse_filter = 1
 z_index = 1
 position = Vector2(288, 324)
 scale = Vector2(1.5, 1.5)
+monitoring = false
+monitorable = false
 script = ExtResource("6_y0gfl")
 target_coords = Vector2(288, 324)
 target_degrees = 300
@@ -145,6 +148,8 @@ polygon = PackedVector2Array(0, 0, 62, -104, 90, -81, 110, -50, 119, -23, 121, 0
 z_index = 1
 position = Vector2(288, 324)
 scale = Vector2(1.5, 1.5)
+monitoring = false
+monitorable = false
 script = ExtResource("6_y0gfl")
 target_coords = Vector2(288, 324)
 target_degrees = 180
@@ -159,6 +164,8 @@ polygon = PackedVector2Array(0, 0, 62, -104, 90, -81, 110, -50, 119, -23, 121, 0
 z_index = 1
 position = Vector2(288, 324)
 scale = Vector2(1.5, 1.5)
+monitoring = false
+monitorable = false
 script = ExtResource("6_y0gfl")
 target_coords = Vector2(288, 324)
 target_degrees = 60
@@ -167,6 +174,19 @@ id = 6
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Place2"]
 polygon = PackedVector2Array(0, 0, 62, -104, 90, -81, 110, -50, 119, -23, 121, 0)
+
+[node name="Place7" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.25
+anchor_top = 0.5
+anchor_right = 0.25
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -164.0
+offset_right = -58.0
+offset_bottom = -4.00006
+rotation = 0.418879
+script = ExtResource("5_pb0uu")
 
 [connection signal="area_entered" from="Place6" to="Place6" method="_on_area_entered"]
 [connection signal="area_exited" from="Place6" to="Place6" method="_on_area_exited"]

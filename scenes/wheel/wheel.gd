@@ -59,6 +59,7 @@ func process_direction_input(direction:int)->void:
 	if _state != WheelState.AWAITING_SELECTION: return
 	selector.rotation_degrees = direction #move our selector to the direction
 	new_dir_hovered.emit() # emit signal that we have moved the selector
+	EventBus.update_battle_preview.emit()
 
 ## processes the current selection being clicked
 func process_confirm_input(direction:int)->void:

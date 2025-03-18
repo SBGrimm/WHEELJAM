@@ -6,7 +6,7 @@ var rng = RandomNumberGenerator.new()
 @onready var place_4 = $Place4
 @onready var place_2 = $Place2
 @onready var pre_places: Array[Control] = [$Place1, $Place3, $Place5]
-@onready var places: Array[Area2D] = [place_2, place_4, place_6]
+@onready var places: Array[Control] = [place_2, place_4, place_6]
 
 signal parts_chosen(parts: Array[OuterPart])
 
@@ -62,11 +62,11 @@ func pick_spot():
 func setup_turn():
 	var parts: Array[OuterPart] = [
 		pre_places[0].get_child(0) as OuterPart,
-		place_2.get_child(1) as OuterPart,
+		place_2.get_child(0) as OuterPart,
 		pre_places[1].get_child(0) as OuterPart,
-		place_4.get_child(1) as OuterPart,
+		place_4.get_child(0) as OuterPart,
 		pre_places[2].get_child(0) as OuterPart,
-		place_6.get_child(1) as OuterPart
+		place_6.get_child(0) as OuterPart
 	]
 	parts_chosen.emit(parts)
 	deactivate()

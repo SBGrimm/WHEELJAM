@@ -1,4 +1,4 @@
-extends Area2D
+extends Control
 
 signal part_slotted()
 signal part_unslotted()
@@ -11,8 +11,6 @@ signal part_unslotted()
 enum STATE {AWAITING_DROP, ANIMATING, OCCUPIED}
 
 var state = STATE.AWAITING_DROP
-
-var possible_drops: Array[Area2D] = []
 
 func _ready():
 	EventBus.ended_drag.connect(_on_dropped)
@@ -28,7 +26,7 @@ func _on_dropped(area: TextureRect):
 		return
 	if not area.is_in_group("droppable"):
 		return
-	if not false:
+	if not area.get_global_rect().intersects(self.get_global_rect()):
 		return
 	state = STATE.ANIMATING
 	area.remove_from_group("droppable")
@@ -45,15 +43,8 @@ func _on_dropped(area: TextureRect):
 	tween.tween_property(area.root, "global_position", target_coords, anim_time).from_current()
 	tween.finished.connect(_on_slot_animation_ended)
 	area.root.reparent(self)
+	print("done")
 	
 func _on_slot_animation_ended():
 	state = STATE.OCCUPIED
 	part_slotted.emit()
-
-func _on_area_entered(area: Area2D):
-	if area.is_in_group("droppable"):
-		possible_drops.append(area)
-
-func _on_area_exited(area: Area2D):
-	if area.is_in_group("droppable"):
-		possible_drops.erase(area)
