@@ -19,8 +19,8 @@ func reset(player_parts, enemy_parts):
 	for place in places:
 		place.reset()
 	for place in pre_places:
-		var child = place.get_child(0)
-		place.remove_child(child)
+		for child in place.get_children():
+			place.remove_child(child)
 	for child in to_place.get_children():
 		to_place.remove_child(child)
 	

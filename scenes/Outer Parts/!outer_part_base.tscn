@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/Outer Parts/outer_part.gd" id="1_sxyhg"]
 [ext_resource type="Script" path="res://scripts/draggable_component.gd" id="3_5j5hb"]
 
-[node name="OuterPartBase" type="Control"]
+[node name="OuterPartBase" type="Control" groups=["droppable"]]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

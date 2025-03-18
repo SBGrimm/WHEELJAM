@@ -3,6 +3,7 @@ class_name Slice
 
 @export var mod: float
 @onready var art = %art
+@onready var label = $Label
 
 const regions = [
 	Rect2(0, 0, 313, 284),
@@ -13,6 +14,7 @@ const regions = [
 	Rect2(1536, 0, 313, 284)
 ]
 func _ready():
+	label.text = "x" + str(mod)
 	if mod == 0.5:
 		art.texture.region = regions[5]
 	if mod == 1:

@@ -1,12 +1,12 @@
 extends Control
 
-func draw_cards(gamestate: GameState) -> Array[OuterPart]:
+func draw_cards(battlestate: BattleState) -> Array[OuterPart]:
 	var rng = RandomNumberGenerator.new()
-	var counts = gamestate.amounts.duplicate()
+	var counts = battlestate.amounts.duplicate()
 	var drawn: Array[OuterPart] = []
-	for i in range(gamestate.hand_size):
+	for i in range(battlestate.hand_size):
 		var choice = rng.rand_weighted(counts)
-		var part = gamestate.deck[choice]
+		var part = battlestate.deck[choice]
 		drawn.append(part.instantiate())
 		counts[choice] -=1
 	return drawn

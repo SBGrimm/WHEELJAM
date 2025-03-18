@@ -1,4 +1,4 @@
-extends Node2D
+extends BaseScene
 
 @export var number_layers = 3
 

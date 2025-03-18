@@ -1,5 +1,5 @@
 extends Resource
-class_name GameState
+class_name BattleState
 
 @export var _player_hp = 0
 @export var _enemy_hp = 0
@@ -11,6 +11,7 @@ class_name GameState
 	preload("res://scenes/Outer Parts/player/block_outer_part.tscn"),
 ]
 @export var amounts: PackedFloat32Array = PackedFloat32Array([3,3])
+
 signal gamestate_changed
 
 var player_hp:

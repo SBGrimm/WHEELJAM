@@ -32,7 +32,6 @@ var target_selections:int = 6 ## how many selections are allowed; default is 4.
 func _ready()->void:
 	reset() # all the setup is contained in reset
 	rotation_finished.connect(end_check) # check if puzzle is completed when rotation is done
-	spin()
 # handles input for our minigame
 func _unhandled_input(event: InputEvent) -> void:
 	if _state != WheelState.AWAITING_SELECTION: return
@@ -64,7 +63,6 @@ func process_direction_input(direction:int)->void:
 ## processes the current selection being clicked
 func process_confirm_input(direction:int)->void:
 	if _state != WheelState.AWAITING_SELECTION: return
-		
 	for x:Control in %covers.get_children():  # show the covers, increase the num selections, emit the signal, rotate
 		if int(round(x.rotation_degrees)) == direction: 
 			if x.visible: return 
@@ -116,7 +114,7 @@ func set_outer_parts(parts: Array[OuterPart]):
 	for child in outer_gimbal.get_children():
 		outer_gimbal.remove_child(child)
 	for part in parts:
-		var new_part = part.duplicate()
+		var new_part = part.duplicate(7)
 		outer_gimbal.add_child(new_part)
 		new_part.z_as_relative = true
 		new_part.z_index = 0
@@ -135,7 +133,7 @@ func get_current_wheel_selection()->WheelSelection:
 #region helper functions
 func _rotate_array(arr:Array, angle: int = 60)->Array:
 	for x:int in arr.size():
-		arr[x] += angle # add 90 degrees to each value mapping
-		if int(arr[x]) >= 360: arr[x] -= 360  # wrap values back to 0	
+		arr[x] += angle
+		if int(arr[x]) >= 360: arr[x] -= 360
 	return arr
 #endregion

@@ -10,13 +10,14 @@ config_version=5
 
 [application]
 
-run/main_scene="res://scenes/menu/menu.tscn"
 config/name="Whispers in the Dark"
+run/main_scene="res://scenes/scene_manager.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
 
 EventBus="*res://globals/event_bus.gd"
+GlobalGamestate="*res://globals/global_gamestate.gd"
 
 [editor]
 

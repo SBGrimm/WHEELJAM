@@ -1,6 +1,6 @@
 extends Effect
 class_name DamageEffect
 
-func apply(gamestate):
+func apply(battlestate):
 	print("applying damage effect, amount: ", amount)
-	gamestate.damage_enemy(roundi(amount))
+	battlestate.damage_enemy(roundi(amount))

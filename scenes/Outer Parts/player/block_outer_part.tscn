@@ -12,6 +12,10 @@ size = Vector2(64, 6)
 script = ExtResource("2_1ectu")
 amount = 4.0
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggableComponent" index="0"]
+position = Vector2(1, -114)
+shape = SubResource("RectangleShape2D_80eol")
+
 [node name="ColorRect" type="ColorRect" parent="." index="2"]
 layout_mode = 1
 anchors_preset = 8
@@ -28,6 +32,17 @@ grow_vertical = 2
 mouse_filter = 1
 color = Color(0, 0.670588, 1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggableComponent" index="0"]
-position = Vector2(1, -114)
-shape = SubResource("RectangleShape2D_80eol")
+[node name="Label" type="Label" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -149.0
+offset_right = -13.0
+offset_bottom = -126.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "4 block"

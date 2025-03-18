@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" path="res://scenes/map/map.gd" id="1_53pfr"]
 
-[node name="Map" type="Node2D"]
+[node name="Map" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
 script = ExtResource("1_53pfr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 1

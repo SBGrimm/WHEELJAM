@@ -36,7 +36,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_lo6wo")
-should_reset = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -49,7 +48,6 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Wheel" parent="." instance=ExtResource("1_1f2s6")]
-unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25

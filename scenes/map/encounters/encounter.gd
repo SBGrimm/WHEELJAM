@@ -31,11 +31,14 @@ func _on_mouse_hover_detection_input_event(
 	if event is InputEventMouseButton and selection_enabled and event.is_pressed():
 		encounter_clicked()
 
-func encounter_clicked():
+func mark_visited():
 	var visited_encounter_marker = preload("res://scenes/map/encounters/visited_location_mark.tscn").instantiate()
 	visited_encounter_marker.global_position = global_position
 	get_parent().add_child(visited_encounter_marker)
 	selection_enabled = false
+
+func encounter_clicked():
+	mark_visited()
 	for next_encounter in available_next_encounters:
 		next_encounter.selection_enabled = true
 	encounter()
