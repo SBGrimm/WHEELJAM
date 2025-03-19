@@ -63,7 +63,6 @@ var player_block:
 		_player_block = clampi(value, 0, 999)
 		if is_changed:
 			gamestate_changed.emit("player_block")
-			print("change")
 
 var enemy_block:
 	get:
@@ -73,7 +72,6 @@ var enemy_block:
 		_enemy_block = clampi(value, 0, 999)
 		if is_changed:
 			gamestate_changed.emit("enemy_block")
-			print("change")
 
 func damage_player(damage):
 	var effective_damage = damage * (1 + enemy_status / 100.0)
