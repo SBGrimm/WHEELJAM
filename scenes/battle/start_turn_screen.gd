@@ -58,7 +58,7 @@ func pick_spot():
 	var x = rng.randf_range(537, 837)
 	var y = rng.randf_range(140, 500)
 	return Vector2(x, y)
-	
+
 func setup_turn():
 	var parts: Array[OuterPart] = [
 		pre_places[0].get_child(0) as OuterPart,

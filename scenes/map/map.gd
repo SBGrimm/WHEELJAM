@@ -3,6 +3,9 @@ extends BaseScene
 @export var number_sections = 3
 var selectable_encounters: Array[Node]
 
+@onready var left_border = %MapEntrance.global_position[0] - 100
+@onready var right_border = %MapEntrance.global_position[0]
+
 enum Encounter {
 	Battle,
 	DarkShrine,
@@ -25,6 +28,7 @@ const passage = preload("res://scenes/map/encounters/passage.tscn")
 func place_encounter_at_passage(encounter_type: Encounter, passage: Node) -> Node:
 	var encounter = encounters[encounter_type].instantiate()
 	encounter.global_position = passage.get_encounter_position()
+	right_border = max(right_border, encounter.global_position[0])
 	add_child(encounter)
 	return encounter
 
@@ -155,6 +159,7 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	%Camera.global_position += scroll_speed * delta
+	%Camera.global_position[0] = clampf(%Camera.global_position[0], left_border, right_border - 800)
 	if not is_left_scroll_pressed and not is_right_scroll_pressed:
 		scroll_speed = lerp(scroll_speed, Vector2(0., 0.), 1 - exp(-delta / scroll_decel_time))
 	if abs(scroll_speed.x) < scroll_min_speed:
