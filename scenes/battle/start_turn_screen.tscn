@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/battle/start_turn_screen.gd" id="1_unjpi"]
 [ext_resource type="Texture2D" uid="uid://cvvmmvsg8e2yn" path="res://assets/wheel/wheel_base.png" id="2_r0ncn"]
+[ext_resource type="Texture2D" uid="uid://b5nqffi8yicri" path="res://assets/wheel/action_slot.png" id="4_yjl58"]
 [ext_resource type="Script" path="res://scenes/battle/place_for_action.gd" id="5_pb0uu"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_x6kew"]
 
 [node name="FadeOut" type="ColorRect"]
 z_index = -1
@@ -15,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 10
 size_flags_vertical = 3
-mouse_filter = 1
+mouse_filter = 2
 mouse_force_pass_scroll_events = false
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_unjpi")
@@ -103,13 +102,15 @@ mouse_filter = 1
 script = ExtResource("5_pb0uu")
 
 [node name="TextureRect" type="TextureRect" parent="Place2"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_x6kew")
+texture = ExtResource("4_yjl58")
+expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="Place4" type="Control" parent="."]
@@ -130,7 +131,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_x6kew")
+texture = ExtResource("4_yjl58")
+expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="Place6" type="Control" parent="."]
@@ -150,7 +152,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_x6kew")
+texture = ExtResource("4_yjl58")
+expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="SpawnZone" type="Control" parent="."]

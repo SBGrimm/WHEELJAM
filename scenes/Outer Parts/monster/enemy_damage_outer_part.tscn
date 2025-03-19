@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgr1npvklicip"]
+[gd_scene load_steps=4 format=3 uid="uid://cgr1npvklicip"]
 
 [ext_resource type="PackedScene" uid="uid://bkxfj3cryqg52" path="res://scenes/Outer Parts/!outer_part_base.tscn" id="1_jnly2"]
 [ext_resource type="Script" path="res://resources/effects/EnemyDamageEffect.gd" id="2_thv2e"]
+[ext_resource type="Texture2D" uid="uid://b00skq84sag3y" path="res://assets/Actions/monster1/monster_claw.png" id="3_t7gc1"]
 
 [node name="EnemyDamageOuterPart" instance=ExtResource("1_jnly2")]
 size_flags_horizontal = 4
@@ -11,12 +12,6 @@ size_flags_vertical = 4
 script = ExtResource("2_thv2e")
 amount = 9.0
 
-[node name="ColorRect" type="ColorRect" parent="." index="2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(1, 0, 0, 1)
+[node name="art" parent="." index="1"]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("3_t7gc1")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8a7rmp7dmyjy"]
+
+[ext_resource type="PackedScene" uid="uid://bkxfj3cryqg52" path="res://scenes/Outer Parts/!outer_part_base.tscn" id="1_e1xxe"]
+[ext_resource type="Script" path="res://resources/effects/DamageEffect.gd" id="2_r7heu"]
+[ext_resource type="Script" path="res://resources/effects/WeakEffect.gd" id="3_jeexc"]
+[ext_resource type="Texture2D" uid="uid://qaivxspp2yqw" path="res://assets/Actions/axe_swipe_cleave.png" id="4_bmu6x"]
+
+[node name="DamageWeakOuterPart" instance=ExtResource("1_e1xxe")]
+text = "deals (10) damage, gives you (33) weakness"
+id = 3
+
+[node name="DamageEffect" type="Node" parent="EffectsList" index="0"]
+script = ExtResource("2_r7heu")
+amount = 10.0
+
+[node name="WeakEffect" type="Node" parent="EffectsList" index="1"]
+script = ExtResource("3_jeexc")
+amount = 33.0
+
+[node name="art" parent="." index="1"]
+texture = ExtResource("4_bmu6x")

@@ -5,7 +5,8 @@ enum Scene {
 	MAP,
 	BATTLE,
 	MAIN_MENU,
-	LOSS_SCREEN
+	LOSS_SCREEN,
+	LOOT
 }
 
 var current_scene: Scene = Scene.MAP
@@ -14,6 +15,7 @@ var scenes: Dictionary = {
 	Scene.MAIN_MENU: preload("res://scenes/menus/menu.tscn").instantiate(),
 	Scene.LOSS_SCREEN: preload("res://scenes/menus/loss_screen.tscn").instantiate(),
 	Scene.BATTLE: preload("res://scenes/battle/battle.tscn").instantiate(),
+	Scene.LOOT: preload("res://scenes/loot/loot_screen.tscn").instantiate()
 }
 
 func go_to_scene(scene_name: Scene):
@@ -24,13 +26,12 @@ func go_to_scene(scene_name: Scene):
 	var callback = func():
 		scenes[scene_name].show()
 		current_scene = scene_name
-	get_tree().create_timer(0.05).timeout.connect(callback)
+	get_tree().create_timer(0.1).timeout.connect(callback)
 
 func remove_scene(scene_name: Scene):
 	remove_child(scenes[scene_name])
 
 func switch_scene(to: Scene):
-	print(1)
 	remove_scene(current_scene)
 	go_to_scene(to)
 

@@ -1,0 +1,159 @@
+[gd_scene load_steps=5 format=3 uid="uid://hhhsyqdb8lhq"]
+
+[ext_resource type="Script" path="res://scenes/loot/loot_screen.gd" id="1_l2qfs"]
+[ext_resource type="Script" path="res://scenes/loot/slot.gd" id="3_c251a"]
+[ext_resource type="Script" path="res://scenes/loot/drop_zone.gd" id="4_lleu8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eapr1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="LootScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_l2qfs")
+should_reset = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="Slot1" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.25
+anchor_right = 0.3
+anchor_bottom = 0.45
+mouse_filter = 1
+script = ExtResource("3_c251a")
+
+[node name="Panel" type="Panel" parent="Slot1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eapr1")
+
+[node name="Label" type="Label" parent="Slot1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = -5.20001
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+autowrap_mode = 3
+
+[node name="Slot2" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.4
+anchor_top = 0.25
+anchor_right = 0.6
+anchor_bottom = 0.45
+mouse_filter = 1
+script = ExtResource("3_c251a")
+
+[node name="Panel" type="Panel" parent="Slot2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eapr1")
+
+[node name="Label" type="Label" parent="Slot2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = -5.20001
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+autowrap_mode = 3
+
+[node name="Slot3" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.7
+anchor_top = 0.25
+anchor_right = 0.9
+anchor_bottom = 0.45
+mouse_filter = 1
+script = ExtResource("3_c251a")
+
+[node name="Panel" type="Panel" parent="Slot3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eapr1")
+
+[node name="Label" type="Label" parent="Slot3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = -5.20001
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+autowrap_mode = 3
+
+[node name="DropZone" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.6
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("4_lleu8")
+
+[node name="Panel" type="Panel" parent="DropZone"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eapr1")
+
+[connection signal="part_chosen" from="DropZone" to="." method="_on_drop_zone_part_chosen"]

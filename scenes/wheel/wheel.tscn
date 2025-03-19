@@ -3,10 +3,9 @@
 [ext_resource type="Script" path="res://scenes/wheel/wheel.gd" id="1_mxakx"]
 [ext_resource type="Texture2D" uid="uid://cvvmmvsg8e2yn" path="res://assets/wheel/wheel_base.png" id="2_acbfn"]
 [ext_resource type="PackedScene" uid="uid://ryd6fkbgff77" path="res://scenes/wheel/slice.tscn" id="2_twtgm"]
-[ext_resource type="Texture2D" uid="uid://c58kxglsbrtpy" path="res://assets/wheel-simple/slice4.png" id="5_k62dj"]
+[ext_resource type="Texture2D" uid="uid://bpvbeuqopmp1t" path="res://assets/wheel/selected.png" id="4_cs2sm"]
 [ext_resource type="Texture2D" uid="uid://df5srac604n34" path="res://assets/wheel/selector.png" id="5_tm1cy"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_m1hg0"]
+[ext_resource type="Texture2D" uid="uid://b5nqffi8yicri" path="res://assets/wheel/action_slot.png" id="6_eovwt"]
 
 [node name="Wheel" type="Control"]
 layout_mode = 3
@@ -20,6 +19,7 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_mxakx")
 anim_time = 0.5
+_state = 0
 
 [node name="underlay" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -36,7 +36,7 @@ expand_mode = 1
 
 [node name="slice_gimbal" type="Control" parent="."]
 unique_name_in_owner = true
-z_index = -1
+z_index = -2
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -99,7 +99,7 @@ mouse_filter = 1
 [node name="cover1" type="TextureRect" parent="covers"]
 unique_name_in_owner = true
 visible = false
-modulate = Color(0, 0, 0, 0.627451)
+z_index = -1
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -107,20 +107,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -128.0
-offset_right = 75.0
-offset_bottom = 128.0
+offset_left = -55.0
+offset_top = -117.0
+offset_right = 56.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(75, 128)
-texture = ExtResource("5_k62dj")
+pivot_offset = Vector2(55.0853, 117.68)
+texture = ExtResource("4_cs2sm")
 expand_mode = 1
 
 [node name="cover2" type="TextureRect" parent="covers"]
 unique_name_in_owner = true
 visible = false
-modulate = Color(0, 0, 0, 0.627451)
+modulate = Color(0, 0, 0, 0.705882)
+z_index = -1
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -128,21 +129,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -128.0
-offset_right = 75.0
-offset_bottom = 128.0
+offset_left = -55.0
+offset_top = -117.0
+offset_right = 56.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 1.0472
-pivot_offset = Vector2(75, 128)
-texture = ExtResource("5_k62dj")
+pivot_offset = Vector2(55.0853, 117.68)
+texture = ExtResource("4_cs2sm")
 expand_mode = 1
 
 [node name="cover3" type="TextureRect" parent="covers"]
 unique_name_in_owner = true
 visible = false
-modulate = Color(0, 0, 0, 0.627451)
+modulate = Color(0, 0, 0, 0.705882)
+z_index = -1
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -150,21 +151,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -128.0
-offset_right = 75.0
-offset_bottom = 128.0
+offset_left = -55.0
+offset_top = -117.0
+offset_right = 56.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 2.0944
-pivot_offset = Vector2(75, 128)
-texture = ExtResource("5_k62dj")
+pivot_offset = Vector2(55.0853, 117.68)
+texture = ExtResource("4_cs2sm")
 expand_mode = 1
 
 [node name="cover4" type="TextureRect" parent="covers"]
 unique_name_in_owner = true
 visible = false
-modulate = Color(0, 0, 0, 0.627451)
+modulate = Color(0, 0, 0, 0.705882)
+z_index = -1
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -172,21 +173,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -128.0
-offset_right = 75.0
-offset_bottom = 128.0
+offset_left = -55.0
+offset_top = -117.0
+offset_right = 56.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 3.14159
-pivot_offset = Vector2(75, 128)
-texture = ExtResource("5_k62dj")
+pivot_offset = Vector2(55.0853, 117.68)
+texture = ExtResource("4_cs2sm")
 expand_mode = 1
 
 [node name="cover5" type="TextureRect" parent="covers"]
 unique_name_in_owner = true
 visible = false
-modulate = Color(0, 0, 0, 0.627451)
+modulate = Color(0, 0, 0, 0.705882)
+z_index = -1
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -194,21 +195,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -128.0
-offset_right = 75.0
-offset_bottom = 128.0
+offset_left = -55.0
+offset_top = -117.0
+offset_right = 56.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 4.18879
-pivot_offset = Vector2(75, 128)
-texture = ExtResource("5_k62dj")
+pivot_offset = Vector2(55.0853, 117.68)
+texture = ExtResource("4_cs2sm")
 expand_mode = 1
 
 [node name="cover6" type="TextureRect" parent="covers"]
 unique_name_in_owner = true
 visible = false
-modulate = Color(0, 0, 0, 0.627451)
+modulate = Color(0, 0, 0, 0.705882)
+z_index = -1
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -216,15 +217,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -128.0
-offset_right = 75.0
-offset_bottom = 128.0
+offset_left = -55.0
+offset_top = -117.0
+offset_right = 56.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 5.23599
-pivot_offset = Vector2(75, 128)
-texture = ExtResource("5_k62dj")
+pivot_offset = Vector2(55.0853, 117.68)
+texture = ExtResource("4_cs2sm")
 expand_mode = 1
 
 [node name="selector" type="TextureRect" parent="."]
@@ -242,6 +242,7 @@ offset_right = 55.872
 offset_bottom = -10.02
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 3.0456
 scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(55.128, 121.02)
 texture = ExtResource("5_tm1cy")
@@ -264,6 +265,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="TextureRect" type="TextureRect" parent="Place1"]
+visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 15
@@ -271,7 +273,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_m1hg0")
+texture = ExtResource("6_eovwt")
+expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="Place2" type="Control" parent="."]
@@ -291,6 +294,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="TextureRect" type="TextureRect" parent="Place2"]
+visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 15
@@ -298,7 +302,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_m1hg0")
+texture = ExtResource("6_eovwt")
+expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="Place3" type="Control" parent="."]
@@ -318,6 +323,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="TextureRect" type="TextureRect" parent="Place3"]
+visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 15
@@ -325,7 +331,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_m1hg0")
+texture = ExtResource("6_eovwt")
+expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="Place4" type="Control" parent="."]
@@ -345,6 +352,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="TextureRect" type="TextureRect" parent="Place4"]
+visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 15
@@ -352,7 +360,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_m1hg0")
+texture = ExtResource("6_eovwt")
+expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="Place5" type="Control" parent="."]
@@ -372,6 +381,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="TextureRect" type="TextureRect" parent="Place5"]
+visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 15
@@ -379,7 +389,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_m1hg0")
+texture = ExtResource("6_eovwt")
+expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="Place6" type="Control" parent="."]
@@ -399,6 +410,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="TextureRect" type="TextureRect" parent="Place6"]
+visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 15
@@ -406,5 +418,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_m1hg0")
+texture = ExtResource("6_eovwt")
+expand_mode = 1
 metadata/_edit_lock_ = true

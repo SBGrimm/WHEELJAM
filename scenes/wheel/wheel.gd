@@ -21,7 +21,7 @@ signal puzzle_finished ## emitted when the puzzle is complete.
 #region Internal Variables
 var current_value_mappings:Array[int] = [0,60,120,180,240,300]
 enum WheelState {AWAITING_SELECTION,ROTATING,NO_INPUT} ## enum dictating current state of wheel.
-var _state:WheelState = WheelState.NO_INPUT ## variable containing current state of wheel.
+@export var _state:WheelState = WheelState.NO_INPUT ## variable containing current state of wheel.
 var num_selections:int = 0 ## how many selections have been chosen
 var current_direction:int = 0 ## where the selector currently is.
 var target_selections:int = 6 ## how many selections are allowed; default is 4.
@@ -41,6 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		current_direction = rad_to_deg(self.global_position.angle_to_point(event.position))+120
 		if current_direction < 0:
 			current_direction +=360
+		current_direction = current_direction % 360
 		current_direction = round(current_direction/60)*60
 		process_direction_input(current_direction)
 #endregion
@@ -88,9 +89,13 @@ func reset()->void:
 	selector.rotation_degrees = 0 # remove this if you don't want the selector to reset up every time
 	slice_gimbal.rotation_degrees = 0 
 	num_selections = 0 
-	for x:Control in %covers.get_children(): 
-		x.visible = false # hides the covers
 	var i = 0
+	for x:Control in %covers.get_children():
+		x.rotation_degrees = 60*i
+		i+=1
+		x.visible = false # hides the covers	
+	i = 0
+	current_value_mappings = [0,60,120,180,240,300]
 	for slice: Control in %slice_gimbal.get_children(): 
 		slice.rotation_degrees = 60*i
 		i+=1
@@ -121,6 +126,7 @@ func set_outer_parts(parts: Array[OuterPart]):
 func get_current_wheel_selection()->WheelSelection:
 	var ws = WheelSelection.new()
 	for x:int in current_value_mappings.size():
+		print(current_value_mappings)
 		if current_direction == current_value_mappings[x]:
 			var slice = slice_gimbal.get_children()[x] as Slice
 			ws.mod = slice.mod
@@ -131,7 +137,6 @@ func get_current_wheel_selection()->WheelSelection:
 #region helper functions
 func _rotate_array(arr:Array, angle: int = 60)->Array:
 	for x:int in arr.size():
-		arr[x] += angle
-		if int(arr[x]) >= 360: arr[x] -= 360
+		arr[x] = (arr[x] + angle)%360
 	return arr
 #endregion

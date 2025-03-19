@@ -17,11 +17,12 @@ func _ready():
 
 func reset():
 	battlestate = GlobalGamestate.get_battle_state()
-	battlestate.gamestate_changed.connect(_on_gamestate_changed)
 	battlestate.enemy_hp = 40
+	battlestate.gamestate_changed.connect(_on_gamestate_changed)
 	label_manager.update_gamestate_display(battlestate, "all")
 	fadeout.visible = true
 	wheel.deactivate()
+	wheel.reset()
 	fadeout.activate()
 	var enemy_parts = enemy.get_turn(battlestate)
 	var player_parts = battlestate.draw_cards()
@@ -49,7 +50,7 @@ func _on_gamestate_changed(property: String):
 			EventBus.request_scene_change.emit(SceneManager.Scene.LOSS_SCREEN)
 	if property == "enemy_hp":
 		if battlestate.enemy_hp == 0:
-			EventBus.request_scene_change.emit(SceneManager.Scene.MAP)
+			EventBus.request_scene_change.emit(SceneManager.Scene.LOOT)
 	label_manager.update_gamestate_display(battlestate, property)
 
 func _process_end_turn():

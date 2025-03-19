@@ -5,55 +5,37 @@ class_name BattleState
 @export var _enemy_hp = 0
 @export var _player_block = 0
 @export var _enemy_block = 0
-@export var _enemy_str = 0
-@export var _enemy_weak = 0
-@export var _player_str = 0
-@export var _player_weak = 0
+@export var _enemy_status = 0
+@export var _player_status = 0
 
 @export var hand_size = 5
-@export var deck = [
+@export var parts = [
 	preload("res://scenes/Outer Parts/player/damage_outer_part.tscn"),
 	preload("res://scenes/Outer Parts/player/block_outer_part.tscn"),
+	preload("res://scenes/Outer Parts/player/block_strength_outer_part.tscn"),	
+	preload("res://scenes/Outer Parts/player/damage_weak_outer_part.tscn")
 ]
-@export var amounts: PackedFloat32Array = PackedFloat32Array([3,3])
+@export var amounts: PackedFloat32Array
 
 signal gamestate_changed(property: String)
 
-var enemy_str:
+var enemy_status:
 	get:
-		return _enemy_str
+		return _enemy_status
 	set(value):
-		var is_changed = (clampi(value, 0, 999) != _enemy_str)
-		_enemy_str = clampi(value, 0, 999)
+		var is_changed = (clampi(value, -100, 999) != _enemy_status)
+		_enemy_status = clampi(value, -100, 999)
 		if is_changed:
-			gamestate_changed.emit("enemy_str")
+			gamestate_changed.emit("enemy_status")
 
-var enemy_weak:
+var player_status:
 	get:
-		return _enemy_weak
+		return _player_status
 	set(value):
-		var is_changed = (clampi(value, 0, 999) != _enemy_weak)
-		_enemy_weak = clampi(value, 0, 999)
+		var is_changed = (clampi(value, -100, 999) != _player_status)
+		_player_status = clampi(value, -100, 999)
 		if is_changed:
-			gamestate_changed.emit("enemy_weak")
-
-var player_str:
-	get:
-		return _player_str
-	set(value):
-		var is_changed = (clampi(value, 0, 999) != _player_str)
-		_player_str = clampi(value, 0, 999)
-		if is_changed:
-			gamestate_changed.emit("player_str")
-
-var player_weak:
-	get:
-		return _player_weak
-	set(value):
-		var is_changed = (clampi(value, 0, 999) != _player_weak)
-		_player_weak = clampi(value, 0, 999)
-		if is_changed:
-			gamestate_changed.emit("player_weak")
+			gamestate_changed.emit("player_status")
 
 var player_hp:
 	get:
@@ -94,9 +76,8 @@ var enemy_block:
 			print("change")
 
 func damage_player(damage):
-	var effective_damage = damage * (1 + _enemy_str / 100.0) * (1 - _enemy_weak / 100.0)
-	enemy_str = 0
-	enemy_weak = 0
+	var effective_damage = damage * (1 + enemy_status / 100.0)
+	enemy_status = 0
 	if player_block > 0:
 		if effective_damage > player_block:
 			player_hp -= (effective_damage - player_block)
@@ -107,9 +88,8 @@ func damage_player(damage):
 		player_hp -= effective_damage
 
 func damage_enemy(damage):
-	var effective_damage = damage * (1 + _player_str / 100.0) * (1 - _player_weak / 100.0)
-	player_str = 0
-	player_weak = 0
+	var effective_damage = damage * (1 + player_status / 100.0)
+	player_status = 0
 	if enemy_block > 0:
 		if effective_damage > enemy_block:
 			enemy_hp -= (effective_damage - enemy_block)
@@ -125,7 +105,7 @@ func draw_cards() -> Array[OuterPart]:
 	var drawn: Array[OuterPart] = []
 	for i in range(hand_size):
 		var choice = rng.rand_weighted(counts)
-		var part = deck[choice]
+		var part = parts[choice]
 		drawn.append(part.instantiate())
 		counts[choice] -=1
 	return drawn
