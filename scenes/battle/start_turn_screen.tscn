@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmxdie8w8t606"]
+[gd_scene load_steps=7 format=3 uid="uid://cmxdie8w8t606"]
 
 [ext_resource type="Script" path="res://scenes/battle/start_turn_screen.gd" id="1_unjpi"]
 [ext_resource type="Texture2D" uid="uid://cvvmmvsg8e2yn" path="res://assets/wheel/wheel_base.png" id="2_r0ncn"]
 [ext_resource type="Texture2D" uid="uid://b5nqffi8yicri" path="res://assets/wheel/action_slot.png" id="4_yjl58"]
 [ext_resource type="Script" path="res://scenes/battle/place_for_action.gd" id="5_pb0uu"]
+[ext_resource type="AudioStream" uid="uid://dgydxu8e8o61j" path="res://sounds/sfx/Select confirm.mp3" id="5_utpn3"]
+[ext_resource type="AudioStream" uid="uid://cwclvhohslx1k" path="res://sounds/sfx/Select in.mp3" id="6_eqaqn"]
 
 [node name="FadeOut" type="ColorRect"]
 z_index = -1
@@ -165,3 +167,11 @@ anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="ActionSelectionSFX1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_utpn3")
+volume_db = -5.0
+
+[node name="ActionSelectionSFX2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_eqaqn")
+volume_db = -5.0

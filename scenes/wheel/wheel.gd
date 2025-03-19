@@ -18,6 +18,10 @@ signal puzzle_finished ## emitted when the puzzle is complete.
 @onready var places: Array[Control] = [$Place1, $Place2, $Place3, $Place4, $Place5, $Place6]
 #endregion
 
+#region SFX Variables
+@onready var click_sfx = %ClickSFX
+#endregion
+
 #region Internal Variables
 var current_value_mappings:Array[int] = [0,60,120,180,240,300]
 enum WheelState {AWAITING_SELECTION,ROTATING,NO_INPUT} ## enum dictating current state of wheel.
@@ -67,7 +71,8 @@ func process_confirm_input(direction:int)->void:
 	if _state != WheelState.AWAITING_SELECTION: return
 	for x:Control in %covers.get_children():  # show the covers, increase the num selections, emit the signal, rotate
 		if int(round(x.rotation_degrees)) == direction: 
-			if x.visible: return 
+			if x.visible: return
+			click_sfx.play()
 			x.visible = true
 			num_selections += 1
 			new_dir_chosen.emit(get_current_wheel_selection())

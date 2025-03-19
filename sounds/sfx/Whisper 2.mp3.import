@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qvuu6p2gx3b1"
+path="res://.godot/imported/Whisper 2.mp3-8fb9cb7b480edf65784ce464e2f13086.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/Whisper 2.mp3"
+dest_files=["res://.godot/imported/Whisper 2.mp3-8fb9cb7b480edf65784ce464e2f13086.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

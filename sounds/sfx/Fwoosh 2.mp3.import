@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bs00xsxgre5y4"
+path="res://.godot/imported/Fwoosh 2.mp3-32c54f6cdae0abb919a257a4c1a5fc2a.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/Fwoosh 2.mp3"
+dest_files=["res://.godot/imported/Fwoosh 2.mp3-32c54f6cdae0abb919a257a4c1a5fc2a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://hhhsyqdb8lhq"]
+[gd_scene load_steps=6 format=3 uid="uid://hhhsyqdb8lhq"]
 
 [ext_resource type="Script" path="res://scenes/loot/loot_screen.gd" id="1_l2qfs"]
 [ext_resource type="Script" path="res://scenes/loot/slot.gd" id="3_c251a"]
+[ext_resource type="AudioStream" uid="uid://cwclvhohslx1k" path="res://sounds/sfx/Select in.mp3" id="4_2at6b"]
 [ext_resource type="Script" path="res://scenes/loot/drop_zone.gd" id="4_lleu8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eapr1"]
@@ -155,5 +156,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_eapr1")
+
+[node name="SelectionSFX" type="AudioStreamPlayer2D" parent="DropZone"]
+stream = ExtResource("4_2at6b")
+volume_db = -5.0
 
 [connection signal="part_chosen" from="DropZone" to="." method="_on_drop_zone_part_chosen"]
