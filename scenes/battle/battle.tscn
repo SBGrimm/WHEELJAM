@@ -199,7 +199,6 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25
 anchor_right = 0.25
-scale = Vector2(1.5, 1.5)
 
 [node name="Enemy" type="Control" parent="."]
 layout_mode = 1

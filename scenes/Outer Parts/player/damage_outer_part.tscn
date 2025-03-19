@@ -5,15 +5,10 @@
 [ext_resource type="Script" path="res://resources/effects/DamageEffect.gd" id="3_g2tep"]
 
 [node name="DamageOuterPart" instance=ExtResource("1_6f4hp")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="DamageEffect" type="Node" parent="EffectsList" index="0"]
 script = ExtResource("3_g2tep")
 amount = 6.0
 
-[node name="art" parent="." index="2"]
+[node name="art" parent="." index="1"]
 texture = ExtResource("3_0i587")

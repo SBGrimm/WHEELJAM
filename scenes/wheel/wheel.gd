@@ -15,7 +15,7 @@ signal puzzle_finished ## emitted when the puzzle is complete.
 #region Onready Variables
 @onready var selector:Control = %selector ## a reference to our selector node.
 @onready var slice_gimbal:Control = %slice_gimbal ## a reference to our slice gimbal.
-@onready var outer_gimbal:Control = %outer_gimbal ## a reference to our outer gimbal.
+@onready var places: Array[Control] = [$Place1, $Place2, $Place3, $Place4, $Place5, $Place6]
 #endregion
 
 #region Internal Variables
@@ -30,7 +30,7 @@ var target_selections:int = 6 ## how many selections are allowed; default is 4.
 #region Built-In Functions
 #called when the scene is loaded into the tree
 func _ready()->void:
-	reset() # all the setup is contained in reset
+	reset()
 	rotation_finished.connect(end_check) # check if puzzle is completed when rotation is done
 # handles input for our minigame
 func _unhandled_input(event: InputEvent) -> void:
@@ -91,10 +91,6 @@ func reset()->void:
 	for x:Control in %covers.get_children(): 
 		x.visible = false # hides the covers
 	var i = 0
-	for outer: Control in %outer_gimbal.get_children(): 
-		outer.rotation_degrees = 60*i
-		i+=1
-	i = 0
 	for slice: Control in %slice_gimbal.get_children(): 
 		slice.rotation_degrees = 60*i
 		i+=1
@@ -112,11 +108,12 @@ func spin():
 	rotate_slices(60*rng.randi_range(1, 5))
 
 func set_outer_parts(parts: Array[OuterPart]):
-	for child in outer_gimbal.get_children():
-		outer_gimbal.remove_child(child)
-	for part in parts:
-		var new_part = part.duplicate(7)
-		outer_gimbal.add_child(new_part)
+	for place in places:
+		while place.get_child_count() > 1:
+			place.remove_child(place.get_child(1))
+	for i in range(6):
+		var new_part = parts[i].duplicate(7)
+		places[i].add_child(new_part)
 		new_part.z_as_relative = true
 		new_part.z_index = 0
 		new_part.set_offsets_preset(Control.PRESET_CENTER)
@@ -127,7 +124,7 @@ func get_current_wheel_selection()->WheelSelection:
 		if current_direction == current_value_mappings[x]:
 			var slice = slice_gimbal.get_children()[x] as Slice
 			ws.mod = slice.mod
-	ws.effects = outer_gimbal.get_children()[current_direction/60].get_effects()
+	ws.effects = places[current_direction/60].get_child(1).get_effects()
 	return ws
 #endregion
 
