@@ -3,6 +3,9 @@ extends BaseScene
 @export var number_sections = 3
 var selectable_encounters: Array[Node]
 
+@onready var left_border = %MapEntrance.global_position[0] - 100
+@onready var right_border = %MapEntrance.global_position[0]
+
 enum Encounter {
 	Battle,
 	DarkShrine,
@@ -25,6 +28,7 @@ const passage = preload("res://scenes/map/encounters/passage.tscn")
 func place_encounter_at_passage(encounter_type: Encounter, passage: Node) -> Node:
 	var encounter = encounters[encounter_type].instantiate()
 	encounter.global_position = passage.get_encounter_position()
+	right_border = max(right_border, encounter.global_position[0])
 	add_child(encounter)
 	return encounter
 
@@ -121,9 +125,42 @@ func set_selection(encounters: Array[Node], selection_enabled: bool):
 func update_selectable_encounters(new_selectable_encounters: Array[Node]) -> void:
 	set_selection(selectable_encounters, false)
 	set_selection(new_selectable_encounters, true)
+	%Camera.global_position[0] = selectable_encounters[0].global_position[0] - 100
 	selectable_encounters = new_selectable_encounters
 
 func _ready() -> void:
 	generate_map()
 	set_selection(selectable_encounters, true)
 	EventBus.selectable_encounters_changed.connect(update_selectable_encounters)
+
+var scroll_speed = Vector2(0., 0)
+const scroll_decel_time = .2
+const scroll_max_speed = Vector2(500., 0.)
+const scroll_min_speed = 1
+const scrolling_wheel_factor = 3.5
+var is_left_scroll_pressed = false
+var is_right_scroll_pressed = false
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("MapScrollRight"):
+		scroll_speed = scroll_max_speed
+		is_right_scroll_pressed = true
+	if event.is_action_pressed("MapScrollLeft"):
+		scroll_speed = -scroll_max_speed
+		is_left_scroll_pressed = true
+	if event.is_action_released("MapScrollRight"):
+		is_right_scroll_pressed = false
+	if event.is_action_released("MapScrollLeft"):
+		is_left_scroll_pressed = false
+	if event.is_action("MouseWheelUp"):
+		scroll_speed = -scroll_max_speed * scrolling_wheel_factor
+	if event.is_action("MouseWheelDown"):
+		scroll_speed = scroll_max_speed * scrolling_wheel_factor
+
+func _physics_process(delta: float) -> void:
+	%Camera.global_position += scroll_speed * delta
+	%Camera.global_position[0] = clampf(%Camera.global_position[0], left_border, right_border - 950)
+	if not is_left_scroll_pressed and not is_right_scroll_pressed:
+		scroll_speed = lerp(scroll_speed, Vector2(0., 0.), 1 - exp(-delta / scroll_decel_time))
+	if abs(scroll_speed.x) < scroll_min_speed:
+		scroll_speed = Vector2(0, 0)
