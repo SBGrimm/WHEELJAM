@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ryd6fkbgff77"]
+[gd_scene load_steps=3 format=3 uid="uid://ryd6fkbgff77"]
 
 [ext_resource type="Script" path="res://scenes/wheel/slice.gd" id="1_myxno"]
-[ext_resource type="Texture2D" uid="uid://vykvlqf1dvc4" path="res://assets/wheel-simple/selector.png" id="2_8r2gf"]
 [ext_resource type="Texture2D" uid="uid://cs4yx87abb4fd" path="res://scenes/wheel/shade_base.tres" id="3_ir2s7"]
 
 [node name="Slice" type="Control"]
@@ -17,25 +16,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_myxno")
 mod = 3.0
-
-[node name="selector(for reference)" type="TextureRect" parent="."]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -126.0
-offset_right = 75.0
-offset_bottom = 130.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(75, 126)
-texture = ExtResource("2_8r2gf")
-expand_mode = 1
 
 [node name="art" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -56,5 +36,4 @@ pivot_offset = Vector2(55, 116)
 texture = ExtResource("3_ir2s7")
 expand_mode = 1
 
-[connection signal="mouse_entered" from="selector(for reference)" to="." method="_on_selectorfor_reference_mouse_entered"]
 [connection signal="mouse_entered" from="art" to="." method="_on_art_mouse_entered"]
