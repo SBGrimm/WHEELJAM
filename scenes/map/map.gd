@@ -159,7 +159,7 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	%Camera.global_position += scroll_speed * delta
-	%Camera.global_position[0] = clampf(%Camera.global_position[0], left_border, right_border - 800)
+	%Camera.global_position[0] = clampf(%Camera.global_position[0], left_border, right_border - 950)
 	if not is_left_scroll_pressed and not is_right_scroll_pressed:
 		scroll_speed = lerp(scroll_speed, Vector2(0., 0.), 1 - exp(-delta / scroll_decel_time))
 	if abs(scroll_speed.x) < scroll_min_speed:
