@@ -17,7 +17,6 @@ var state:
 	get:
 		return _state
 	set(value):
-		print(value)
 		_state = value
 
 func _ready():
@@ -43,14 +42,9 @@ func _on_dropped(area: TextureRect):
 	area.root.reparent(self)
 	var tween:Tween = create_tween()
 	tween.set_trans(7)
-	#tween.set_parallel(true)
 	tween.tween_property(area.root, "position", Vector2(0, 0), anim_time)
-	#tween.tween_property(area.root, "rotation_degrees", 0, anim_time)
 	tween.finished.connect(_on_slot_animation_ended)
-	print("done")
-	#_on_slot_animation_ended()
 	
 func _on_slot_animation_ended():
-	print("anim_done")
 	state = STATE.OCCUPIED
 	part_slotted.emit()

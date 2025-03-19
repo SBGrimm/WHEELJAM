@@ -33,7 +33,6 @@ func deactivate():
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.5)
 
 func check_parts_chosen():
-	print("check")
 	for place in places:
 		if not place.state == place.STATE.OCCUPIED:
 			return

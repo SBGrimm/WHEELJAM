@@ -27,7 +27,6 @@ func reset():
 	var enemy_parts = enemy.get_turn(battlestate)
 	var player_parts = battlestate.draw_cards()
 	fadeout.reset(player_parts, enemy_parts)
-	EventBus.reset_finished.emit()
 	
 func _activate_selection(selection: WheelSelection):
 	for effect: Effect in selection.effects:
