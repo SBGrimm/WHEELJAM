@@ -5,7 +5,10 @@ signal part_slotted()
 signal part_unslotted()
 
 @export var anim_time = 0.5
-
+@onready var action_selection_sfx_list = [
+	$"../ActionSelectionSFX1",
+	$"../ActionSelectionSFX2",
+]
 enum STATE {AWAITING_DROP, ANIMATING, OCCUPIED}
 
 var _state = STATE.AWAITING_DROP
@@ -33,6 +36,7 @@ func _on_dropped(area: TextureRect):
 		return
 	if not area.get_global_rect().intersects(self.get_global_rect(), true):
 		return
+	action_selection_sfx_list.pick_random().play()
 	state = STATE.ANIMATING
 	area.remove_from_group("droppable")
 	area.draggable = false

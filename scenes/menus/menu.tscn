@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj8xybellxgxt"]
+[gd_scene load_steps=4 format=3 uid="uid://bj8xybellxgxt"]
 
 [ext_resource type="Script" path="res://scenes/menus/menu.gd" id="1_qr7vp"]
+[ext_resource type="AudioStream" uid="uid://dqmqmvofwh4jd" path="res://sounds/music/song-Menu.mp3" id="2_i8p2k"]
+[ext_resource type="AudioStream" uid="uid://c1ednfjyp54fj" path="res://sounds/sfx/click L.mp3" id="3_bi2cy"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -40,6 +42,14 @@ offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Exit"
+
+[node name="MenuTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_i8p2k")
+autoplay = true
+
+[node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bi2cy")
+volume_db = -5.0
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

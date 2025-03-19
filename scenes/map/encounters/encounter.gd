@@ -4,12 +4,19 @@ extends Node2D
 @export var available_next_encounters: Array[Node] = []
 var is_mouse_hovering = false
 var hover_sprite_scale = 1.0
+@onready var click_sfx = $ClickSFX
+@onready var hover_on_sfx = $HoverOnSFX
+@onready var hover_off_sfx = $HoverOffSFX
 
 func _on_mouse_entered() -> void:
 	is_mouse_hovering = true
+	if selection_enabled:
+		hover_on_sfx.play()
 
 func _on_mouse_exited() -> void:
 	is_mouse_hovering = false
+	if selection_enabled:
+		hover_off_sfx.play()
 
 func update_sprite_hover_scale(delta: float) -> void:
 	var animation_time = .4
@@ -35,6 +42,7 @@ func mark_visited():
 	get_parent().add_child(visited_encounter_marker)
 
 func encounter_clicked():
+	click_sfx.play()
 	mark_visited()
 	EventBus.selectable_encounters_changed.emit(available_next_encounters)
 	encounter()

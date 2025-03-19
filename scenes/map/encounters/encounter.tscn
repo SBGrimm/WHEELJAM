@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnhmv5bs0a1ki"]
+[gd_scene load_steps=6 format=3 uid="uid://bnhmv5bs0a1ki"]
 
 [ext_resource type="Script" path="res://scenes/map/encounters/encounter.gd" id="1_q1gyq"]
+[ext_resource type="AudioStream" uid="uid://c1ednfjyp54fj" path="res://sounds/sfx/click L.mp3" id="2_csn06"]
+[ext_resource type="AudioStream" uid="uid://cwclvhohslx1k" path="res://sounds/sfx/Select in.mp3" id="3_w014r"]
+[ext_resource type="AudioStream" uid="uid://blh6ck4gnfr2n" path="res://sounds/sfx/Select cancel.mp3" id="4_owm0a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uya7u"]
 size = Vector2(150, 150)
@@ -14,6 +17,19 @@ collision_mask = 0
 
 [node name="MouseHoverArea" type="CollisionShape2D" parent="MouseHoverDetection"]
 shape = SubResource("RectangleShape2D_uya7u")
+
+[node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_csn06")
+
+[node name="HoverOnSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_w014r")
+volume_db = -12.0
+pitch_scale = 2.0
+
+[node name="HoverOffSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_owm0a")
+volume_db = -12.0
+pitch_scale = 2.0
 
 [connection signal="input_event" from="MouseHoverDetection" to="." method="_on_mouse_hover_detection_input_event"]
 [connection signal="mouse_entered" from="MouseHoverDetection" to="." method="_on_mouse_entered"]

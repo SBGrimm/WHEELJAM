@@ -1,6 +1,8 @@
 extends Control
 class_name DropZone
 
+@onready var selection_sfx = $SelectionSFX
+
 signal part_chosen(part: OuterPart)
 
 func _on_dropped(area: TextureRect):
@@ -8,6 +10,7 @@ func _on_dropped(area: TextureRect):
 		return
 	if not area.get_global_rect().intersects(self.get_global_rect(), true):
 		return
+	selection_sfx.play()
 	area.remove_from_group("droppable")
 	area.draggable = false
 	part_chosen.emit(area.root)

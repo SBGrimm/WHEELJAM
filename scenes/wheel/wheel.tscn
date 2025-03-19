@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://far3xviy2rnv"]
+[gd_scene load_steps=8 format=3 uid="uid://far3xviy2rnv"]
 
 [ext_resource type="Script" path="res://scenes/wheel/wheel.gd" id="1_mxakx"]
 [ext_resource type="Texture2D" uid="uid://cvvmmvsg8e2yn" path="res://assets/wheel/wheel_base.png" id="2_acbfn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bpvbeuqopmp1t" path="res://assets/wheel/selected.png" id="4_cs2sm"]
 [ext_resource type="Texture2D" uid="uid://df5srac604n34" path="res://assets/wheel/selector.png" id="5_tm1cy"]
 [ext_resource type="Texture2D" uid="uid://b5nqffi8yicri" path="res://assets/wheel/action_slot.png" id="6_eovwt"]
+[ext_resource type="AudioStream" uid="uid://c1ednfjyp54fj" path="res://sounds/sfx/click L.mp3" id="7_2tk4y"]
 
 [node name="Wheel" type="Control"]
 layout_mode = 3
@@ -421,3 +422,7 @@ grow_vertical = 2
 texture = ExtResource("6_eovwt")
 expand_mode = 1
 metadata/_edit_lock_ = true
+
+[node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_2tk4y")
