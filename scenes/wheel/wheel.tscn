@@ -41,7 +41,7 @@ expand_mode = 1
 
 [node name="slice_gimbal" type="Control" parent="."]
 unique_name_in_owner = true
-z_index = -2
+show_behind_parent = true
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
