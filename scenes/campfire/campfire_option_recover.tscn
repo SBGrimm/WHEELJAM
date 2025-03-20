@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmwlclt0takl8"]
+
+[ext_resource type="PackedScene" uid="uid://c762jp7x13pu4" path="res://scenes/campfire/CampfireOption.tscn" id="1_tul0j"]
+[ext_resource type="Script" path="res://scenes/campfire/campfire_option_recover.gd" id="2_o0eq5"]
+
+[node name="CampfireOptionRecover" instance=ExtResource("1_tul0j")]
+anchor_left = 0.0
+anchor_right = 0.25
+script = ExtResource("2_o0eq5")
+
+[node name="Option" parent="." index="1"]
+text = "Recover"
+
+[node name="Description" parent="Body" index="0"]
+text = "Get back 20 health"

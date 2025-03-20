@@ -1,0 +1,168 @@
+[gd_scene load_steps=6 format=3 uid="uid://hhhsyqdb8lhq"]
+
+[ext_resource type="Script" path="res://scenes/antiloot/antiloot_screen.gd" id="1_oo6ws"]
+[ext_resource type="Script" path="res://scenes/antiloot/slot.gd" id="2_crjw4"]
+[ext_resource type="Script" path="res://scenes/antiloot/drop_zone.gd" id="3_k0ocp"]
+[ext_resource type="AudioStream" uid="uid://cwclvhohslx1k" path="res://sounds/sfx/Select in.mp3" id="4_8cuee"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eapr1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="AntilootScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_oo6ws")
+should_reset = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="Slot1" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.25
+anchor_right = 0.3
+anchor_bottom = 0.45
+mouse_filter = 1
+script = ExtResource("2_crjw4")
+
+[node name="Panel" type="Panel" parent="Slot1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eapr1")
+
+[node name="Label" type="Label" parent="Slot1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = -5.20001
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+autowrap_mode = 3
+
+[node name="Slot2" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.4
+anchor_top = 0.25
+anchor_right = 0.6
+anchor_bottom = 0.45
+mouse_filter = 1
+script = ExtResource("2_crjw4")
+
+[node name="Panel" type="Panel" parent="Slot2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eapr1")
+
+[node name="Label" type="Label" parent="Slot2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = -5.20001
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+autowrap_mode = 3
+
+[node name="Slot3" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.7
+anchor_top = 0.25
+anchor_right = 0.9
+anchor_bottom = 0.45
+mouse_filter = 1
+script = ExtResource("2_crjw4")
+
+[node name="Panel" type="Panel" parent="Slot3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eapr1")
+
+[node name="Label" type="Label" parent="Slot3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = -5.20001
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+autowrap_mode = 3
+
+[node name="DropZone" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.6
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("3_k0ocp")
+
+[node name="Panel" type="Panel" parent="DropZone"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eapr1")
+
+[node name="SelectionSFX" type="AudioStreamPlayer2D" parent="DropZone"]
+stream = ExtResource("4_8cuee")
+volume_db = -5.0
+
+[connection signal="part_chosen" from="DropZone" to="." method="_on_drop_zone_part_chosen"]

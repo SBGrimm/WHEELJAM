@@ -33,7 +33,7 @@ func _on_mouse_hover_detection_input_event(
 	viewport: Node,
 	event: InputEvent,
 	shape_idx: int) -> void:
-	if event is InputEventMouseButton and selection_enabled and event.is_pressed() and event.button_index == 1:
+	if event is InputEventMouseButton and selection_enabled and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		encounter_clicked()
 
 func mark_visited():

@@ -15,7 +15,9 @@ enum Scene {
 	BATTLE,
 	MAIN_MENU,
 	LOSS_SCREEN,
-	LOOT
+	LOOT,
+	CAMPFIRE,
+	ANTILOOT,
 }
 
 var current_scene: Scene = Scene.MAP
@@ -24,7 +26,9 @@ var scenes: Dictionary = {
 	Scene.MAIN_MENU: preload("res://scenes/menus/menu.tscn").instantiate(),
 	Scene.LOSS_SCREEN: preload("res://scenes/menus/loss_screen.tscn").instantiate(),
 	Scene.BATTLE: preload("res://scenes/battle/battle.tscn").instantiate(),
-	Scene.LOOT: preload("res://scenes/loot/loot_screen.tscn").instantiate()
+	Scene.LOOT: preload("res://scenes/loot/loot_screen.tscn").instantiate(),
+	Scene.CAMPFIRE: preload("res://scenes/campfire/campfire.tscn").instantiate(),
+	Scene.ANTILOOT: preload("res://scenes/antiloot/antiloot_screen.tscn").instantiate(),
 }
 
 func go_to_scene(scene_name: Scene):
