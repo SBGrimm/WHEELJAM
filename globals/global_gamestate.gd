@@ -2,6 +2,7 @@ extends Node
 
 var num_level = 0
 var player_hp = 100
+var player_max_hp = 100
 var parts = [
 	preload("res://scenes/Outer Parts/player/damage_outer_part.tscn"),
 	preload("res://scenes/Outer Parts/player/block_outer_part.tscn"),
@@ -26,4 +27,11 @@ func get_rewards():
 	var rewards: Array[OuterPart] = []
 	for i in range(3):
 		rewards.append(parts[rng.rand_weighted(missing_amounts)].instantiate())
+	return rewards
+
+func get_antirewards():
+	var rng = RandomNumberGenerator.new()
+	var rewards: Array[OuterPart] = []
+	for i in range(3):
+		rewards.append(parts[rng.rand_weighted(amounts)].instantiate())
 	return rewards
