@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://rvnyby8wkquc"]
+
+[ext_resource type="PackedScene" uid="uid://c762jp7x13pu4" path="res://scenes/campfire/CampfireOption.tscn" id="1_jxbqt"]
+[ext_resource type="Script" path="res://scenes/campfire/campfire_option_rest.gd" id="2_f14nq"]
+
+[node name="CampfireOptionRest" instance=ExtResource("1_jxbqt")]
+anchor_left = 0.375
+anchor_right = 0.625
+script = ExtResource("2_f14nq")
+
+[node name="Option" parent="." index="1"]
+text = "Rest"
+
+[node name="Description" parent="Body" index="0"]
+text = "Get 40 max hp
+
+Will not increase your current hp"

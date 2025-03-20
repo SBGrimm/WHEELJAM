@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://u7d26r6vthv0"]
+
+[ext_resource type="PackedScene" uid="uid://c762jp7x13pu4" path="res://scenes/campfire/CampfireOption.tscn" id="1_dedla"]
+[ext_resource type="Script" path="res://scenes/campfire/campfire_option_reflect.gd" id="2_a5any"]
+
+[node name="CampfireOptionReflect" instance=ExtResource("1_dedla")]
+script = ExtResource("2_a5any")
+
+[node name="Option" parent="." index="1"]
+text = "Reflect"
+
+[node name="Description" parent="Body" index="0"]
+text = "Get rid of one of your actoins"
