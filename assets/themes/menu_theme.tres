@@ -1,0 +1,48 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://brwb6odwkwryg"]
+
+[ext_resource type="FontFile" uid="uid://bbbt6772k5v1q" path="res://assets/fonts/CaesarDressing-Regular.ttf" id="1_5ohcb"]
+[ext_resource type="StyleBox" uid="uid://dg50a5v0w2kxj" path="res://assets/themes/menu_theme/style_box_flat.tres" id="1_33b45"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdg5k"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.588235, 0.588235, 0.588235, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igcu6"]
+bg_color = Color(0.6, 0.6, 0.6, 0.0588235)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mhta"]
+bg_color = Color(0.6, 0.6, 0.6, 0.117647)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+default_font = ExtResource("1_5ohcb")
+Button/font_sizes/font_size = 31
+Button/styles/disabled = SubResource("StyleBoxFlat_fdg5k")
+Button/styles/hover = SubResource("StyleBoxFlat_igcu6")
+Button/styles/normal = ExtResource("1_33b45")
+Button/styles/pressed = SubResource("StyleBoxFlat_6mhta")

@@ -11,6 +11,7 @@ var parts = [
 var amounts: PackedFloat32Array = PackedFloat32Array([3,3,0,0])
 var missing_amounts: PackedFloat32Array = PackedFloat32Array([0,0,3,3])
 var hand_size = 5
+var modifiers = [2, 0.5, 3, 2, 1, 1]
 
 func get_battle_state():
 	var battlestate = BattleState.new()

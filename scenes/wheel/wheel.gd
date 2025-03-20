@@ -94,7 +94,8 @@ func rotate_slices(angle: int = 60)->void:
 	rotation_started.emit() 
 	var tween:Tween = create_tween() # create our tween object we will use for the animation
 	tween.set_trans(8) # sets our transition type to our enum
-	tween.tween_property(%slice_gimbal, "rotation_degrees",%slice_gimbal.rotation_degrees+angle,anim_time * angle/60) # rotate gimbal
+	tween.tween_property(%slice_gimbal, "rotation_degrees",
+		%slice_gimbal.rotation_degrees+angle,anim_time * angle/60) # rotate gimbal
 	tween.finished.connect(func(): rotation_finished.emit()) # emit rotation finished when done anim
 
 ## this function resets the minigame.
@@ -110,6 +111,7 @@ func reset()->void:
 	i = 0
 	current_value_mappings = [0,60,120,180,240,300]
 	for slice: Control in %slice_gimbal.get_children(): 
+		slice.mod = GlobalGamestate.modifiers[i]
 		slice.rotation_degrees = 60*i
 		i+=1
 
@@ -128,8 +130,8 @@ func spin():
 
 func set_outer_parts(parts: Array[OuterPart]):
 	for place in places:
-		while place.get_child_count() > 1:
-			place.remove_child(place.get_child(1))
+		while place.get_child_count() > 2:
+			place.remove_child(place.get_child(2))
 	for i in range(6):
 		var new_part = parts[i].duplicate(7)
 		places[i].add_child(new_part)
@@ -143,7 +145,7 @@ func get_current_wheel_selection()->WheelSelection:
 		if current_direction == current_value_mappings[x]:
 			var slice = slice_gimbal.get_children()[x] as Slice
 			ws.mod = slice.mod
-	ws.effects = places[current_direction/60].get_child(1).get_effects()
+	ws.effects = places[current_direction/60].get_child(2).get_effects()
 	return ws
 #endregion
 

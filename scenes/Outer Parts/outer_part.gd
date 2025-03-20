@@ -8,7 +8,7 @@ class_name OuterPart
 @export var id: int
 
 func get_effects() -> Array[Effect]:
-	var effects: Array[Effect] = []
+	var effects: Array[Effect]
 	for effect: Effect in effects_list.get_children():
 		effects.append(effect)
 	return effects

@@ -20,5 +20,6 @@ func reset():
 
 func _on_drop_zone_part_chosen(part: OuterPart):
 	GlobalGamestate.amounts[part.id] += 1
+	GlobalGamestate.missing_amounts[part.id] -= 1
 	EventBus.request_scene_change.emit(SceneManager.Scene.MAP)
 	wipe()
