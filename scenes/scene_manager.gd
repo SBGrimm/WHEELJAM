@@ -39,6 +39,8 @@ func go_to_scene(scene_name: Scene):
 	var callback = func():
 		scenes[scene_name].show()
 		current_scene = scene_name
+		if scene_name == Scene.MAP:
+			scenes[scene_name].start_animation()
 	get_tree().create_timer(0.1).timeout.connect(callback)
 
 func remove_scene(scene_name: Scene):

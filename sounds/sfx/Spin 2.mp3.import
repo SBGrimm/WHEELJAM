@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://boeflru5wsdj4"
+path="res://.godot/imported/Spin 2.mp3-9dfb9cdb35be478ddc47b3958fb5532b.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/Spin 2.mp3"
+dest_files=["res://.godot/imported/Spin 2.mp3-9dfb9cdb35be478ddc47b3958fb5532b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
