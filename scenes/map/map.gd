@@ -118,7 +118,7 @@ var generators = [
 
 func generate_map() -> void:
 	var intro_passage = place_passage_at(%MapEntrance)
-	var last_encounter = place_encounter_at_passage(Encounter.Battle, intro_passage)
+	var last_encounter = place_encounter_at_passage(Encounter.Boss, intro_passage)
 	selectable_encounters.append(last_encounter)
 	last_encounter.selection_enabled = true
 	for section in range(number_sections):
