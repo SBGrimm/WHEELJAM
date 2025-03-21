@@ -63,7 +63,7 @@ func restart(to: Scene):
 	GlobalGamestate.hard_reset()
 
 func switch_scene(to: Scene):
-	const scene_switching_pause = .8
+	const scene_switching_pause = .5
 	whispers.pick_random().play()
 	scene_fadeout.visible = true
 	scene_fadeout.color[3] = 0
