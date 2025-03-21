@@ -8,6 +8,7 @@ extends BaseScene
 func scene_theme(): 
 	return preload("res://sounds/music/song-reward.mp3")
 
+
 func _ready():
 	reset()
 

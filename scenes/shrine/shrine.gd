@@ -4,6 +4,10 @@ extends BaseScene
 @onready var option_1 = $"Option 1"
 @onready var option_2 = $"Option 2"
 
+
+func scene_theme(): 
+	return preload("res://sounds/music/song-reward.mp3")
+	
 func _ready():
 	wheel.new_dir_chosen.connect(_on_slice_chosen)
 	option_1.option_chosen.connect(_on_option_1_chosen)
@@ -41,11 +45,13 @@ func _on_option_1_chosen():
 	if slice_index == -1:
 		return
 	upgrade_slice(slice_index)
+	%SelectSFX.play()
 	EventBus.request_scene_change.emit(SceneManager.Scene.MAP)
 
 func _on_option_2_chosen():
 	if slice_index == -1:
 		return
+	%SelectSFX2.play()
 	degrade_slice(slice_index)
 	EventBus.request_scene_change.emit(SceneManager.Scene.MAP)
 
