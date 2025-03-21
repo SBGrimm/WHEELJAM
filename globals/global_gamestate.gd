@@ -1,7 +1,7 @@
 extends Node
 
 var num_level = 0
-var player_hp = 1
+var player_hp = 100
 var player_max_hp = 100
 var parts = [
 	preload("res://scenes/Outer Parts/player/damage_outer_part.tscn"),
