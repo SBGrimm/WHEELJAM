@@ -8,8 +8,18 @@ var battlestate: BattleState
 var enemy: Enemy
 @onready var label_manager = $LabelManager
 
+func is_battle_intense():
+	if GlobalGamestate.is_on_boss:
+		return true
+	const intensity_hp_treshold = 0.3
+	const intensity_probability = 0.3
+	var low_hp = (GlobalGamestate.player_hp <
+		GlobalGamestate.player_max_hp * intensity_hp_treshold)
+	return low_hp and (randf() < intensity_probability)
 
-func scene_theme(): 
+func scene_theme():
+	if is_battle_intense():
+		return preload("res://sounds/music/song-battle-intense.mp3")
 	return preload("res://sounds/music/song-battle.mp3")
 	
 func _ready():
