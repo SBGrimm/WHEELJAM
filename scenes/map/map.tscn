@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm8crwojt34og"]
+[gd_scene load_steps=2 format=3 uid="uid://dm8crwojt34og"]
 
 [ext_resource type="Script" path="res://scenes/map/map.gd" id="1_53pfr"]
-[ext_resource type="AudioStream" uid="uid://dqmqmvofwh4jd" path="res://sounds/music/song-Menu.mp3" id="2_hg6l6"]
 
 [node name="Map" type="Control"]
 layout_mode = 3
@@ -25,10 +24,6 @@ mouse_filter = 2
 [node name="Camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
 anchor_mode = 0
-
-[node name="MapTheme" type="AudioStreamPlayer2D" parent="Camera"]
-stream = ExtResource("2_hg6l6")
-autoplay = true
 
 [node name="ColorRect" type="ColorRect" parent="Camera"]
 offset_right = 1152.0

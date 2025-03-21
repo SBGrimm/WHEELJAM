@@ -7,6 +7,9 @@ extends BaseScene
 @onready var sfx_hover = $HoverSFX
 @onready var gradient = $Gradient
 
+func scene_theme(): 
+	return preload("res://sounds/music/song-intro.mp3")
+
 func _ready():
 	reset()
 

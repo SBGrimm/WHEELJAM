@@ -9,6 +9,9 @@ var battlestate: BattleState
 @onready var label_manager = $LabelManager
 
 
+func scene_theme(): 
+	return preload("res://sounds/music/song-battle.mp3")
+	
 func _ready():
 	wheel.new_dir_chosen.connect(_activate_selection)
 	wheel.puzzle_finished.connect(_process_end_turn)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bxlklmk3ea0bt"]
+[gd_scene load_steps=19 format=3 uid="uid://bxlklmk3ea0bt"]
 
 [ext_resource type="PackedScene" uid="uid://far3xviy2rnv" path="res://scenes/wheel/wheel.tscn" id="1_1f2s6"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_lo6wo"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://ddaxpu2i6euoh" path="res://assets/monsters/monster_1/monster_1_2.png" id="8_pgksq"]
 [ext_resource type="Texture2D" uid="uid://dlbpxvv4uo5nh" path="res://assets/monsters/monster_1/monster_1_3.png" id="9_hu3c2"]
 [ext_resource type="Texture2D" uid="uid://dpcfepjjkhmb0" path="res://assets/monsters/monster_1/monster_1_4.png" id="10_kwcdd"]
-[ext_resource type="AudioStream" uid="uid://lh3b2xk5jnt0" path="res://sounds/music/song-battle.mp3" id="14_k1gow"]
 
 [sub_resource type="Gradient" id="Gradient_414q1"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -334,7 +333,3 @@ grow_vertical = 2
 visible = false
 z_index = 1
 layout_mode = 1
-
-[node name="BattleTheme" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("14_k1gow")
-autoplay = true

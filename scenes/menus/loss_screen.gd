@@ -3,6 +3,10 @@ extends BaseScene
 @onready var gradient = $Gradient
 @onready var label = $Label
 
+
+func scene_theme(): 
+	return preload("res://sounds/music/song-intro.mp3")
+
 func _ready():
 	reset()
 
