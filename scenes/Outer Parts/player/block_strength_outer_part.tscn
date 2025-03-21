@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://bkxfj3cryqg52" path="res://scenes/Outer Parts/!outer_part_base.tscn" id="1_f6x4u"]
 [ext_resource type="Script" path="res://resources/effects/BlockEffect.gd" id="2_v83du"]
 [ext_resource type="Script" path="res://resources/effects/StrengthEffect.gd" id="3_2hctn"]
-[ext_resource type="Texture2D" uid="uid://bkcc14sri0kf6" path="res://assets/Actions/baff_shield.png" id="4_nhuol"]
+[ext_resource type="Texture2D" uid="uid://bkcc14sri0kf6" path="res://assets/Actions/player/baff_shield.png" id="4_nhuol"]
 
 [node name="BlockStrengthOuterPart" instance=ExtResource("1_f6x4u")]
-text = "gives (3) block and (20) power"
+text = "gives 3 block and 20 power"
 id = 2
 
 [node name="BlockEffect" type="Node" parent="EffectsList" index="0"]

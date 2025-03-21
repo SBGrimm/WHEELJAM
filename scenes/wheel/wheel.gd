@@ -2,7 +2,7 @@ extends Control
 
 #region Signals
 signal new_dir_hovered() ## emitted when a new direction is hovered
-signal new_dir_chosen(selection:Slice) ## emitted when a direction is chosen
+signal new_dir_chosen(selection:WheelSelection) ## emitted when a direction is chosen
 signal rotation_started ## emitted when the gimbal begins to be rotated.
 signal rotation_finished ## emitted when the gimbal is finished rotating.
 signal puzzle_finished ## emitted when the puzzle is complete.
@@ -62,10 +62,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func activate():
 	state = WheelState.AWAITING_SELECTION
 
-
 func deactivate():
 	state = WheelState.DISABLED
-
 
 ## processes the hover direction and moves the selector to that direction.
 func process_direction_input(direction:int)->void:
@@ -89,6 +87,7 @@ func process_confirm_input(direction:int)->void:
 ## rotates the slice gimbal +60 degrees
 func rotate_slices(angle: int = 60)->void:
 	#if state != WheelState.AWAITING_SELECTION: return
+	if state == WheelState.DISABLED: return
 	state = WheelState.ROTATING 
 	current_value_mappings = _rotate_array(current_value_mappings, angle) # +90 to each of our current value mappings
 	rotation_started.emit() 
@@ -145,6 +144,7 @@ func get_current_wheel_selection()->WheelSelection:
 		if current_direction == current_value_mappings[x]:
 			var slice = slice_gimbal.get_children()[x] as Slice
 			ws.mod = slice.mod
+			ws.slice_index = x
 	ws.effects = places[current_direction/60].get_child(2).get_effects()
 	return ws
 #endregion

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rl5wd1wl4nsl"
-path="res://.godot/imported/all_in.png-5364dcbc48002b1e53c0e3434c9d1ce4.ctex"
+uid="uid://b5o7pcy6yijeg"
+path="res://.godot/imported/enemy_dog_idle0002.png-d39a0ee496b7b459ac4e77c219705697.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Actions/all_in.png"
-dest_files=["res://.godot/imported/all_in.png-5364dcbc48002b1e53c0e3434c9d1ce4.ctex"]
+source_file="res://assets/monsters/monster_2/enemy_dog_idle0002.png"
+dest_files=["res://.godot/imported/enemy_dog_idle0002.png-d39a0ee496b7b459ac4e77c219705697.ctex"]
 
 [params]
 

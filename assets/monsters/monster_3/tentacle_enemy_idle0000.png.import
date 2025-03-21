@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8bxkae8mfxsv"
-path="res://.godot/imported/rage_buff.png-2d4638ca1ffe2adcdf522f851c8f79f6.ctex"
+uid="uid://dst6jap5dmkdx"
+path="res://.godot/imported/tentacle_enemy_idle0000.png-4d5f98bcc24c92198fb1b7f847a61a08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Actions/rage_buff.png"
-dest_files=["res://.godot/imported/rage_buff.png-2d4638ca1ffe2adcdf522f851c8f79f6.ctex"]
+source_file="res://assets/monsters/monster_3/tentacle_enemy_idle0000.png"
+dest_files=["res://.godot/imported/tentacle_enemy_idle0000.png-4d5f98bcc24c92198fb1b7f847a61a08.ctex"]
 
 [params]
 

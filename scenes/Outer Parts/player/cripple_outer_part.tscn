@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://y7pvvmuutlqv"]
+
+[ext_resource type="PackedScene" uid="uid://bkxfj3cryqg52" path="res://scenes/Outer Parts/!outer_part_base.tscn" id="1_he378"]
+[ext_resource type="Script" path="res://resources/effects/DamageEffect.gd" id="2_7ec04"]
+[ext_resource type="Script" path="res://resources/effects/EnemyWeakEffect.gd" id="3_qohkg"]
+
+[node name="CrippleOuterPart" instance=ExtResource("1_he378")]
+text = "deals 4 damage and gives 20 weakness to the enemy"
+id = 5
+
+[node name="DamageEffect" type="Node" parent="EffectsList" index="0"]
+script = ExtResource("2_7ec04")
+amount = 4.0
+
+[node name="EnemyWeakEffect" type="Node" parent="EffectsList" index="1"]
+script = ExtResource("3_qohkg")
+amount = 20.0

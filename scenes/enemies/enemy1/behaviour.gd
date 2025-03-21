@@ -1,7 +1,7 @@
-extends Node
+extends EnemyBehaviour
 
 var deck = [
-	preload("res://scenes/Outer Parts/monster/enemy_damage_outer_part.tscn"),
+	preload("res://scenes/Outer Parts/monster/enemy_claw_outer_part.tscn"),
 	preload("res://scenes/Outer Parts/monster/enemy_block_outer_part.tscn")
 ]
 

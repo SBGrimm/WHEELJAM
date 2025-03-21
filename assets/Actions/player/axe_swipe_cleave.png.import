@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkcc14sri0kf6"
-path="res://.godot/imported/baff_shield.png-d1b42f9c833c8590c0b45f0fab590575.ctex"
+uid="uid://qaivxspp2yqw"
+path="res://.godot/imported/axe_swipe_cleave.png-77690d6dbf64d72b7cef43ade1184132.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Actions/baff_shield.png"
-dest_files=["res://.godot/imported/baff_shield.png-d1b42f9c833c8590c0b45f0fab590575.ctex"]
+source_file="res://assets/Actions/player/axe_swipe_cleave.png"
+dest_files=["res://.godot/imported/axe_swipe_cleave.png-77690d6dbf64d72b7cef43ade1184132.ctex"]
 
 [params]
 

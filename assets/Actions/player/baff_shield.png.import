@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0swhl524xrhq"
-path="res://.godot/imported/monster_block.png-5a5d288470504eaf05a196758e955720.ctex"
+uid="uid://bkcc14sri0kf6"
+path="res://.godot/imported/baff_shield.png-b9a9a9055584ad4493f2db56e74be836.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Actions/monster1/monster_block.png"
-dest_files=["res://.godot/imported/monster_block.png-5a5d288470504eaf05a196758e955720.ctex"]
+source_file="res://assets/Actions/player/baff_shield.png"
+dest_files=["res://.godot/imported/baff_shield.png-b9a9a9055584ad4493f2db56e74be836.ctex"]
 
 [params]
 

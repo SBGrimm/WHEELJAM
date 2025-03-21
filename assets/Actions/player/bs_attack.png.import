@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qaivxspp2yqw"
-path="res://.godot/imported/axe_swipe_cleave.png-2de62fb1d8f2e10b55dfc3dc74606971.ctex"
+uid="uid://cib407fq2iv74"
+path="res://.godot/imported/bs_attack.png-103a61de65870b68971f60f47e11d645.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Actions/axe_swipe_cleave.png"
-dest_files=["res://.godot/imported/axe_swipe_cleave.png-2de62fb1d8f2e10b55dfc3dc74606971.ctex"]
+source_file="res://assets/Actions/player/bs_attack.png"
+dest_files=["res://.godot/imported/bs_attack.png-103a61de65870b68971f60f47e11d645.ctex"]
 
 [params]
 

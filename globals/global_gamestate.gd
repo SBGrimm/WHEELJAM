@@ -6,8 +6,10 @@ var player_max_hp = 100
 var parts = [
 	preload("res://scenes/Outer Parts/player/damage_outer_part.tscn"),
 	preload("res://scenes/Outer Parts/player/block_outer_part.tscn"),
-	preload("res://scenes/Outer Parts/player/block_strength_outer_part.tscn"),	
-	preload("res://scenes/Outer Parts/player/damage_weak_outer_part.tscn")
+	preload("res://scenes/Outer Parts/player/block_strength_outer_part.tscn"),
+	preload("res://scenes/Outer Parts/player/damage_weak_outer_part.tscn"),
+	preload("res://scenes/Outer Parts/player/cripple_outer_part.tscn"),
+	preload("res://scenes/Outer Parts/player/rage_outer_part.tscn"),
 ]
 var amounts: PackedFloat32Array = PackedFloat32Array([3,3,0,0])
 var missing_amounts: PackedFloat32Array = PackedFloat32Array([0,0,3,3])

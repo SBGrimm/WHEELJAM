@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwqtih7dxliyk"]
+[gd_scene load_steps=6 format=3 uid="uid://cwqtih7dxliyk"]
 
 [ext_resource type="Script" path="res://scenes/shrine/shrine.gd" id="1_feqbl"]
-[ext_resource type="Texture2D" uid="uid://cvvmmvsg8e2yn" path="res://assets/wheel/wheel_base.png" id="2_07y30"]
-[ext_resource type="PackedScene" uid="uid://ryd6fkbgff77" path="res://scenes/wheel/slice.tscn" id="3_71vyg"]
+[ext_resource type="Theme" uid="uid://brwb6odwkwryg" path="res://assets/themes/menu_theme.tres" id="2_asnlr"]
+[ext_resource type="Script" path="res://scenes/shrine/option.gd" id="4_b45c6"]
+[ext_resource type="Texture2D" uid="uid://cvq1lo2ef7phi" path="res://assets/map_icons/Encounters/Shrine/shrine_map_icon0000.png" id="4_spnru"]
+[ext_resource type="PackedScene" uid="uid://far3xviy2rnv" path="res://scenes/wheel/wheel.tscn" id="4_w1nf4"]
 
 [node name="Shrine" type="Control"]
 layout_mode = 3
@@ -11,124 +13,108 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_feqbl")
+should_reset = true
 metadata/_edit_lock_ = true
 
-[node name="Wheel" type="Control" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 25.0
+offset_right = 705.0
+offset_bottom = 85.0
+mouse_filter = 1
+theme = ExtResource("2_asnlr")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "[center]Select a slice to bless[/center]"
+
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = 164.0
-offset_bottom = 164.0
+offset_left = 58.0
+offset_top = -244.0
+offset_right = 570.0
+offset_bottom = 268.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="underlay" type="TextureRect" parent="Wheel"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 256)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -128.0
-offset_right = 128.0
-offset_bottom = 128.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(128, 128)
-texture = ExtResource("2_07y30")
-expand_mode = 1
-
-[node name="slice_gimbal" type="Control" parent="Wheel"]
-unique_name_in_owner = true
-z_index = -2
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -0.255981
-offset_bottom = -0.039978
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-
-[node name="slice1" parent="Wheel/slice_gimbal" instance=ExtResource("3_71vyg")]
-layout_mode = 1
-mouse_filter = 1
-
-[node name="slice2" parent="Wheel/slice_gimbal" instance=ExtResource("3_71vyg")]
-layout_mode = 1
-rotation = 1.0472
-mouse_filter = 1
-
-[node name="slice3" parent="Wheel/slice_gimbal" instance=ExtResource("3_71vyg")]
-layout_mode = 1
-rotation = 2.0944
-mouse_filter = 1
-
-[node name="slice4" parent="Wheel/slice_gimbal" instance=ExtResource("3_71vyg")]
-layout_mode = 1
-rotation = 3.14159
-mouse_filter = 1
-
-[node name="slice5" parent="Wheel/slice_gimbal" instance=ExtResource("3_71vyg")]
-layout_mode = 1
-rotation = 4.18879
-mouse_filter = 1
-
-[node name="slice6" parent="Wheel/slice_gimbal" instance=ExtResource("3_71vyg")]
-layout_mode = 1
-rotation = 5.23599
-mouse_filter = 1
+texture = ExtResource("4_spnru")
 
 [node name="imbue spot" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 323.0
-offset_top = 126.0
-offset_right = 784.0
-offset_bottom = 242.0
-
-[node name="ColorRect" type="ColorRect" parent="imbue spot"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 153.0
-offset_top = 60.0
-offset_right = -130.0
-offset_bottom = 92.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 46.0
+offset_right = 304.0
+offset_bottom = 167.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Option 1" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 404.0
 offset_bottom = 469.0
+mouse_filter = 1
+script = ExtResource("4_b45c6")
 
 [node name="ColorRect" type="ColorRect" parent="Option 1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 707.0
+offset_top = 450.0
+offset_right = 707.0
+offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Option 2" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 744.0
 offset_right = 1148.0
-offset_bottom = 469.0
+offset_bottom = 170.0
+mouse_filter = 1
+script = ExtResource("4_b45c6")
 
 [node name="ColorRect" type="ColorRect" parent="Option 2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = 22.0
+offset_right = -31.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+
+[node name="Wheel" parent="." instance=ExtResource("4_w1nf4")]
+layout_mode = 1
+offset_left = -273.0
+offset_top = -14.0
+offset_right = -273.0
+offset_bottom = -14.0

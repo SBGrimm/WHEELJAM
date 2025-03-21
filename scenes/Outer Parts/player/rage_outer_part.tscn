@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd6o7ckjdgtfs"]
+
+[ext_resource type="PackedScene" uid="uid://bkxfj3cryqg52" path="res://scenes/Outer Parts/!outer_part_base.tscn" id="1_vh4ty"]
+[ext_resource type="Script" path="res://resources/effects/StrengthEffect.gd" id="2_uak27"]
+[ext_resource type="Texture2D" uid="uid://c8bxkae8mfxsv" path="res://assets/Actions/player/rage_buff.png" id="3_0qgbu"]
+
+[node name="RageOuterPart" instance=ExtResource("1_vh4ty")]
+text = "gives you 50 strength"
+id = 6
+
+[node name="StrengthEffect" type="Node" parent="EffectsList" index="0"]
+script = ExtResource("2_uak27")
+amount = 50.0
+
+[node name="art" parent="." index="1"]
+texture = ExtResource("3_0qgbu")

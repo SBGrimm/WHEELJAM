@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b00skq84sag3y"
-path="res://.godot/imported/monster_claw.png-7ea3f60c7d376b88c165499039d9d965.ctex"
+uid="uid://cy5248tbm7ubc"
+path="res://.godot/imported/bs_dfn.png-95e93a6cc94895e72cb92ddcc41a216c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Actions/monster1/monster_claw.png"
-dest_files=["res://.godot/imported/monster_claw.png-7ea3f60c7d376b88c165499039d9d965.ctex"]
+source_file="res://assets/Actions/player/bs_dfn.png"
+dest_files=["res://.godot/imported/bs_dfn.png-95e93a6cc94895e72cb92ddcc41a216c.ctex"]
 
 [params]
 
