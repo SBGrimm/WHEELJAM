@@ -1,10 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dm8crwojt34og"]
 
 [ext_resource type="Script" path="res://scenes/map/map.gd" id="1_53pfr"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_kl2md"]
-font_size = 24
-font_color = Color(0.26, 0.26, 0.26, 1)
+[ext_resource type="AudioStream" uid="uid://dqmqmvofwh4jd" path="res://sounds/music/song-Menu.mp3" id="2_hg6l6"]
 
 [node name="Map" type="Control"]
 layout_mode = 3
@@ -19,25 +16,23 @@ script = ExtResource("1_53pfr")
 [node name="MapEntrance" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.1
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.1
 anchor_bottom = 0.5
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="Camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
 anchor_mode = 0
 
+[node name="MapTheme" type="AudioStreamPlayer2D" parent="Camera"]
+stream = ExtResource("2_hg6l6")
+autoplay = true
+
 [node name="ColorRect" type="ColorRect" parent="Camera"]
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 1
-color = Color(0.86, 0.8342, 0.8342, 1)
+color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="Camera"]
-offset_right = 392.0
-offset_bottom = 34.0
-text = "Use mouse wheel/arrows to scroll"
-label_settings = SubResource("LabelSettings_kl2md")

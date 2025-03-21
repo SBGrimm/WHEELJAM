@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bj8xybellxgxt"]
 
 [ext_resource type="Script" path="res://scenes/menus/menu.gd" id="1_qr7vp"]
-[ext_resource type="AudioStream" uid="uid://dqmqmvofwh4jd" path="res://sounds/music/song-Menu.mp3" id="2_i8p2k"]
+[ext_resource type="AudioStream" uid="uid://bixrov4rfip7l" path="res://sounds/music/song-intro.mp3" id="3_76ydu"]
 [ext_resource type="AudioStream" uid="uid://c1ednfjyp54fj" path="res://sounds/sfx/click L.mp3" id="3_bi2cy"]
 [ext_resource type="Theme" uid="uid://brwb6odwkwryg" path="res://assets/themes/menu_theme.tres" id="4_8hjil"]
 
@@ -104,8 +104,8 @@ theme_override_font_sizes/bold_font_size = 84
 bbcode_enabled = true
 text = "[center][b]Wheel to live[/b][/center]"
 
-[node name="MenuTheme" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_i8p2k")
+[node name="TitleTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_76ydu")
 autoplay = true
 
 [node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]

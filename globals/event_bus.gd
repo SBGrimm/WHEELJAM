@@ -10,4 +10,4 @@ signal update_battle_preview()
 
 signal request_scene_change(scene_name: SceneManager.Scene)
 
-signal selectable_encounters_changed(new_encounters: Array[Node])
+signal encounter_selected(encounter: Node)

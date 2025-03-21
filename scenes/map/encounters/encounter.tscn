@@ -1,15 +1,101 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnhmv5bs0a1ki"]
+[gd_scene load_steps=24 format=3 uid="uid://bnhmv5bs0a1ki"]
 
 [ext_resource type="Script" path="res://scenes/map/encounters/encounter.gd" id="1_q1gyq"]
+[ext_resource type="Texture2D" uid="uid://dajxqe4k6lsca" path="res://assets/map_icons/Marks/Circle/round_map0001.png" id="2_4j1un"]
 [ext_resource type="AudioStream" uid="uid://c1ednfjyp54fj" path="res://sounds/sfx/click L.mp3" id="2_csn06"]
-[ext_resource type="AudioStream" uid="uid://cwclvhohslx1k" path="res://sounds/sfx/Select in.mp3" id="3_w014r"]
-[ext_resource type="AudioStream" uid="uid://blh6ck4gnfr2n" path="res://sounds/sfx/Select cancel.mp3" id="4_owm0a"]
+[ext_resource type="AudioStream" uid="uid://bmypdkolpf2md" path="res://sounds/sfx/hover.mp3" id="3_a60rs"]
+[ext_resource type="Texture2D" uid="uid://dbvd7v125xk4q" path="res://assets/map_icons/Marks/Circle/round_map0002.png" id="3_ll2s8"]
+[ext_resource type="Texture2D" uid="uid://cjy0f4llp83vo" path="res://assets/map_icons/Marks/Circle/round_map0003.png" id="4_hu5bq"]
+[ext_resource type="Texture2D" uid="uid://d05y6hhreuvbb" path="res://assets/map_icons/Marks/Circle/round_map0004.png" id="5_qr2bq"]
+[ext_resource type="Texture2D" uid="uid://ikevr8u74044" path="res://assets/map_icons/Marks/Circle/round_map0005.png" id="6_5n2ej"]
+[ext_resource type="Texture2D" uid="uid://dx2wjboddrmh4" path="res://assets/map_icons/Marks/Circle/round_map0006.png" id="7_bcuy7"]
+[ext_resource type="Texture2D" uid="uid://dortcr1wbsjtq" path="res://assets/map_icons/Marks/Circle/round_map0007.png" id="8_shoxd"]
+[ext_resource type="Texture2D" uid="uid://bc3tx2suapsm0" path="res://assets/map_icons/Marks/Circle/round_map0008.png" id="9_konbg"]
+[ext_resource type="Texture2D" uid="uid://dw4fdoqyviw21" path="res://assets/map_icons/Marks/Circle/round_map0009.png" id="10_y68tp"]
+[ext_resource type="Texture2D" uid="uid://cq50didjmuv2d" path="res://assets/map_icons/Marks/Cross/cross_map0000.png" id="11_wwgfy"]
+[ext_resource type="Texture2D" uid="uid://b5lgctrocqp2x" path="res://assets/map_icons/Marks/Cross/cross_map0001.png" id="12_fvlrf"]
+[ext_resource type="Texture2D" uid="uid://i74e61vap0mn" path="res://assets/map_icons/Marks/Cross/cross_map0002.png" id="13_jdu4i"]
+[ext_resource type="Texture2D" uid="uid://bmprjyjwkpb6n" path="res://assets/map_icons/Marks/Cross/cross_map0003.png" id="14_hlhtl"]
+[ext_resource type="Texture2D" uid="uid://nqk3r62im1qp" path="res://assets/map_icons/Marks/Cross/cross_map0004.png" id="15_r23oe"]
+[ext_resource type="Texture2D" uid="uid://c483jl373jsqw" path="res://assets/map_icons/Marks/Cross/cross_map0005.png" id="16_kh1i2"]
+[ext_resource type="Texture2D" uid="uid://dc6ldlkk5ob5x" path="res://assets/map_icons/Marks/Cross/cross_map0006.png" id="17_btps1"]
+[ext_resource type="Texture2D" uid="uid://c3bo7cybfyv5c" path="res://assets/map_icons/Marks/Cross/cross_map0007.png" id="18_h6dnk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uya7u"]
-size = Vector2(150, 150)
+size = Vector2(90, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lbpq7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4j1un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ll2s8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hu5bq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qr2bq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5n2ej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bcuy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_shoxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_konbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_y68tp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jd66e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_wwgfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fvlrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jdu4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_hlhtl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_r23oe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_kh1i2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_btps1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_h6dnk")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
 
 [node name="Encounter" type="Node2D"]
 script = ExtResource("1_q1gyq")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
 
 [node name="MouseHoverDetection" type="Area2D" parent="."]
 collision_layer = 256
@@ -18,18 +104,27 @@ collision_mask = 0
 [node name="MouseHoverArea" type="CollisionShape2D" parent="MouseHoverDetection"]
 shape = SubResource("RectangleShape2D_uya7u")
 
+[node name="MarkSelected" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_lbpq7")
+frame = 8
+
+[node name="MarkVisited" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_jd66e")
+frame = 7
+frame_progress = 1.0
+
 [node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_csn06")
 
 [node name="HoverOnSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_w014r")
-volume_db = -12.0
-pitch_scale = 2.0
+stream = ExtResource("3_a60rs")
 
 [node name="HoverOffSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_owm0a")
-volume_db = -12.0
-pitch_scale = 2.0
+stream = ExtResource("3_a60rs")
 
 [connection signal="input_event" from="MouseHoverDetection" to="." method="_on_mouse_hover_detection_input_event"]
 [connection signal="mouse_entered" from="MouseHoverDetection" to="." method="_on_mouse_entered"]

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://brwb6odwkwryg"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://brwb6odwkwryg"]
 
 [ext_resource type="StyleBox" uid="uid://dg50a5v0w2kxj" path="res://assets/themes/menu_theme/style_box_flat.tres" id="1_33b45"]
 [ext_resource type="FontFile" uid="uid://m5p4iu6lt5ju" path="res://fonts/shadows_into_light/ShadowsIntoLight-Regular.ttf" id="2_m2f8b"]
