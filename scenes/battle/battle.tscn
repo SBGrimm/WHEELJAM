@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cmxdie8w8t606" path="res://scenes/battle/start_turn_screen.tscn" id="4_ntuqt"]
 [ext_resource type="Script" path="res://scenes/battle/player_display.gd" id="5_1qkrt"]
 [ext_resource type="Script" path="res://scenes/battle/preview.gd" id="6_rs3qr"]
-[ext_resource type="AudioStream" uid="uid://lh3b2xk5jnt0" path="res://sounds/music/song-battle.mp3" id="14_k1gow"]
 
 [sub_resource type="Gradient" id="Gradient_414q1"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
