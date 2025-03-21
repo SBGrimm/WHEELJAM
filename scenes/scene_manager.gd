@@ -31,6 +31,12 @@ var scenes: Dictionary = {
 	Scene.ANTILOOT: preload("res://scenes/antiloot/antiloot_screen.tscn").instantiate(),
 }
 
+func start_track(theme):
+	if %ThemePlayer.stream != theme:
+		%ThemePlayer.stream = theme
+		%ThemePlayer.play()
+		print("New track")
+
 func go_to_scene(scene_name: Scene):
 	scene_host.add_child(scenes[scene_name])
 	scenes[scene_name].hide()
@@ -39,22 +45,28 @@ func go_to_scene(scene_name: Scene):
 	var callback = func():
 		scenes[scene_name].show()
 		current_scene = scene_name
+		start_track(scenes[scene_name].scene_theme())
 		if scene_name == Scene.MAP:
 			scenes[scene_name].start_animation()
 	get_tree().create_timer(0.1).timeout.connect(callback)
+	
 
 func remove_scene(scene_name: Scene):
 	scene_host.remove_child(scenes[scene_name])
 
+var switching = false
+
 func switch_scene(to: Scene):
-	const scene_switching_pause = .5
+	const scene_switching_pause = .8
 	whispers.pick_random().play()
 	scene_fadeout.visible = true
 	scene_fadeout.color[3] = 0
+	switching = true
 	await get_tree().create_timer(scene_switching_pause).timeout
 	remove_scene(current_scene)
 	go_to_scene(to)
 	scene_fadeout.visible = false
+	switching = false
 
 func _ready():
 	EventBus.request_scene_change.connect(switch_scene)
@@ -67,3 +79,6 @@ func _physics_process(delta: float) -> void:
 		0,
 		1,
 	)
+	%ThemePlayer.volume_db -= delta * 15 * (1 if switching else -1)
+	%ThemePlayer.volume_db = clampf(%ThemePlayer.volume_db, -30, 0)
+	 

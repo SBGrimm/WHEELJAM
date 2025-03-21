@@ -5,6 +5,10 @@ extends BaseScene
 @onready var slots = [slot_1, slot_2, slot_3]
 @onready var drop_zone = $DropZone
 
+
+func scene_theme(): 
+	return preload("res://sounds/music/song-reward.mp3")
+
 func _ready():
 	reset()
 

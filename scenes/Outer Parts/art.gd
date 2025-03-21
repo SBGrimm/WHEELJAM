@@ -33,6 +33,7 @@ func _gui_input(event):
 		return
 	if event is InputEventMouseButton and event.pressed:
 		if not lifted:
+			$LiftedPartSFX.play()
 			EventBus.started_drag.emit(self)
 			lifted = true
 			lift_timeout = true

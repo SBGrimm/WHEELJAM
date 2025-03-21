@@ -288,7 +288,3 @@ grow_vertical = 2
 visible = false
 z_index = 1
 layout_mode = 1
-
-[node name="BattleTheme" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("14_k1gow")
-autoplay = true
