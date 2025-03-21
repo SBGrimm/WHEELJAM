@@ -24,6 +24,7 @@ func wipe():
 
 func reset():
 	wipe()
+	drop_zone.reset()
 	spawn(GlobalGamestate.get_rewards())
 	EventBus.ended_drag.connect(drop_zone._on_dropped)
 

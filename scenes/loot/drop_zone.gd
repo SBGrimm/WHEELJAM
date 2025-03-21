@@ -16,6 +16,9 @@ func _ready():
 	hover_detector.mouse_entered.connect(_on_hover_detector_mouse_entered)
 	hover_detector.mouse_exited.connect(_on_hover_detector_mouse_exited)
 
+func reset():
+	sack_art.texture = textures["closed"]
+
 func _on_dropped(area: TextureRect):
 	if not area.is_in_group("droppable"):
 		return

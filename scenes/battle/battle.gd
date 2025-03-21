@@ -70,8 +70,8 @@ func _process_end_turn():
 func _on_parts_chosen(parts: Array[OuterPart]):
 	wheel.set_outer_parts(parts)
 	wheel.reset()
-	wheel.spin()
 	wheel.activate()
+	wheel.spin()
 	mouse_stopper.mouse_filter = MOUSE_FILTER_IGNORE
 
 func _on_update_battle_preview():

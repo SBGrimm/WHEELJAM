@@ -42,7 +42,7 @@ func start_track(theme):
 		print("New track")
 
 func go_to_scene(scene_name: Scene):
-	if scene_name == Scene.MAP:
+	if scene_name == Scene.LOOT:
 		if GlobalGamestate.is_on_boss:
 			go_to_scene(Scene.VICTORY)
 			return
