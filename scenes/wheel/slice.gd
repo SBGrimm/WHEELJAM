@@ -24,6 +24,10 @@ const regions = [
 	Rect2(1536, 0, 313, 284)
 ]
 
+func _ready():
+	set_texture()
+	set_art_modulate()
+
 func set_texture():
 	if _mod <= 0.5:
 		art.texture.region = regions[5]

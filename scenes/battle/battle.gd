@@ -20,6 +20,8 @@ func _ready():
 
 func reset():
 	battlestate = GlobalGamestate.get_battle_state()
+	if enemy != null:
+		remove_child(enemy)
 	add_child(battlestate.enemy)
 	enemy = battlestate.enemy
 	battlestate.gamestate_changed.connect(_on_gamestate_changed)
