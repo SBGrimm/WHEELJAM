@@ -6,6 +6,9 @@ var selectable_encounters: Array[Node]
 @onready var left_border = %MapEntrance.global_position[0] + 55
 @onready var right_border = %MapEntrance.global_position[0]
 
+func scene_theme(): 
+	return preload("res://sounds/music/song-Menu.mp3")
+	
 enum Encounter {
 	Battle,
 	DarkShrine,

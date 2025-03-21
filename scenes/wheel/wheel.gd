@@ -19,7 +19,18 @@ signal puzzle_finished ## emitted when the puzzle is complete.
 #endregion
 
 #region SFX Variables
-@onready var click_sfx = %ClickSFX
+@onready var wheel_rotate_sfx_list = [
+	%WheelRotateSFX1,
+	%WheelRotateSFX2,
+]
+@onready var hover_sfx_list = [
+	%HoverSFX1,
+	%HoverSFX2,
+	%HoverSFX3,
+	%HoverSFX4,
+	%HoverSFX5,
+	%HoverSFX6,
+]
 #endregion
 
 #region Internal Variables
@@ -65,10 +76,14 @@ func activate():
 func deactivate():
 	state = WheelState.DISABLED
 
+var last_direction = null
 ## processes the hover direction and moves the selector to that direction.
 func process_direction_input(direction:int)->void:
 	if state != WheelState.AWAITING_SELECTION: return
 	selector.rotation_degrees = direction #move our selector to the direction
+	if last_direction != direction:
+		hover_sfx_list[direction / 60].play()
+		last_direction = direction
 	new_dir_hovered.emit() # emit signal that we have moved the selector
 	EventBus.update_battle_preview.emit()
 
@@ -78,7 +93,7 @@ func process_confirm_input(direction:int)->void:
 	for x:Control in %covers.get_children():  # show the covers, increase the num selections, emit the signal, rotate
 		if int(round(x.rotation_degrees)) == direction: 
 			if x.visible: return
-			click_sfx.play()
+			wheel_rotate_sfx_list.pick_random().play()
 			x.visible = true
 			num_selections += 1
 			new_dir_chosen.emit(get_current_wheel_selection())

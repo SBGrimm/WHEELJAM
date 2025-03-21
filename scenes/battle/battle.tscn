@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bxlklmk3ea0bt"]
+[gd_scene load_steps=21 format=3 uid="uid://bxlklmk3ea0bt"]
 
 [ext_resource type="PackedScene" uid="uid://far3xviy2rnv" path="res://scenes/wheel/wheel.tscn" id="1_1f2s6"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_lo6wo"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cmxdie8w8t606" path="res://scenes/battle/start_turn_screen.tscn" id="4_ntuqt"]
 [ext_resource type="Script" path="res://scenes/battle/player_display.gd" id="5_1qkrt"]
 [ext_resource type="Script" path="res://scenes/battle/preview.gd" id="6_rs3qr"]
+[ext_resource type="Texture2D" uid="uid://ckstjpkxd7cej" path="res://assets/monsters/monster_1/monster_1_1.png" id="7_xvckr"]
+[ext_resource type="Texture2D" uid="uid://ddaxpu2i6euoh" path="res://assets/monsters/monster_1/monster_1_2.png" id="8_pgksq"]
+[ext_resource type="Texture2D" uid="uid://dlbpxvv4uo5nh" path="res://assets/monsters/monster_1/monster_1_3.png" id="9_hu3c2"]
+[ext_resource type="Texture2D" uid="uid://dpcfepjjkhmb0" path="res://assets/monsters/monster_1/monster_1_4.png" id="10_kwcdd"]
 [ext_resource type="PackedScene" uid="uid://c71jred27xre4" path="res://scenes/enemies/base_enemy.tscn" id="8_7swhd"]
 [ext_resource type="AudioStream" uid="uid://lh3b2xk5jnt0" path="res://sounds/music/song-battle.mp3" id="14_k1gow"]
 
@@ -292,7 +296,3 @@ grow_vertical = 2
 visible = false
 z_index = 1
 layout_mode = 1
-
-[node name="BattleTheme" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("14_k1gow")
-autoplay = true

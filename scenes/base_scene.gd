@@ -5,3 +5,6 @@ class_name BaseScene
 
 func reset():
 	pass
+
+func scene_theme():
+	return preload("res://sounds/music/song-Menu.mp3")

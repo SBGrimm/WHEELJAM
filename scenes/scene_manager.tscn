@@ -20,6 +20,9 @@ unique_name_in_owner = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="ThemePlayer" type="AudioStreamPlayer2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+
 [node name="SceneFadeout" type="ColorRect" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
