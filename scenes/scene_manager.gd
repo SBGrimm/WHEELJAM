@@ -50,13 +50,12 @@ func go_to_scene(scene_name: Scene):
 	scenes[scene_name].hide()
 	if scenes[scene_name].should_reset:
 		scenes[scene_name].reset()
-	var callback = func():
-		scenes[scene_name].show()
-		current_scene = scene_name
-		start_track(scenes[scene_name].scene_theme())
-		if scene_name == Scene.MAP:
-			scenes[scene_name].start_animation()
-	get_tree().create_timer(0.1).timeout.connect(callback)
+	await get_tree().create_timer(0.04).timeout
+	scenes[scene_name].show()
+	current_scene = scene_name
+	start_track(scenes[scene_name].scene_theme())
+	if scene_name == Scene.MAP:
+		scenes[scene_name].start_animation()
 	
 
 func remove_scene(scene_name: Scene):
