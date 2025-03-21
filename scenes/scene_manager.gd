@@ -19,6 +19,7 @@ enum Scene {
 	CAMPFIRE,
 	ANTILOOT,
 	SHRINE,
+	VICTORY
 }
 
 var current_scene: Scene = Scene.MAP
@@ -31,6 +32,7 @@ var scenes: Dictionary = {
 	Scene.CAMPFIRE: preload("res://scenes/campfire/campfire.tscn").instantiate(),
 	Scene.ANTILOOT: preload("res://scenes/antiloot/antiloot_screen.tscn").instantiate(),
 	Scene.SHRINE: preload("res://scenes/shrine/shrine.tscn").instantiate(),
+	Scene.VICTORY: preload("res://scenes/menus/WictoryScreen.tscn").instantiate(),
 }
 
 func start_track(theme):
@@ -40,6 +42,10 @@ func start_track(theme):
 		print("New track")
 
 func go_to_scene(scene_name: Scene):
+	if scene_name == Scene.MAP:
+		if GlobalGamestate.is_on_boss:
+			go_to_scene(Scene.VICTORY)
+			return
 	scene_host.add_child(scenes[scene_name])
 	scenes[scene_name].hide()
 	if scenes[scene_name].should_reset:

@@ -16,4 +16,5 @@ script = ExtResource("3_ajrhu")
 amount = 33.0
 
 [node name="art" parent="." index="1"]
+modulate = Color(1, 0, 0, 1)
 texture = ExtResource("4_gj573")

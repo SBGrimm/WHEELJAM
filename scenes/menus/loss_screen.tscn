@@ -5,11 +5,11 @@
 [ext_resource type="AudioStream" uid="uid://c1ednfjyp54fj" path="res://sounds/sfx/click L.mp3" id="3_drwxa"]
 [ext_resource type="AudioStream" uid="uid://bmypdkolpf2md" path="res://sounds/sfx/hover.mp3" id="4_040uy"]
 
-[sub_resource type="Gradient" id="Gradient_ojo7o"]
+[sub_resource type="Gradient" id="Gradient_buh4c"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_swqmn"]
-gradient = SubResource("Gradient_ojo7o")
+gradient = SubResource("Gradient_buh4c")
 width = 1000
 height = 1000
 fill = 1

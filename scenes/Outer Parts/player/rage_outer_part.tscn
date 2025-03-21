@@ -6,7 +6,7 @@
 
 [node name="RageOuterPart" instance=ExtResource("1_vh4ty")]
 text = "gives you 50 strength"
-id = 6
+id = 5
 
 [node name="StrengthEffect" type="Node" parent="EffectsList" index="0"]
 script = ExtResource("2_uak27")

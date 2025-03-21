@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccg5c4l1aqn1k"]
+[gd_scene load_steps=5 format=3 uid="uid://ccg5c4l1aqn1k"]
 
 [ext_resource type="PackedScene" uid="uid://bkxfj3cryqg52" path="res://scenes/Outer Parts/!outer_part_base.tscn" id="1_nbp8e"]
 [ext_resource type="Script" path="res://resources/effects/EnemyDamageEffect.gd" id="2_xsfe8"]
+[ext_resource type="Script" path="res://resources/effects/WeakEffect.gd" id="3_he4qa"]
 [ext_resource type="Texture2D" uid="uid://xbveh5j12u0a" path="res://assets/Actions/monster/tentacle_leap.png" id="4_g8hpq"]
 
 [node name="EnemyTentacleLeapPart" instance=ExtResource("1_nbp8e")]
@@ -9,6 +10,10 @@
 [node name="EnemyDamageEffect" type="Node" parent="EffectsList" index="0"]
 script = ExtResource("2_xsfe8")
 amount = 6.0
+
+[node name="WeakEffect" type="Node" parent="EffectsList" index="1"]
+script = ExtResource("3_he4qa")
+amount = 15.0
 
 [node name="art" parent="." index="1"]
 modulate = Color(1, 0, 0, 1)

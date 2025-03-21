@@ -1,14 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgrw4o8dou5j4"]
 
 [ext_resource type="PackedScene" uid="uid://bkxfj3cryqg52" path="res://scenes/Outer Parts/!outer_part_base.tscn" id="1_l1um7"]
-[ext_resource type="Script" path="res://resources/effects/DamageEffect.gd" id="2_16r8y"]
+[ext_resource type="Script" path="res://resources/effects/EnemyDamageEffect.gd" id="2_v22t2"]
 [ext_resource type="Script" path="res://resources/effects/EnemyStrengthEffect.gd" id="3_vjtsy"]
 [ext_resource type="Texture2D" uid="uid://bdxw30w3dhmbm" path="res://assets/Actions/monster/png_boss/strength_eye.png" id="4_wm1il"]
 
 [node name="EnemyRightEyeOuterPart" instance=ExtResource("1_l1um7")]
+modulate = Color(1, 0, 0, 1)
 
-[node name="DamageEffect" type="Node" parent="EffectsList" index="0"]
-script = ExtResource("2_16r8y")
+[node name="EnemyDamageEffect" type="Node" parent="EffectsList" index="0"]
+script = ExtResource("2_v22t2")
 amount = 4.0
 
 [node name="EnemyStrengthEffect" type="Node" parent="EffectsList" index="1"]

@@ -3,7 +3,7 @@ class_name DropZone
 
 @onready var selection_sfx = $SelectionSFX
 @onready var hover_detector = $HoverDetector
-@onready var sack_art = $SackArt
+@onready var sack_art = %SackArt
 
 signal part_chosen(part: OuterPart)
 

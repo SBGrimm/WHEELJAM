@@ -15,19 +15,23 @@ volume_db = -5.0
 stream = ExtResource("3_t8e2f")
 volume_db = -5.0
 
-[node name="SceneHost" type="Node" parent="."]
-unique_name_in_owner = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -424.0
+offset_top = -294.0
+offset_right = 750.0
+offset_bottom = 484.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="SceneHost" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ThemePlayer" type="AudioStreamPlayer2D" parent="CanvasLayer"]
 unique_name_in_owner = true

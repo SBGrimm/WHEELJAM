@@ -18,8 +18,8 @@ var enemies = [
 	preload("res://scenes/enemies/enemy3/enemy_3.tscn"),
 ]
 
-var amounts: PackedFloat32Array = PackedFloat32Array([3,3,0,0])
-var missing_amounts: PackedFloat32Array = PackedFloat32Array([0,0,3,3])
+var amounts: PackedFloat32Array = PackedFloat32Array([3,3,0,0,0,0])
+var missing_amounts: PackedFloat32Array = PackedFloat32Array([0,0,2,2,2,2])
 var hand_size = 5
 var modifiers = [2, 0.5, 3, 2, 1, 1]
 var rng = RandomNumberGenerator.new()
@@ -31,8 +31,8 @@ func hard_reset():
 	num_level = 0
 	player_hp = 100
 	player_max_hp = 100
-	amounts = PackedFloat32Array([3,3,0,0])
-	missing_amounts = PackedFloat32Array([0,0,3,3])
+	amounts = PackedFloat32Array([3,3,0,0,0,0])
+	missing_amounts = PackedFloat32Array([0,0,2,2,2,2])
 	hand_size = 5
 	modifiers = [2, 0.5, 3, 2, 1, 1]
 	is_on_boss = false
@@ -57,13 +57,19 @@ func get_battle_state():
 func get_rewards():
 	var rng = RandomNumberGenerator.new()
 	var rewards: Array[OuterPart] = []
+	var tmp_missing_amounts = missing_amounts.duplicate()
 	for i in range(3):
-		rewards.append(parts[rng.rand_weighted(missing_amounts)].instantiate())
+		var choice = rng.rand_weighted(tmp_missing_amounts)
+		rewards.append(parts[choice].instantiate())
+		tmp_missing_amounts[choice]
 	return rewards
 
 func get_antirewards():
 	var rng = RandomNumberGenerator.new()
 	var rewards: Array[OuterPart] = []
+	var tmp_amounts = amounts.duplicate()
 	for i in range(3):
-		rewards.append(parts[rng.rand_weighted(amounts)].instantiate())
+		var choice = rng.rand_weighted(tmp_amounts)
+		rewards.append(parts[choice].instantiate())
+		tmp_amounts[choice]
 	return rewards
