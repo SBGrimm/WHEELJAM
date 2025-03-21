@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://bokfcqulwjmjd"]
 
-[ext_resource type="Texture2D" uid="uid://cy7jd57v10qc1" path="res://assets/map_icons/passage.png" id="1_y51by"]
+[ext_resource type="Texture2D" uid="uid://2dlcq3bv88ah" path="res://assets/map_icons/passage.png" id="1_y51by"]
 [ext_resource type="Script" path="res://scenes/map/encounters/passage.gd" id="1_yrgsp"]
 
 [node name="Passage" type="Node2D"]
 script = ExtResource("1_yrgsp")
 
 [node name="Passage" type="Sprite2D" parent="."]
-position = Vector2(187, 0)
-scale = Vector2(0.15, 0.15)
+position = Vector2(130, 0)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_y51by")
 
 [node name="NextEncoutnerMarker" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(340, 0)
+position = Vector2(260, 0)

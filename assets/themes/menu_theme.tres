@@ -1,6 +1,5 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://brwb6odwkwryg"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://brwb6odwkwryg"]
 
-[ext_resource type="FontFile" uid="uid://bbbt6772k5v1q" path="res://assets/fonts/CaesarDressing-Regular.ttf" id="1_5ohcb"]
 [ext_resource type="StyleBox" uid="uid://dg50a5v0w2kxj" path="res://assets/themes/menu_theme/style_box_flat.tres" id="1_33b45"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdg5k"]
@@ -40,7 +39,6 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [resource]
-default_font = ExtResource("1_5ohcb")
 Button/font_sizes/font_size = 31
 Button/styles/disabled = SubResource("StyleBoxFlat_fdg5k")
 Button/styles/hover = SubResource("StyleBoxFlat_igcu6")
