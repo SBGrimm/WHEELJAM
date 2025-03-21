@@ -1,7 +1,7 @@
 extends Node
 
 var num_level = 0
-var player_hp = 100
+var player_hp = 1
 var player_max_hp = 100
 var parts = [
 	preload("res://scenes/Outer Parts/player/damage_outer_part.tscn"),
@@ -23,6 +23,15 @@ var missing_amounts: PackedFloat32Array = PackedFloat32Array([0,0,3,3])
 var hand_size = 5
 var modifiers = [2, 0.5, 3, 2, 1, 1]
 var rng = RandomNumberGenerator.new()
+
+func hard_reset():
+	num_level = 0
+	player_hp = 100
+	player_max_hp = 100
+	amounts = PackedFloat32Array([3,3,0,0])
+	missing_amounts = PackedFloat32Array([0,0,3,3])
+	hand_size = 5
+	modifiers = [2, 0.5, 3, 2, 1, 1]
 
 func get_battle_state():
 	var battlestate = BattleState.new()

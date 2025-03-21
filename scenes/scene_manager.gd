@@ -58,6 +58,10 @@ func remove_scene(scene_name: Scene):
 
 var switching = false
 
+func restart(to: Scene):
+	switch_scene(to)
+	GlobalGamestate.hard_reset()
+
 func switch_scene(to: Scene):
 	const scene_switching_pause = .8
 	whispers.pick_random().play()
@@ -72,6 +76,7 @@ func switch_scene(to: Scene):
 
 func _ready():
 	EventBus.request_scene_change.connect(switch_scene)
+	EventBus.request_restart.connect(restart)
 	go_to_scene(Scene.MAIN_MENU)
 
 func _physics_process(delta: float) -> void:
