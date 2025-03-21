@@ -14,10 +14,10 @@ extends Node
 }
 
 var symbols = {
-	"hp": "[img={20}x{20}]res://assets/icons/hearts.png[/img]", 
-	"block": "[img={20}x{20}]res://assets/icons/shields.png[/img]", 
-	"strength": "[img={20}x{20}]res://assets/icons/strength.png[/img]",
-	"weak": "[img={20}x{20}]res://assets/icons/weakness.png[/img]",
+	"hp": "[img={40}x{40}]res://assets/icons/hearts.png[/img]", 
+	"block": "[img={40}x{40}]res://assets/icons/shields.png[/img]", 
+	"strength": "[img={40}x{40}]res://assets/icons/strength.png[/img]",
+	"weak": " [img={40}x{40}]res://assets/icons/weakness.png[/img]",
 }
 
 func _ready():
@@ -26,10 +26,10 @@ func _ready():
 
 func get_symbol(amount: int, property: String):
 	if property.split("_")[1] == "status":
-			if amount>0:
+			if amount>=0:
 				return symbols["strength"]
 			else:
-				return symbols["weak"]	
+				return symbols["weak"]
 	else :
 		return symbols[property.split("_")[1]]
 		

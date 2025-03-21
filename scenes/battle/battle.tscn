@@ -1,11 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://bxlklmk3ea0bt"]
+[gd_scene load_steps=20 format=3 uid="uid://bxlklmk3ea0bt"]
 
 [ext_resource type="PackedScene" uid="uid://far3xviy2rnv" path="res://scenes/wheel/wheel.tscn" id="1_1f2s6"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_lo6wo"]
 [ext_resource type="Script" path="res://scenes/battle/label_manager.gd" id="2_w1p1h"]
 [ext_resource type="Theme" uid="uid://dl7i3i7wi8278" path="res://assets/themes/battle_display_theme.tres" id="3_napwm"]
 [ext_resource type="Script" path="res://scenes/battle/enemy_display.gd" id="4_8c7cc"]
-[ext_resource type="FontFile" uid="uid://bbbt6772k5v1q" path="res://assets/fonts/CaesarDressing-Regular.ttf" id="4_fhvdd"]
 [ext_resource type="PackedScene" uid="uid://cmxdie8w8t606" path="res://scenes/battle/start_turn_screen.tscn" id="4_ntuqt"]
 [ext_resource type="Script" path="res://scenes/battle/player_display.gd" id="5_1qkrt"]
 [ext_resource type="Script" path="res://scenes/enemies/behaviours/base_behaviour.gd" id="5_6dmas"]
@@ -98,7 +97,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
-offset_top = 15.0
+offset_top = 5.0
 offset_right = -5.0
 offset_bottom = -5.0
 grow_horizontal = 2
@@ -109,27 +108,33 @@ script = ExtResource("4_8c7cc")
 metadata/_edit_lock_ = true
 
 [node name="HP" type="RichTextLabel" parent="LabelManager/EnemyPanel/EnemyDisplay"]
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 theme = ExtResource("3_napwm")
 bbcode_enabled = true
-text = "1🧡"
+text = "123"
 metadata/_edit_lock_ = true
 
 [node name="Block" type="RichTextLabel" parent="LabelManager/EnemyPanel/EnemyDisplay"]
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 theme = ExtResource("3_napwm")
-theme_override_fonts/normal_font = ExtResource("4_fhvdd")
 bbcode_enabled = true
+text = "123"
 metadata/_edit_lock_ = true
 
 [node name="Status" type="RichTextLabel" parent="LabelManager/EnemyPanel/EnemyDisplay"]
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 theme = ExtResource("3_napwm")
-theme_override_fonts/normal_font = ExtResource("4_fhvdd")
 bbcode_enabled = true
+text = "123"
 metadata/_edit_lock_ = true
 
 [node name="PlayerPanel" type="Panel" parent="LabelManager"]
@@ -142,7 +147,7 @@ anchor_bottom = 1.0
 offset_left = -172.0
 offset_top = -146.0
 offset_right = 184.0
-offset_bottom = -78.0
+offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_napwm")
@@ -155,7 +160,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
-offset_top = 15.0
+offset_top = 5.0
 offset_right = -5.0
 offset_bottom = -5.0
 grow_horizontal = 2
@@ -166,28 +171,33 @@ script = ExtResource("5_1qkrt")
 metadata/_edit_lock_ = true
 
 [node name="HP" type="RichTextLabel" parent="LabelManager/PlayerPanel/PlayerDisplay"]
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 theme = ExtResource("3_napwm")
-theme_override_fonts/normal_font = ExtResource("4_fhvdd")
 bbcode_enabled = true
-text = "[center]123[img={20}x{20}]res://assets/icons/hearts.png[/img][/center]"
+text = "123"
 metadata/_edit_lock_ = true
 
 [node name="Block" type="RichTextLabel" parent="LabelManager/PlayerPanel/PlayerDisplay"]
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 theme = ExtResource("3_napwm")
-theme_override_fonts/normal_font = ExtResource("4_fhvdd")
 bbcode_enabled = true
+text = "123"
 metadata/_edit_lock_ = true
 
 [node name="Status" type="RichTextLabel" parent="LabelManager/PlayerPanel/PlayerDisplay"]
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 theme = ExtResource("3_napwm")
-theme_override_fonts/normal_font = ExtResource("4_fhvdd")
 bbcode_enabled = true
+text = "123"
 metadata/_edit_lock_ = true
 
 [node name="Preview" type="Control" parent="LabelManager"]
@@ -230,21 +240,18 @@ theme = ExtResource("3_napwm")
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_napwm")
-theme_override_fonts/normal_font = ExtResource("4_fhvdd")
 bbcode_enabled = true
 
 [node name="Block" type="RichTextLabel" parent="LabelManager/Preview/HSplitContainer/PlayerPreview"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_napwm")
-theme_override_fonts/normal_font = ExtResource("4_fhvdd")
 bbcode_enabled = true
 
 [node name="Status" type="RichTextLabel" parent="LabelManager/Preview/HSplitContainer/PlayerPreview"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_napwm")
-theme_override_fonts/normal_font = ExtResource("4_fhvdd")
 bbcode_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="LabelManager/Preview/HSplitContainer"]
@@ -262,21 +269,18 @@ theme = ExtResource("3_napwm")
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_napwm")
-theme_override_fonts/normal_font = ExtResource("4_fhvdd")
 bbcode_enabled = true
 
 [node name="Block" type="RichTextLabel" parent="LabelManager/Preview/HSplitContainer/EnemyPreview"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_napwm")
-theme_override_fonts/normal_font = ExtResource("4_fhvdd")
 bbcode_enabled = true
 
 [node name="Status" type="RichTextLabel" parent="LabelManager/Preview/HSplitContainer/EnemyPreview"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_napwm")
-theme_override_fonts/normal_font = ExtResource("4_fhvdd")
 bbcode_enabled = true
 
 [node name="Node" type="Node" parent="LabelManager/Preview"]
