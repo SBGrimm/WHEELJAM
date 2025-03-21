@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1syeqt2ek41b"
-path="res://.godot/imported/strait_eye.png-105501dee505299bd8a4e12c68b7f68e.ctex"
+uid="uid://bdxw30w3dhmbm"
+path="res://.godot/imported/strength_eye.png-76001eaad1211585397e0f185450f15a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/monsters/png_boss/strait_eye.png"
-dest_files=["res://.godot/imported/strait_eye.png-105501dee505299bd8a4e12c68b7f68e.ctex"]
+source_file="res://assets/Actions/monster/png_boss/strength_eye.png"
+dest_files=["res://.godot/imported/strength_eye.png-76001eaad1211585397e0f185450f15a.ctex"]
 
 [params]
 

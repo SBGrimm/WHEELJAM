@@ -11,6 +11,9 @@ var weights = PackedFloat32Array([1, 2])
 func get_outer_parts() -> Array[OuterPart]:
 	var parts: Array[OuterPart] = []
 	var rng = RandomNumberGenerator.new()
+	var w_copy = weights.duplicate()
 	for i in range(3):
-		parts.append(deck[rng.rand_weighted(weights)].instantiate())
+		var choice = rng.rand_weighted(w_copy)
+		parts.append(deck[choice].instantiate())
+		w_copy[choice]-=1
 	return parts

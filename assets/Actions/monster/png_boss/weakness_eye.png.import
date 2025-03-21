@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdxw30w3dhmbm"
-path="res://.godot/imported/strength_eye.png-d7c85f3a2416056057903d4d59ba6030.ctex"
+uid="uid://dc4ppue83v3y4"
+path="res://.godot/imported/weakness_eye.png-e4ae9e8adc589e26b14cf03b3d228aa2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/monsters/png_boss/strength_eye.png"
-dest_files=["res://.godot/imported/strength_eye.png-d7c85f3a2416056057903d4d59ba6030.ctex"]
+source_file="res://assets/Actions/monster/png_boss/weakness_eye.png"
+dest_files=["res://.godot/imported/weakness_eye.png-e4ae9e8adc589e26b14cf03b3d228aa2.ctex"]
 
 [params]
 

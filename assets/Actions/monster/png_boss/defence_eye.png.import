@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7l3j5aj2hixn"
-path="res://.godot/imported/defence_eye.png-8450d2249770d3ffbf0a0c356c9bfed2.ctex"
+path="res://.godot/imported/defence_eye.png-7f096791925737487d33c4446c965e1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/monsters/png_boss/defence_eye.png"
-dest_files=["res://.godot/imported/defence_eye.png-8450d2249770d3ffbf0a0c356c9bfed2.ctex"]
+source_file="res://assets/Actions/monster/png_boss/defence_eye.png"
+dest_files=["res://.godot/imported/defence_eye.png-7f096791925737487d33c4446c965e1b.ctex"]
 
 [params]
 

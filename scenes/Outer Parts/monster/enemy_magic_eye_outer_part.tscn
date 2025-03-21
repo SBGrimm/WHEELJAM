@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://8eb8svu4gsav"]
+
+[ext_resource type="PackedScene" uid="uid://bkxfj3cryqg52" path="res://scenes/Outer Parts/!outer_part_base.tscn" id="1_n2ih6"]
+[ext_resource type="Script" path="res://resources/effects/WeakEffect.gd" id="2_n74qb"]
+[ext_resource type="Script" path="res://resources/effects/EnemyStrengthEffect.gd" id="3_ajrhu"]
+[ext_resource type="Texture2D" uid="uid://c12d2aucxedp0" path="res://assets/Actions/monster/png_boss/debuff_eye.png" id="4_gj573"]
+
+[node name="EnemyMagicEyeOuterPart" instance=ExtResource("1_n2ih6")]
+
+[node name="WeakEffect" type="Node" parent="EffectsList" index="0"]
+script = ExtResource("2_n74qb")
+amount = 33.0
+
+[node name="EnemyStrengthEffect" type="Node" parent="EffectsList" index="1"]
+script = ExtResource("3_ajrhu")
+amount = 33.0
+
+[node name="art" parent="." index="1"]
+texture = ExtResource("4_gj573")

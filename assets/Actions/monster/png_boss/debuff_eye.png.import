@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c12d2aucxedp0"
-path="res://.godot/imported/debuff_eye.png-c732e455035572cf2cb1dcf58656b0b7.ctex"
+path="res://.godot/imported/debuff_eye.png-969678323a35e4858cb68ea3be7dfff1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/monsters/png_boss/debuff_eye.png"
-dest_files=["res://.godot/imported/debuff_eye.png-c732e455035572cf2cb1dcf58656b0b7.ctex"]
+source_file="res://assets/Actions/monster/png_boss/debuff_eye.png"
+dest_files=["res://.godot/imported/debuff_eye.png-969678323a35e4858cb68ea3be7dfff1.ctex"]
 
 [params]
 

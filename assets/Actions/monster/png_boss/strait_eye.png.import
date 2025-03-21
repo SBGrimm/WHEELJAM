@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc4ppue83v3y4"
-path="res://.godot/imported/weakness_eye.png-19e110a798ea3af0d4bfdce3881bb4f6.ctex"
+uid="uid://1syeqt2ek41b"
+path="res://.godot/imported/strait_eye.png-509e3d506e236ef7821398b495e2f6f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/monsters/png_boss/weakness_eye.png"
-dest_files=["res://.godot/imported/weakness_eye.png-19e110a798ea3af0d4bfdce3881bb4f6.ctex"]
+source_file="res://assets/Actions/monster/png_boss/strait_eye.png"
+dest_files=["res://.godot/imported/strait_eye.png-509e3d506e236ef7821398b495e2f6f0.ctex"]
 
 [params]
 
