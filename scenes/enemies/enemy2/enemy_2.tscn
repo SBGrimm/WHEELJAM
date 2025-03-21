@@ -1,0 +1,57 @@
+[gd_scene load_steps=13 format=3 uid="uid://dy54qt8ispjfg"]
+
+[ext_resource type="PackedScene" uid="uid://c71jred27xre4" path="res://scenes/enemies/base_enemy.tscn" id="1_s7h5e"]
+[ext_resource type="Texture2D" uid="uid://bkyvukjwb70ny" path="res://assets/monsters/monster_2/enemy_dog_idle0000.png" id="2_k340x"]
+[ext_resource type="Texture2D" uid="uid://2hcue4m83smf" path="res://assets/monsters/monster_2/enemy_dog_idle0001.png" id="3_oh4fe"]
+[ext_resource type="Texture2D" uid="uid://cu887n0lx7vvs" path="res://assets/monsters/monster_2/enemy_dog_idle0008.png" id="4_kr2mh"]
+[ext_resource type="Texture2D" uid="uid://3j25xufri6pg" path="res://assets/monsters/monster_2/enemy_dog_idle0007.png" id="5_mc01m"]
+[ext_resource type="Texture2D" uid="uid://b5o7pcy6yijeg" path="res://assets/monsters/monster_2/enemy_dog_idle0002.png" id="6_kgglw"]
+[ext_resource type="Texture2D" uid="uid://dr1ng32ylhioo" path="res://assets/monsters/monster_2/enemy_dog_idle0003.png" id="7_guyx2"]
+[ext_resource type="Texture2D" uid="uid://c5uvxfk85qdvd" path="res://assets/monsters/monster_2/enemy_dog_idle0004.png" id="8_7wkgk"]
+[ext_resource type="Texture2D" uid="uid://d3ih3ej3x60d6" path="res://assets/monsters/monster_2/enemy_dog_idle0005.png" id="9_w3iyo"]
+[ext_resource type="Texture2D" uid="uid://dx5wp21rkyqid" path="res://assets/monsters/monster_2/enemy_dog_idle0006.png" id="10_ebn4u"]
+[ext_resource type="Script" path="res://scenes/enemies/enemy2/behaviour.gd" id="11_sqrkv"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_y6hcu"]
+frames = 16
+speed_scale = 8.0
+frame_0/texture = ExtResource("2_k340x")
+frame_1/texture = ExtResource("3_oh4fe")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("6_kgglw")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("7_guyx2")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("8_7wkgk")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("9_w3iyo")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("10_ebn4u")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("5_mc01m")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("4_kr2mh")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("5_mc01m")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("4_kr2mh")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("5_mc01m")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("4_kr2mh")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("5_mc01m")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("4_kr2mh")
+frame_14/duration = 1.0
+frame_15/texture = ExtResource("5_mc01m")
+frame_15/duration = 1.0
+
+[node name="Enemy2" instance=ExtResource("1_s7h5e")]
+hp = 40
+
+[node name="TextureRect" parent="." index="0"]
+texture = SubResource("AnimatedTexture_y6hcu")
+
+[node name="EnemyBehaviour" parent="." index="1"]
+script = ExtResource("11_sqrkv")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6fxppf05cv63"]
+
+[ext_resource type="PackedScene" uid="uid://bkxfj3cryqg52" path="res://scenes/Outer Parts/!outer_part_base.tscn" id="1_uyxn6"]
+[ext_resource type="Script" path="res://resources/effects/WeakEffect.gd" id="2_d73ll"]
+[ext_resource type="Texture2D" uid="uid://ed5lihws1x3j" path="res://assets/Actions/monster/stinky_goo.png" id="3_5amh4"]
+
+[node name="EnemyTentacleGlueOuterPart" instance=ExtResource("1_uyxn6")]
+
+[node name="WeakEffect" type="Node" parent="EffectsList" index="0"]
+script = ExtResource("2_d73ll")
+amount = 45.0
+
+[node name="art" parent="." index="1"]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("3_5amh4")

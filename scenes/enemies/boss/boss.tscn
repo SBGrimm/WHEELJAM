@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnaiduy62vyqr"]
+
+[ext_resource type="PackedScene" uid="uid://c71jred27xre4" path="res://scenes/enemies/base_enemy.tscn" id="1_4jpmu"]
+[ext_resource type="Texture2D" uid="uid://dshp4a0igt6r8" path="res://assets/map_icons/Encounters/Boss/boss_map_icon0000.png" id="2_2ox53"]
+[ext_resource type="Texture2D" uid="uid://colqjjqvxlds5" path="res://assets/map_icons/Encounters/Boss/boss_map_icon0001.png" id="3_7tayu"]
+[ext_resource type="Texture2D" uid="uid://hu4ol87rbm8l" path="res://assets/map_icons/Encounters/Boss/boss_map_icon_hazard0000.png" id="4_5fwe4"]
+[ext_resource type="Script" path="res://scenes/enemies/boss/behaviour.gd" id="5_w8upg"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_n1akb"]
+frames = 6
+frame_0/texture = ExtResource("2_2ox53")
+frame_0/duration = 3.0
+frame_1/texture = ExtResource("3_7tayu")
+frame_1/duration = 0.5
+frame_2/texture = ExtResource("4_5fwe4")
+frame_2/duration = 0.2
+frame_3/texture = ExtResource("3_7tayu")
+frame_3/duration = 0.5
+frame_4/duration = 1.0
+frame_5/duration = 1.0
+
+[node name="Boss" instance=ExtResource("1_4jpmu")]
+
+[node name="TextureRect" parent="." index="0"]
+texture = SubResource("AnimatedTexture_n1akb")
+
+[node name="EnemyBehaviour" parent="." index="1"]
+script = ExtResource("5_w8upg")

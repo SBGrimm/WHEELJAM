@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4bhjnwo5l8hi"]
+
+[ext_resource type="PackedScene" uid="uid://bkxfj3cryqg52" path="res://scenes/Outer Parts/!outer_part_base.tscn" id="1_54mr2"]
+[ext_resource type="Script" path="res://resources/effects/DamageEffect.gd" id="2_kho13"]
+[ext_resource type="Script" path="res://resources/effects/WeakEffect.gd" id="3_ml0ky"]
+[ext_resource type="Texture2D" uid="uid://dc4ppue83v3y4" path="res://assets/Actions/monster/png_boss/weakness_eye.png" id="4_mh4os"]
+
+[node name="EnemyLeftEyeOuterPart" instance=ExtResource("1_54mr2")]
+
+[node name="DamageEffect" type="Node" parent="EffectsList" index="0"]
+script = ExtResource("2_kho13")
+amount = 4.0
+
+[node name="WeakEffect" type="Node" parent="EffectsList" index="1"]
+script = ExtResource("3_ml0ky")
+amount = 33.0
+
+[node name="art" parent="." index="1"]
+texture = ExtResource("4_mh4os")

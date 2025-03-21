@@ -1,6 +1,8 @@
 extends Resource
 class_name BattleState
 
+var enemy: Enemy
+
 @export var _player_hp = 0
 @export var _enemy_hp = 0
 @export var _player_block = 0

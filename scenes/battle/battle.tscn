@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cmxdie8w8t606" path="res://scenes/battle/start_turn_screen.tscn" id="4_ntuqt"]
 [ext_resource type="Script" path="res://scenes/battle/player_display.gd" id="5_1qkrt"]
 [ext_resource type="Script" path="res://scenes/battle/preview.gd" id="6_rs3qr"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/base_enemy.tscn" id="8_7swhd"]
 
 [sub_resource type="Gradient" id="Gradient_414q1"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -274,9 +273,6 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25
 anchor_right = 0.25
-
-[node name="Enemy" parent="." instance=ExtResource("8_7swhd")]
-layout_mode = 1
 
 [node name="MouseStopper" type="Control" parent="."]
 visible = false
