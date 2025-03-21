@@ -4,6 +4,7 @@ extends BaseScene
 @onready var start_button = %StartButton
 @onready var exit_button = %ExitButton
 @onready var sfx_click = $ClickSFX
+@onready var sfx_hover = $HoverSFX
 @onready var gradient = $Gradient
 
 func _ready():
@@ -22,8 +23,10 @@ func reset():
 	tween2.set_ease(Tween.EASE_IN_OUT)
 	tween2.tween_property(gradient, "texture:fill_to", Vector2(0, 1), 2)
 	tween.tween_property(menu_items, "modulate:a", 1, 4)
-	tween.tween_callback(func(): exit_button.disabled = false;start_button.disabled = false)
+	tween.tween_callback(func(): exit_button.disabled = false;start_button.disabled = false;no_hover=false)
 	tween2.tween_callback(bounce_light_forward)
+
+var no_hover = true
 
 func bounce_light_forward():
 	var tween = create_tween()
@@ -47,3 +50,13 @@ func _on_exit_button_pressed():
 func _on_start_button_pressed():
 	sfx_click.play()
 	EventBus.request_scene_change.emit(SceneManager.Scene.MAP)
+
+
+func _on_start_button_mouse_entered() -> void:
+	if not no_hover:
+		sfx_hover.play()
+
+
+func _on_exit_button_mouse_entered() -> void:
+	if not no_hover:
+		sfx_hover.play()
