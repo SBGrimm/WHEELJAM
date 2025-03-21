@@ -1,22 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://hhhsyqdb8lhq"]
+[gd_scene load_steps=8 format=3 uid="uid://hhhsyqdb8lhq"]
 
 [ext_resource type="Script" path="res://scenes/antiloot/antiloot_screen.gd" id="1_oo6ws"]
 [ext_resource type="Script" path="res://scenes/antiloot/slot.gd" id="2_crjw4"]
 [ext_resource type="Script" path="res://scenes/antiloot/drop_zone.gd" id="3_k0ocp"]
 [ext_resource type="Texture2D" uid="uid://b5nqffi8yicri" path="res://assets/wheel/action_slot.png" id="3_v4g1o"]
 [ext_resource type="AudioStream" uid="uid://cwclvhohslx1k" path="res://sounds/sfx/Select in.mp3" id="4_8cuee"]
+[ext_resource type="Texture2D" uid="uid://cfqxsojystkwo" path="res://assets/pit/pit0001.png" id="6_lxi31"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eapr1"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(1, 0, 0, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8twhm"]
+radius = 57.0
+height = 246.0
 
 [node name="AntilootScreen" type="Control"]
 layout_mode = 3
@@ -45,6 +38,9 @@ anchor_left = 0.1
 anchor_top = 0.25
 anchor_right = 0.3
 anchor_bottom = 0.45
+offset_top = 108.0
+offset_right = -3.05176e-05
+offset_bottom = 108.0
 mouse_filter = 1
 script = ExtResource("2_crjw4")
 
@@ -71,9 +67,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -66.0
-offset_top = -66.0
+offset_top = -50.0
 offset_right = 66.0
-offset_bottom = 66.0
+offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_v4g1o")
@@ -84,6 +80,8 @@ anchor_left = 0.4
 anchor_top = 0.25
 anchor_right = 0.6
 anchor_bottom = 0.45
+offset_top = 248.0
+offset_bottom = 248.0
 mouse_filter = 1
 script = ExtResource("2_crjw4")
 
@@ -110,9 +108,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -66.0
-offset_top = -66.0
+offset_top = -50.0
 offset_right = 66.0
-offset_bottom = 66.0
+offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_v4g1o")
@@ -123,6 +121,10 @@ anchor_left = 0.7
 anchor_top = 0.25
 anchor_right = 0.9
 anchor_bottom = 0.45
+offset_left = 6.10352e-05
+offset_top = 108.0
+offset_right = 0.00012207
+offset_bottom = 108.0
 mouse_filter = 1
 script = ExtResource("2_crjw4")
 
@@ -149,36 +151,44 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -66.0
-offset_top = -66.0
+offset_top = -50.0
 offset_right = 66.0
-offset_bottom = 66.0
+offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_v4g1o")
 
 [node name="DropZone" type="Control" parent="."]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
-anchor_left = 0.05
-anchor_top = 0.6
-anchor_right = 0.95
-anchor_bottom = 0.95
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.0
+offset_top = 64.0
+offset_right = 142.0
+offset_bottom = 218.0
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("3_k0ocp")
-
-[node name="Panel" type="Panel" parent="DropZone"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_eapr1")
 
 [node name="SelectionSFX" type="AudioStreamPlayer2D" parent="DropZone"]
 stream = ExtResource("4_8cuee")
 volume_db = -5.0
+
+[node name="PitArt" type="TextureRect" parent="DropZone"]
+layout_mode = 0
+offset_left = -105.0
+offset_top = -198.0
+offset_right = 407.0
+offset_bottom = 314.0
+texture = ExtResource("6_lxi31")
+
+[node name="HoverDetector" type="Area2D" parent="DropZone"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropZone/HoverDetector"]
+position = Vector2(136, 79)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8twhm")
 
 [connection signal="part_chosen" from="DropZone" to="." method="_on_drop_zone_part_chosen"]

@@ -5,6 +5,9 @@ extends BaseScene
 @onready var slots = [slot_1, slot_2, slot_3]
 @onready var drop_zone = $DropZone
 
+func _ready():
+	reset()
+
 func spawn(parts: Array[OuterPart]):
 	for i in range(3):
 		slots[i].set_part(parts[i])
