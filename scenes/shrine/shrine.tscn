@@ -120,6 +120,7 @@ bbcode_enabled = true
 text = "[center]Decrease Multiplier[/center]"
 
 [node name="Inc" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 479.0
 offset_top = 541.0
 offset_right = 740.0
@@ -131,6 +132,7 @@ bbcode_enabled = true
 text = "[center]Increase Multiplier[/center]"
 
 [node name="Sel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 469.0
 offset_top = 292.0
 offset_right = 730.0

@@ -35,7 +35,7 @@ func hard_reset():
 	missing_amounts = PackedFloat32Array([0,0,3,3])
 	hand_size = 5
 	modifiers = [2, 0.5, 3, 2, 1, 1]
-  is_on_boss = false
+	is_on_boss = false
 
 
 func get_battle_state():
