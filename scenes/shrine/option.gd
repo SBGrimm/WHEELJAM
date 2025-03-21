@@ -1,4 +1,4 @@
-extends Control
+extends TextureRect
 
 signal option_chosen
 

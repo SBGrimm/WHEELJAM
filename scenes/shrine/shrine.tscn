@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwqtih7dxliyk"]
+[gd_scene load_steps=12 format=3 uid="uid://cwqtih7dxliyk"]
 
 [ext_resource type="Script" path="res://scenes/shrine/shrine.gd" id="1_feqbl"]
 [ext_resource type="Theme" uid="uid://brwb6odwkwryg" path="res://assets/themes/menu_theme.tres" id="2_asnlr"]
 [ext_resource type="Script" path="res://scenes/shrine/option.gd" id="4_b45c6"]
 [ext_resource type="Texture2D" uid="uid://cvq1lo2ef7phi" path="res://assets/map_icons/Encounters/Shrine/shrine_map_icon0000.png" id="4_spnru"]
 [ext_resource type="PackedScene" uid="uid://far3xviy2rnv" path="res://scenes/wheel/wheel.tscn" id="4_w1nf4"]
+[ext_resource type="Texture2D" uid="uid://ba2821hhwuefv" path="res://assets/shrine/shrine+10000.png" id="5_whkhq"]
 [ext_resource type="AudioStream" uid="uid://c1ednfjyp54fj" path="res://sounds/sfx/click L.mp3" id="6_35dxi"]
+[ext_resource type="Texture2D" uid="uid://dtcj32sx4c1xo" path="res://assets/shrine/shrine-10000.png" id="6_r6wg3"]
 [ext_resource type="AudioStream" uid="uid://bmypdkolpf2md" path="res://sounds/sfx/hover.mp3" id="7_k8p2y"]
 [ext_resource type="AudioStream" uid="uid://blh6ck4gnfr2n" path="res://sounds/sfx/Select cancel.mp3" id="8_mo6tn"]
 [ext_resource type="AudioStream" uid="uid://ckaguwimc1r5s" path="res://sounds/sfx/Select out.mp3" id="9_hr4kx"]
@@ -33,18 +35,6 @@ mouse_filter = 1
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 444.0
-offset_top = 25.0
-offset_right = 705.0
-offset_bottom = 85.0
-mouse_filter = 1
-theme = ExtResource("2_asnlr")
-theme_override_font_sizes/normal_font_size = 27
-bbcode_enabled = true
-text = "[center]Select a slice to bless[/center]"
-
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -52,10 +42,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 58.0
-offset_top = -244.0
-offset_right = 570.0
-offset_bottom = 268.0
+offset_left = 82.0
+offset_top = -248.0
+offset_right = 594.0
+offset_bottom = 264.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_spnru")
@@ -74,53 +64,31 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Option 1" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 404.0
-offset_bottom = 469.0
-mouse_filter = 1
+[node name="Option 1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 715.0
+offset_top = 365.0
+offset_right = 1227.0
+offset_bottom = 877.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_whkhq")
 script = ExtResource("4_b45c6")
 
-[node name="ColorRect" type="ColorRect" parent="Option 1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 707.0
-offset_top = 450.0
-offset_right = 707.0
-offset_bottom = 156.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-
-[node name="Option 2" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 744.0
-offset_right = 1148.0
-offset_bottom = 170.0
-mouse_filter = 1
+[node name="Option 2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 708.0
+offset_top = -111.0
+offset_right = 1220.0
+offset_bottom = 401.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_r6wg3")
 script = ExtResource("4_b45c6")
-
-[node name="ColorRect" type="ColorRect" parent="Option 2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -31.0
-offset_top = 22.0
-offset_right = -31.0
-offset_bottom = 22.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
 
 [node name="Wheel" parent="." instance=ExtResource("4_w1nf4")]
 layout_mode = 1
-offset_left = -273.0
+offset_left = -289.0
 offset_top = -14.0
-offset_right = -273.0
+offset_right = -289.0
 offset_bottom = -14.0
 
 [node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
@@ -138,3 +106,37 @@ stream = ExtResource("8_mo6tn")
 [node name="SelectSFX2" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("9_hr4kx")
+
+[node name="Dec" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 29.0
+offset_right = 752.0
+offset_bottom = 89.0
+mouse_filter = 1
+theme = ExtResource("2_asnlr")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "[center]Decrease Multiplier[/center]"
+
+[node name="Inc" type="RichTextLabel" parent="."]
+offset_left = 479.0
+offset_top = 541.0
+offset_right = 740.0
+offset_bottom = 601.0
+mouse_filter = 1
+theme = ExtResource("2_asnlr")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "[center]Increase Multiplier[/center]"
+
+[node name="Sel" type="RichTextLabel" parent="."]
+offset_left = 469.0
+offset_top = 292.0
+offset_right = 730.0
+offset_bottom = 352.0
+mouse_filter = 1
+theme = ExtResource("2_asnlr")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "[center]Select a slice to bless[/center]"

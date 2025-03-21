@@ -12,10 +12,7 @@ var enemy: Enemy
 
 @export var hand_size = 5
 @export var parts = [
-	preload("res://scenes/Outer Parts/player/damage_outer_part.tscn"),
-	preload("res://scenes/Outer Parts/player/block_outer_part.tscn"),
-	preload("res://scenes/Outer Parts/player/block_strength_outer_part.tscn"),	
-	preload("res://scenes/Outer Parts/player/damage_weak_outer_part.tscn")
+	preload("res://scenes/Outer Parts/player/damage_outer_part.tscn")
 ]
 @export var amounts: PackedFloat32Array
 

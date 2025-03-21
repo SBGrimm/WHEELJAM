@@ -24,6 +24,9 @@ var hand_size = 5
 var modifiers = [2, 0.5, 3, 2, 1, 1]
 var rng = RandomNumberGenerator.new()
 
+var boss = preload("res://scenes/enemies/boss/boss.tscn")
+var is_on_boss = false
+
 func hard_reset():
 	num_level = 0
 	player_hp = 100
@@ -32,10 +35,16 @@ func hard_reset():
 	missing_amounts = PackedFloat32Array([0,0,3,3])
 	hand_size = 5
 	modifiers = [2, 0.5, 3, 2, 1, 1]
+  is_on_boss = false
+
 
 func get_battle_state():
 	var battlestate = BattleState.new()
-	var enemy = enemies[rng.randi_range(0, 2)].instantiate()
+	var enemy: Enemy
+	if not is_on_boss:
+		enemy = enemies[rng.randi_range(0, 2)].instantiate()
+	else:
+		enemy = boss.instantiate()
 	battlestate.enemy = enemy
 	battlestate._enemy_hp = enemy.hp
 	battlestate._player_hp = player_hp

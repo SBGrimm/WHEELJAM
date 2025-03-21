@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cycd03pg1wh04"]
+[gd_scene load_steps=8 format=3 uid="uid://djmektrj6sfhl"]
 
 [ext_resource type="PackedScene" uid="uid://bnhmv5bs0a1ki" path="res://scenes/map/encounters/encounter.tscn" id="1_pc7nv"]
 [ext_resource type="Script" path="res://scenes/map/encounters/boss.gd" id="2_sdick"]

@@ -3,6 +3,9 @@ extends BaseScene
 @onready var wheel = $Wheel
 @onready var option_1 = $"Option 1"
 @onready var option_2 = $"Option 2"
+@onready var dec = $Dec
+@onready var inc = $Inc
+@onready var sel = $Sel
 
 
 func scene_theme(): 
@@ -12,6 +15,8 @@ func _ready():
 	wheel.new_dir_chosen.connect(_on_slice_chosen)
 	option_1.option_chosen.connect(_on_option_1_chosen)
 	option_2.option_chosen.connect(_on_option_2_chosen)
+	dec.hide()
+	inc.hide()
 	reset()
 
 var parts: Array[OuterPart] = [
@@ -32,6 +37,9 @@ func reset():
 	wheel.activate()
 	option_1.hide()
 	option_2.hide()
+	dec.hide()
+	inc.hide()
+	sel.show()
 
 const steps = [0.2, 0.25, 0.33, 0.5, 1, 2, 3, 4, 5, 6, 7]
 
@@ -40,7 +48,8 @@ func _on_slice_chosen(wheel_selection: WheelSelection):
 	slice_index = wheel_selection.slice_index
 	option_1.show()
 	option_2.show()
-
+	dec.show()
+	inc.show()
 func _on_option_1_chosen():
 	if slice_index == -1:
 		return
