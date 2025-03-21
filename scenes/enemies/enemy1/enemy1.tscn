@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6nx7s54nigxf"]
+
+[ext_resource type="Script" path="res://scenes/enemies/base_enemy.gd" id="1_m1tst"]
+[ext_resource type="Texture2D" uid="uid://ckstjpkxd7cej" path="res://assets/monsters/monster_1/monster_1_1.png" id="2_3bryx"]
+[ext_resource type="Texture2D" uid="uid://ddaxpu2i6euoh" path="res://assets/monsters/monster_1/monster_1_2.png" id="3_tl1x0"]
+[ext_resource type="Texture2D" uid="uid://dlbpxvv4uo5nh" path="res://assets/monsters/monster_1/monster_1_3.png" id="4_tc47m"]
+[ext_resource type="Texture2D" uid="uid://dpcfepjjkhmb0" path="res://assets/monsters/monster_1/monster_1_4.png" id="5_c6whm"]
+[ext_resource type="Script" path="res://scenes/enemies/enemy1/behaviour.gd" id="6_ih8hj"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_fp7on"]
+frames = 4
+speed_scale = 4.0
+frame_0/texture = ExtResource("2_3bryx")
+frame_1/texture = ExtResource("3_tl1x0")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_tc47m")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_c6whm")
+frame_3/duration = 1.0
+
+[node name="Enemy1" type="Control"]
+layout_mode = 3
+anchor_left = 0.7
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+offset_left = -113.4
+offset_top = -5.60001
+offset_right = -113.4
+offset_bottom = -5.59998
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_m1tst")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_fp7on")
+expand_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="EnemyBehaviour" type="Node" parent="."]
+script = ExtResource("6_ih8hj")

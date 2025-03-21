@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://bkxfj3cryqg52" path="res://scenes/Outer Parts/!outer_part_base.tscn" id="1_e1xxe"]
 [ext_resource type="Script" path="res://resources/effects/DamageEffect.gd" id="2_r7htu"]
 [ext_resource type="Script" path="res://resources/effects/WeakEffect.gd" id="3_jeexc"]
-[ext_resource type="Texture2D" uid="uid://qaivxspp2yqw" path="res://assets/Actions/axe_swipe_cleave.png" id="4_bmu6x"]
+[ext_resource type="Texture2D" uid="uid://qaivxspp2yqw" path="res://assets/Actions/player/axe_swipe_cleave.png" id="4_bmu6x"]
 
 [node name="DamageWeakOuterPart" instance=ExtResource("1_e1xxe")]
-text = "deals (10) damage, gives you (33) weakness"
+text = "deals 10 damage, gives you 33 weakness"
 id = 3
 
 [node name="DamageEffect" type="Node" parent="EffectsList" index="0"]

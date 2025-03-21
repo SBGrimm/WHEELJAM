@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cib407fq2iv74"
-path="res://.godot/imported/bs_attack.png-7b257af7b3ebfa191da6c63b0b0b0db1.ctex"
+uid="uid://c0swhl524xrhq"
+path="res://.godot/imported/monster_block.png-b319a6def35511c6b154f84ed9d2ae95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Actions/bs_attack.png"
-dest_files=["res://.godot/imported/bs_attack.png-7b257af7b3ebfa191da6c63b0b0b0db1.ctex"]
+source_file="res://assets/Actions/monster/monster_block.png"
+dest_files=["res://.godot/imported/monster_block.png-b319a6def35511c6b154f84ed9d2ae95.ctex"]
 
 [params]
 

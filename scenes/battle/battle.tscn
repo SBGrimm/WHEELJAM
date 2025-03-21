@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bxlklmk3ea0bt"]
+[gd_scene load_steps=21 format=3 uid="uid://bxlklmk3ea0bt"]
 
 [ext_resource type="PackedScene" uid="uid://far3xviy2rnv" path="res://scenes/wheel/wheel.tscn" id="1_1f2s6"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_lo6wo"]
@@ -7,13 +7,13 @@
 [ext_resource type="Script" path="res://scenes/battle/enemy_display.gd" id="4_8c7cc"]
 [ext_resource type="PackedScene" uid="uid://cmxdie8w8t606" path="res://scenes/battle/start_turn_screen.tscn" id="4_ntuqt"]
 [ext_resource type="Script" path="res://scenes/battle/player_display.gd" id="5_1qkrt"]
-[ext_resource type="Script" path="res://scenes/enemies/behaviours/base_behaviour.gd" id="5_6dmas"]
-[ext_resource type="Script" path="res://scenes/enemies/base_enemy.gd" id="5_h7py5"]
 [ext_resource type="Script" path="res://scenes/battle/preview.gd" id="6_rs3qr"]
 [ext_resource type="Texture2D" uid="uid://ckstjpkxd7cej" path="res://assets/monsters/monster_1/monster_1_1.png" id="7_xvckr"]
 [ext_resource type="Texture2D" uid="uid://ddaxpu2i6euoh" path="res://assets/monsters/monster_1/monster_1_2.png" id="8_pgksq"]
 [ext_resource type="Texture2D" uid="uid://dlbpxvv4uo5nh" path="res://assets/monsters/monster_1/monster_1_3.png" id="9_hu3c2"]
 [ext_resource type="Texture2D" uid="uid://dpcfepjjkhmb0" path="res://assets/monsters/monster_1/monster_1_4.png" id="10_kwcdd"]
+[ext_resource type="PackedScene" uid="uid://c71jred27xre4" path="res://scenes/enemies/base_enemy.tscn" id="8_7swhd"]
+[ext_resource type="AudioStream" uid="uid://lh3b2xk5jnt0" path="res://sounds/music/song-battle.mp3" id="14_k1gow"]
 
 [sub_resource type="Gradient" id="Gradient_414q1"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -36,17 +36,6 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_fp7on"]
-frames = 4
-speed_scale = 4.0
-frame_0/texture = ExtResource("7_xvckr")
-frame_1/texture = ExtResource("8_pgksq")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("9_hu3c2")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("10_kwcdd")
-frame_3/duration = 1.0
 
 [node name="Battle" type="Control"]
 layout_mode = 3
@@ -291,34 +280,8 @@ anchors_preset = -1
 anchor_left = 0.25
 anchor_right = 0.25
 
-[node name="Enemy" type="Control" parent="."]
+[node name="Enemy" parent="." instance=ExtResource("8_7swhd")]
 layout_mode = 1
-anchor_left = 0.7
-anchor_top = 0.2
-anchor_right = 1.0
-anchor_bottom = 0.8
-offset_left = -113.4
-offset_top = -5.60001
-offset_right = -113.4
-offset_bottom = -5.59998
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-script = ExtResource("5_h7py5")
-
-[node name="TextureRect" type="TextureRect" parent="Enemy"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AnimatedTexture_fp7on")
-expand_mode = 5
-metadata/_edit_lock_ = true
-
-[node name="EnemyBehaviour" type="Node" parent="Enemy"]
-script = ExtResource("5_6dmas")
 
 [node name="MouseStopper" type="Control" parent="."]
 visible = false

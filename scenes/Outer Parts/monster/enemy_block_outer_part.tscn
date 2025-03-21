@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bkxfj3cryqg52" path="res://scenes/Outer Parts/!outer_part_base.tscn" id="1_dgkw1"]
 [ext_resource type="Script" path="res://resources/effects/EnemyBlockEffect.gd" id="2_wubtb"]
-[ext_resource type="Texture2D" uid="uid://c0swhl524xrhq" path="res://assets/Actions/monster1/monster_block.png" id="3_6v8jd"]
+[ext_resource type="Texture2D" uid="uid://c0swhl524xrhq" path="res://assets/Actions/monster/monster_block.png" id="3_6v8jd"]
 
 [node name="EnemyBlockOuterPart" instance=ExtResource("1_dgkw1")]
 
