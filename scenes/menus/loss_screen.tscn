@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq38r57mh3apy"]
+[gd_scene load_steps=7 format=3 uid="uid://cq38r57mh3apy"]
 
 [ext_resource type="Script" path="res://scenes/menus/loss_screen.gd" id="1_o8xm4"]
 [ext_resource type="Theme" uid="uid://brwb6odwkwryg" path="res://assets/themes/menu_theme.tres" id="2_ppsk1"]
+[ext_resource type="AudioStream" uid="uid://c1ednfjyp54fj" path="res://sounds/sfx/click L.mp3" id="3_drwxa"]
+[ext_resource type="AudioStream" uid="uid://bmypdkolpf2md" path="res://sounds/sfx/hover.mp3" id="4_040uy"]
 
 [sub_resource type="Gradient" id="Gradient_ojo7o"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -82,5 +84,16 @@ grow_vertical = 2
 theme = ExtResource("2_ppsk1")
 text = "Back to Menu"
 
+[node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_drwxa")
+volume_db = -5.0
+
+[node name="HoverSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_040uy")
+
+[connection signal="mouse_entered" from="StartOverButton" to="." method="_on_start_over_button_mouse_entered"]
+[connection signal="mouse_exited" from="StartOverButton" to="." method="_on_start_over_button_mouse_exited"]
 [connection signal="pressed" from="StartOverButton" to="." method="_on_start_over_button_pressed"]
+[connection signal="mouse_entered" from="BackToMenuButton" to="." method="_on_back_to_menu_button_mouse_entered"]
+[connection signal="mouse_exited" from="BackToMenuButton" to="." method="_on_back_to_menu_button_mouse_exited"]
 [connection signal="pressed" from="BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
