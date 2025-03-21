@@ -15,9 +15,11 @@ func spawn(parts: Array[OuterPart]):
 func wipe():
 	for slot in slots:
 		slot.reset()
-	EventBus.ended_drag.disconnect(drop_zone._on_dropped)
+	if EventBus.ended_drag.is_connected(drop_zone._on_dropped):
+		EventBus.ended_drag.disconnect(drop_zone._on_dropped)
 
 func reset():
+	wipe()
 	spawn(GlobalGamestate.get_rewards())
 	EventBus.ended_drag.connect(drop_zone._on_dropped)
 

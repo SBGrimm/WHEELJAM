@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpb1o0xswmq56"]
+
+[ext_resource type="PackedScene" uid="uid://bkxfj3cryqg52" path="res://scenes/Outer Parts/!outer_part_base.tscn" id="1_gjmo5"]
+[ext_resource type="Script" path="res://resources/effects/EnemyBlockEffect.gd" id="2_3geqf"]
+[ext_resource type="Texture2D" uid="uid://sru3s1aytanh" path="res://assets/Actions/monster/grobnica_levistusa.png" id="3_sp0um"]
+
+[node name="EnemyTentacleBlockOuterPart" instance=ExtResource("1_gjmo5")]
+
+[node name="EnemyBlockEffect" type="Node" parent="EffectsList" index="0"]
+script = ExtResource("2_3geqf")
+amount = 10.0
+
+[node name="art" parent="." index="1"]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("3_sp0um")

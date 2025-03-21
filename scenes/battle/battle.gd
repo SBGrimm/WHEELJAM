@@ -5,7 +5,7 @@ var battlestate: BattleState
 @onready var wheel = %Wheel
 @onready var fadeout = $FadeOut
 @onready var mouse_stopper = $MouseStopper
-@onready var enemy = $Enemy
+var enemy: Enemy
 @onready var label_manager = $LabelManager
 
 
@@ -17,7 +17,8 @@ func _ready():
 
 func reset():
 	battlestate = GlobalGamestate.get_battle_state()
-	battlestate.enemy_hp = 40
+	add_child(battlestate.enemy)
+	enemy = battlestate.enemy
 	battlestate.gamestate_changed.connect(_on_gamestate_changed)
 	label_manager.update_gamestate_display(battlestate, "all")
 	fadeout.visible = true
