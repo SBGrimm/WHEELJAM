@@ -18,6 +18,7 @@ enum Scene {
 	LOOT,
 	CAMPFIRE,
 	ANTILOOT,
+	SHRINE,
 }
 
 var current_scene: Scene = Scene.MAP
@@ -29,6 +30,7 @@ var scenes: Dictionary = {
 	Scene.LOOT: preload("res://scenes/loot/loot_screen.tscn").instantiate(),
 	Scene.CAMPFIRE: preload("res://scenes/campfire/campfire.tscn").instantiate(),
 	Scene.ANTILOOT: preload("res://scenes/antiloot/antiloot_screen.tscn").instantiate(),
+	Scene.SHRINE: preload("res://scenes/shrine/shrine.tscn").instantiate(),
 }
 
 func start_track(theme):
