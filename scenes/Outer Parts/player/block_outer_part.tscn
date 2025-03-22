@@ -10,7 +10,7 @@ id = 1
 
 [node name="BlockEffect" type="Node" parent="EffectsList" index="0"]
 script = ExtResource("2_1ectu")
-amount = 4.0
+amount = 3.0
 
 [node name="art" parent="." index="1"]
 texture = ExtResource("3_yf5gr")
