@@ -94,15 +94,15 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -250.0
-offset_top = 99.0
-offset_right = 250.0
-offset_bottom = 236.0
+offset_left = -332.0
+offset_top = 80.0
+offset_right = 332.0
+offset_bottom = 239.0
 grow_horizontal = 2
 theme = ExtResource("4_8hjil")
 theme_override_font_sizes/bold_font_size = 84
 bbcode_enabled = true
-text = "[center][b]Wheel to live[/b][/center]"
+text = "[center][b]Delve into the Abyss[/b][/center]"
 
 [node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_bi2cy")
