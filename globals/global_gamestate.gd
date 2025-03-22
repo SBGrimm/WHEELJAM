@@ -61,7 +61,7 @@ func get_rewards():
 	for i in range(3):
 		var choice = rng.rand_weighted(tmp_missing_amounts)
 		rewards.append(parts[choice].instantiate())
-		tmp_missing_amounts[choice]
+		tmp_missing_amounts[choice] -= 1
 	return rewards
 
 func get_antirewards():
