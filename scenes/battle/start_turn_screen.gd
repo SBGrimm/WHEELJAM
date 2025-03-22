@@ -41,6 +41,9 @@ func check_parts_chosen():
 func pre_place(parts: Array[OuterPart]):
 	for i in range(parts.size()):
 		pre_places[i].add_child(parts[i])
+		parts[i].mouse_filter = Control.MOUSE_FILTER_IGNORE
+		parts[i].draggable_component.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		
 		
 func spawn(parts: Array[OuterPart]):
 	for part: OuterPart in parts:

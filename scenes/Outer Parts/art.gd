@@ -19,9 +19,10 @@ func _timeout():
 	lift_timeout = false
 
 func _unhandled_input(event):
+	print(1)
 	if !draggable:
 		return
-	if event is InputEventMouseButton and not event.pressed:
+	if event is InputEventMouseButton and event.is_released():
 		if not lift_timeout:
 			lifted = false
 			EventBus.ended_drag.emit(self)

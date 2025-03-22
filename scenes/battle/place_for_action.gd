@@ -38,6 +38,8 @@ func _on_dropped(area: TextureRect):
 	action_selection_sfx_list.pick_random().play()
 	state = STATE.ANIMATING
 	area.remove_from_group("droppable")
+	area.root.mouse_filter = MOUSE_FILTER_IGNORE
+	area.mouse_filter = MOUSE_FILTER_IGNORE
 	area.draggable = false
 	area.root.reparent(self)
 	var tween:Tween = create_tween()

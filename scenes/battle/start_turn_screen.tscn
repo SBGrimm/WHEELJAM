@@ -42,7 +42,7 @@ metadata/_edit_lock_ = true
 [node name="to_place" type="Control" parent="."]
 z_index = 1
 anchors_preset = 0
-mouse_filter = 1
+mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="Place1" type="Control" parent="."]
@@ -100,7 +100,7 @@ offset_left = 475.0
 offset_top = 172.0
 offset_right = 535.0
 offset_bottom = 232.0
-mouse_filter = 1
+mouse_filter = 2
 script = ExtResource("5_pb0uu")
 
 [node name="TextureRect" type="TextureRect" parent="Place2"]
@@ -111,6 +111,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("4_yjl58")
 expand_mode = 1
 metadata/_edit_lock_ = true
