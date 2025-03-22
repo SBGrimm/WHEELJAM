@@ -24,10 +24,3 @@ mouse_filter = 2
 [node name="Camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
 anchor_mode = 0
-
-[node name="ColorRect" type="ColorRect" parent="Camera"]
-offset_right = 1152.0
-offset_bottom = 648.0
-mouse_filter = 1
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true

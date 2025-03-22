@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/antiloot/antiloot_screen.gd" id="1_oo6ws"]
 [ext_resource type="Script" path="res://scenes/antiloot/slot.gd" id="2_crjw4"]
-[ext_resource type="Theme" path="res://assets/themes/label_theme.tres" id="3_15ot2"]
+[ext_resource type="Theme" uid="uid://ddtec3f00yp6s" path="res://assets/themes/label_theme.tres" id="3_15ot2"]
 [ext_resource type="Script" path="res://scenes/antiloot/drop_zone.gd" id="3_k0ocp"]
 [ext_resource type="Texture2D" uid="uid://b5nqffi8yicri" path="res://assets/wheel/action_slot.png" id="3_v4g1o"]
 [ext_resource type="AudioStream" uid="uid://cwclvhohslx1k" path="res://sounds/sfx/Select in.mp3" id="4_8cuee"]
@@ -22,16 +22,6 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_oo6ws")
 should_reset = true
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0, 0, 0, 1)
 
 [node name="Slot1" type="Control" parent="."]
 custom_minimum_size = Vector2(132, 132)

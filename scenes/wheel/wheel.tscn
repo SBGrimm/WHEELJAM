@@ -88,7 +88,7 @@ mouse_filter = 1
 
 [node name="covers" type="Control" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.905882)
+modulate = Color(1, 1, 1, 0.843137)
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
