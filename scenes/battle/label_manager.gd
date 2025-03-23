@@ -21,8 +21,8 @@ var symbols = {
 	"weak": " [img={40}x{40}]res://assets/icons/weakness.png[/img]",
 }
 
-func update_preview(selection: WheelSelection):
-	preview_label.text = selection.part.get_formatted_text(selection.mod)
+func update_preview(selection: WheelSelection, battlestate: BattleState):
+	preview_label.text = selection.part.get_formatted_text(selection.mod, battlestate.player_status, battlestate.enemy_status)
 
 func get_symbol(amount: int, property: String):
 	if property.split("_")[1] == "status":

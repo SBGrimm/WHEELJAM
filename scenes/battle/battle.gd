@@ -86,4 +86,4 @@ func _on_parts_chosen(parts: Array[OuterPart]):
 
 func _on_wheel_dir_hovered():
 	var selection = wheel.get_current_wheel_selection()
-	label_manager.update_preview(selection)
+	label_manager.update_preview(selection, battlestate)
