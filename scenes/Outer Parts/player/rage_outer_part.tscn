@@ -16,5 +16,4 @@ amount = 40.0
 texture = ExtResource("3_0qgbu")
 
 [node name="Panel" parent="." index="2"]
-visible = true
 custom_minimum_size = Vector2(120, 120)
