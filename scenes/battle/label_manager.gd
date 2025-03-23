@@ -2,7 +2,8 @@ extends Node
 
 @onready var enemy_display = %EnemyDisplay
 @onready var player_display = %PlayerDisplay
-@onready var preview = %Preview
+#@onready var preview = %Preview
+@onready var preview_label = %PreviewLabel
 
 @onready var gamestate_display_dict = {
 	"player_hp": player_display.hp,
@@ -20,9 +21,8 @@ var symbols = {
 	"weak": " [img={40}x{40}]res://assets/icons/weakness.png[/img]",
 }
 
-func _ready():
-	EventBus.wheel_place_entered.connect(_on_wheel_place_entered)
-	EventBus.wheel_place_exited.connect(_on_wheel_place_exited)
+func update_preview(selection: WheelSelection):
+	preview_label.text = selection.part.get_formatted_text(selection.mod)
 
 func get_symbol(amount: int, property: String):
 	if property.split("_")[1] == "status":
@@ -41,20 +41,3 @@ func update_gamestate_display(battlestate, property):
 	else:
 		var amount = battlestate.get(property)
 		gamestate_display_dict[property].text = "[center]" + str(amount) + get_symbol(amount, property) + "[/center]"
-	
-func update_preview(battlestate: BattleState, preview_battlestate: BattleState):
-	for property in ["player_hp", "player_block", "player_status", "enemy_hp", "enemy_block", "enemy_status"]:
-		if battlestate.get(property) != preview_battlestate.get(property):
-			var label: RichTextLabel = preview.preview_dict[property]
-			label.show()
-			var amount = preview_battlestate.get(property) - battlestate.get(property)
-			label.text = "[center]" + str(amount) + get_symbol(amount, property) + "[/center]"
-		else:
-			preview.preview_dict[property].hide()
-			preview.preview_dict[property].text = ""
-
-func _on_wheel_place_entered(id: int):
-	preview.show()
-	
-func _on_wheel_place_exited(id: int):
-	preview.hide()

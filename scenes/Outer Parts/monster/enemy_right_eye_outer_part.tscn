@@ -7,6 +7,7 @@
 
 [node name="EnemyRightEyeOuterPart" instance=ExtResource("1_l1um7")]
 modulate = Color(1, 0, 0, 1)
+text = "Deals {0} damage to you, gives enemy {1} strength"
 
 [node name="EnemyDamageEffect" type="Node" parent="EffectsList" index="0"]
 script = ExtResource("2_v22t2")

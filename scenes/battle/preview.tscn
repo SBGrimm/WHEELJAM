@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceflxr0dr3m5w"]
+
+[ext_resource type="Theme" uid="uid://dl7i3i7wi8278" path="res://assets/themes/battle_display_theme.tres" id="1_blqiu"]
+[ext_resource type="Script" path="res://scenes/battle/preview.gd" id="2_feqr6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8mqa"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Preview" type="Control"]
+layout_mode = 3
+anchor_left = 0.47
+anchor_top = 0.35
+anchor_right = 0.62
+anchor_bottom = 0.65
+mouse_filter = 2
+theme = ExtResource("1_blqiu")
+script = ExtResource("2_feqr6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_blqiu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8mqa")
+
+[node name="HSplitContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_blqiu")
+alignment = 1
+
+[node name="PlayerPreview" type="VBoxContainer" parent="HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_blqiu")
+
+[node name="HP" type="RichTextLabel" parent="HSplitContainer/PlayerPreview"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_blqiu")
+bbcode_enabled = true
+
+[node name="Block" type="RichTextLabel" parent="HSplitContainer/PlayerPreview"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_blqiu")
+bbcode_enabled = true
+
+[node name="Status" type="RichTextLabel" parent="HSplitContainer/PlayerPreview"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_blqiu")
+bbcode_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="HSplitContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme = ExtResource("1_blqiu")
+color = Color(0, 0, 0, 1)
+
+[node name="EnemyPreview" type="VBoxContainer" parent="HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_blqiu")
+
+[node name="HP" type="RichTextLabel" parent="HSplitContainer/EnemyPreview"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_blqiu")
+bbcode_enabled = true
+
+[node name="Block" type="RichTextLabel" parent="HSplitContainer/EnemyPreview"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_blqiu")
+bbcode_enabled = true
+
+[node name="Status" type="RichTextLabel" parent="HSplitContainer/EnemyPreview"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_blqiu")
+bbcode_enabled = true
+
+[node name="Node" type="Node" parent="."]

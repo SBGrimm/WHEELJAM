@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bv2yqj1le5q4y"]
+[gd_scene load_steps=7 format=3 uid="uid://qxq7itmqqfn5"]
 
-[ext_resource type="Script" path="res://scenes/menus/victory_screen.gd" id="1_8vphb"]
-[ext_resource type="Theme" uid="uid://brwb6odwkwryg" path="res://assets/themes/menu_theme.tres" id="1_23yej"]
-[ext_resource type="AudioStream" uid="uid://c1ednfjyp54fj" path="res://sounds/sfx/click L.mp3" id="2_oeuh3"]
-[ext_resource type="AudioStream" uid="uid://bmypdkolpf2md" path="res://sounds/sfx/hover.mp3" id="3_k1i8t"]
+[ext_resource type="Script" path="res://scenes/menus/victory_screen.gd" id="1_8yy8x"]
+[ext_resource type="Theme" uid="uid://brwb6odwkwryg" path="res://assets/themes/menu_theme.tres" id="2_gk6gk"]
+[ext_resource type="AudioStream" uid="uid://c1ednfjyp54fj" path="res://sounds/sfx/click L.mp3" id="3_y52p1"]
+[ext_resource type="AudioStream" uid="uid://bmypdkolpf2md" path="res://sounds/sfx/hover.mp3" id="4_yd1gr"]
 
 [sub_resource type="Gradient" id="Gradient_ojo7o"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -23,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8vphb")
+script = ExtResource("1_8yy8x")
 
 [node name="Gradient" type="TextureRect" parent="."]
 layout_mode = 1
@@ -45,7 +45,7 @@ offset_top = 98.0
 offset_right = 122.0
 offset_bottom = 214.0
 grow_horizontal = 2
-theme = ExtResource("1_23yej")
+theme = ExtResource("2_gk6gk")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]You won![/center]
@@ -64,7 +64,7 @@ offset_right = 100.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_23yej")
+theme = ExtResource("2_gk6gk")
 text = "Start over"
 
 [node name="BackToMenuButton" type="Button" parent="."]
@@ -80,12 +80,19 @@ offset_right = 100.0
 offset_bottom = 133.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_23yej")
+theme = ExtResource("2_gk6gk")
 text = "Back to Menu"
 
 [node name="ClickSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_oeuh3")
+stream = ExtResource("3_y52p1")
 volume_db = -5.0
 
 [node name="HoverSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_k1i8t")
+stream = ExtResource("4_yd1gr")
+
+[connection signal="mouse_entered" from="StartOverButton" to="." method="_on_start_over_button_mouse_entered"]
+[connection signal="mouse_exited" from="StartOverButton" to="." method="_on_start_over_button_mouse_exited"]
+[connection signal="pressed" from="StartOverButton" to="." method="_on_start_over_button_pressed"]
+[connection signal="mouse_entered" from="BackToMenuButton" to="." method="_on_back_to_menu_button_mouse_entered"]
+[connection signal="mouse_exited" from="BackToMenuButton" to="." method="_on_back_to_menu_button_mouse_exited"]
+[connection signal="pressed" from="BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]

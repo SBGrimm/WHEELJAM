@@ -32,7 +32,7 @@ var scenes: Dictionary = {
 	Scene.CAMPFIRE: preload("res://scenes/campfire/campfire.tscn").instantiate(),
 	Scene.ANTILOOT: preload("res://scenes/antiloot/antiloot_screen.tscn").instantiate(),
 	Scene.SHRINE: preload("res://scenes/shrine/shrine.tscn").instantiate(),
-	Scene.VICTORY: preload("res://scenes/menus/WictoryScreen.tscn").instantiate(),
+	Scene.VICTORY: preload("res://scenes/menus/VictoryScreen.tscn").instantiate(),
 }
 
 func start_track(theme):

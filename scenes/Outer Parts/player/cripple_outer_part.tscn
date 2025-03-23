@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://rl5wd1wl4nsl" path="res://assets/Actions/player/all_in.png" id="4_05l2d"]
 
 [node name="CrippleOuterPart" instance=ExtResource("1_he378")]
-text = "deals 4 damage and gives 20 weakness to the enemy"
+text = "Deals {0} damage, gives {1} weakness to the enemy"
 id = 4
 
 [node name="DamageEffect" type="Node" parent="EffectsList" index="0"]

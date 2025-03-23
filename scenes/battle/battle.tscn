@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxlklmk3ea0bt"]
+[gd_scene load_steps=11 format=3 uid="uid://bxlklmk3ea0bt"]
 
 [ext_resource type="PackedScene" uid="uid://far3xviy2rnv" path="res://scenes/wheel/wheel.tscn" id="1_1f2s6"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_lo6wo"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://scenes/battle/enemy_display.gd" id="4_8c7cc"]
 [ext_resource type="PackedScene" uid="uid://cmxdie8w8t606" path="res://scenes/battle/start_turn_screen.tscn" id="4_ntuqt"]
 [ext_resource type="Script" path="res://scenes/battle/player_display.gd" id="5_1qkrt"]
-[ext_resource type="Script" path="res://scenes/battle/preview.gd" id="6_rs3qr"]
 
 [sub_resource type="Gradient" id="Gradient_414q1"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -182,90 +181,35 @@ bbcode_enabled = true
 text = "123"
 metadata/_edit_lock_ = true
 
-[node name="Preview" type="Control" parent="LabelManager"]
-unique_name_in_owner = true
+[node name="Panel" type="Panel" parent="LabelManager"]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 1
-anchor_left = 0.47
-anchor_top = 0.35
-anchor_right = 0.62
-anchor_bottom = 0.65
-mouse_filter = 2
-theme = ExtResource("3_napwm")
-script = ExtResource("6_rs3qr")
-
-[node name="Panel" type="Panel" parent="LabelManager/Preview"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_napwm")
 theme_override_styles/panel = SubResource("StyleBoxFlat_l8mqa")
 
-[node name="HSplitContainer" type="HBoxContainer" parent="LabelManager/Preview"]
+[node name="PreviewLabel" type="Label" parent="LabelManager/Panel"]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_napwm")
-alignment = 1
-
-[node name="PlayerPreview" type="VBoxContainer" parent="LabelManager/Preview/HSplitContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("3_napwm")
-
-[node name="HP" type="RichTextLabel" parent="LabelManager/Preview/HSplitContainer/PlayerPreview"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("3_napwm")
-bbcode_enabled = true
-
-[node name="Block" type="RichTextLabel" parent="LabelManager/Preview/HSplitContainer/PlayerPreview"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("3_napwm")
-bbcode_enabled = true
-
-[node name="Status" type="RichTextLabel" parent="LabelManager/Preview/HSplitContainer/PlayerPreview"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("3_napwm")
-bbcode_enabled = true
-
-[node name="ColorRect" type="ColorRect" parent="LabelManager/Preview/HSplitContainer"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-theme = ExtResource("3_napwm")
-color = Color(0, 0, 0, 1)
-
-[node name="EnemyPreview" type="VBoxContainer" parent="LabelManager/Preview/HSplitContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("3_napwm")
-
-[node name="HP" type="RichTextLabel" parent="LabelManager/Preview/HSplitContainer/EnemyPreview"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("3_napwm")
-bbcode_enabled = true
-
-[node name="Block" type="RichTextLabel" parent="LabelManager/Preview/HSplitContainer/EnemyPreview"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("3_napwm")
-bbcode_enabled = true
-
-[node name="Status" type="RichTextLabel" parent="LabelManager/Preview/HSplitContainer/EnemyPreview"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("3_napwm")
-bbcode_enabled = true
-
-[node name="Node" type="Node" parent="LabelManager/Preview"]
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Wheel" parent="." instance=ExtResource("1_1f2s6")]
 unique_name_in_owner = true

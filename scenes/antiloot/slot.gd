@@ -10,4 +10,4 @@ func reset():
 func set_part(part: OuterPart):
 	add_child(part)
 	part.draggable_component.draggable = true
-	label.text = part.text
+	label.text = part.get_formatted_text()

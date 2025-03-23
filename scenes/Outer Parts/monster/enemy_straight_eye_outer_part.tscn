@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://1syeqt2ek41b" path="res://assets/Actions/monster/png_boss/strait_eye.png" id="4_o7gsh"]
 
 [node name="EnemyStraightEyeOuterPart" instance=ExtResource("1_k2ngn")]
+text = "Deals {0} damage and gives {1} strength to you"
 
 [node name="EnemyDamageEffect" type="Node" parent="EffectsList" index="0"]
 script = ExtResource("2_7nfca")

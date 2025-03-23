@@ -2,5 +2,10 @@ extends Resource
 class_name WheelSelection
 
 var mod: float
-var effects: Array[Effect]
+var part: OuterPart
+
+var effects:
+	get: 
+		return part.get_effects()
+
 var slice_index: int

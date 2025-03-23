@@ -7,6 +7,7 @@
 [node name="EnemyDamageOuterPart" instance=ExtResource("1_jnly2")]
 size_flags_horizontal = 4
 size_flags_vertical = 4
+text = "Deals {0} damage to you"
 
 [node name="EnemyDamageEffect" type="Node" parent="EffectsList" index="0"]
 script = ExtResource("2_thv2e")

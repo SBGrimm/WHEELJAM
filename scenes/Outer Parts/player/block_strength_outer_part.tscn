@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bkcc14sri0kf6" path="res://assets/Actions/player/baff_shield.png" id="4_nhuol"]
 
 [node name="BlockStrengthOuterPart" instance=ExtResource("1_f6x4u")]
-text = "gives 3 block and 20 power"
+text = "Gives you {0} block and {1} strength"
 id = 2
 
 [node name="BlockEffect" type="Node" parent="EffectsList" index="0"]

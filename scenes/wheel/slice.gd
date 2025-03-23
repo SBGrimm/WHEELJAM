@@ -39,7 +39,7 @@ func set_texture():
 		art.texture.region = regions[0]
 
 func set_art_modulate():
-	if (_mod >=4) or (_mod <= 0.25):
+	if (_mod >=4) or (_mod <= 0.33):
 		art.set("modulate", Color(255, 0, 0, 255))
 	else:
 		art.set("modulate", Color(255, 255, 255, 255))

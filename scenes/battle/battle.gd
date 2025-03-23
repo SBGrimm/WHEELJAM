@@ -23,10 +23,10 @@ func scene_theme():
 	return preload("res://sounds/music/song-battle.mp3")
 	
 func _ready():
+	wheel.new_dir_hovered.connect(_on_wheel_dir_hovered)
 	wheel.new_dir_chosen.connect(_activate_selection)
 	wheel.puzzle_finished.connect(_process_end_turn)
 	fadeout.parts_chosen.connect(_on_parts_chosen)
-	EventBus.update_battle_preview.connect(_on_update_battle_preview)
 
 func reset():
 	battlestate = GlobalGamestate.get_battle_state()
@@ -84,7 +84,6 @@ func _on_parts_chosen(parts: Array[OuterPart]):
 	wheel.spin()
 	mouse_stopper.mouse_filter = MOUSE_FILTER_IGNORE
 
-func _on_update_battle_preview():
+func _on_wheel_dir_hovered():
 	var selection = wheel.get_current_wheel_selection()
-	var preview_battlestate = generate_preview_data(selection)
-	label_manager.update_preview(battlestate, preview_battlestate)
+	label_manager.update_preview(selection)

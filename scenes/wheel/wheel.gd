@@ -51,15 +51,17 @@ var target_selections:int = 6 ## how many selections are allowed; default is 4.
 #endregion
 
 #region Built-In Functions
-#called when the scene is loaded into the tree
 func _ready()->void:
 	reset()
-	rotation_finished.connect(end_check) # check if puzzle is completed when rotation is done
-# handles input for our minigame
+	rotation_finished.connect(end_check)
+	EventBus.wheel_place_entered.connect(_on_wheel_place_entered)
+	EventBus.wheel_place_exited.connect(_on_wheel_place_exited)
+
 func _unhandled_input(event: InputEvent) -> void:
 	if state != WheelState.AWAITING_SELECTION: return
 	if event is InputEventMouseButton:
-		process_confirm_input(current_direction)
+		if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+			process_confirm_input(current_direction)
 	elif event is InputEventMouseMotion:
 		current_direction = rad_to_deg(self.global_position.angle_to_point(event.position))+120
 		if current_direction < 0:
@@ -72,9 +74,13 @@ func _unhandled_input(event: InputEvent) -> void:
 #region Custom Functions
 func activate():
 	state = WheelState.AWAITING_SELECTION
+	for place in places:
+		place.activate()
 
 func deactivate():
 	state = WheelState.DISABLED
+	for place in places:
+		place.deactivate()
 
 var last_direction = null
 ## processes the hover direction and moves the selector to that direction.
@@ -149,8 +155,11 @@ func set_outer_parts(parts: Array[OuterPart]):
 	for i in range(6):
 		var new_part = parts[i].duplicate(7)
 		places[i].add_child(new_part)
+		new_part.mouse_filter = MOUSE_FILTER_PASS
+		new_part.draggable_component.mouse_filter = MOUSE_FILTER_PASS
 		new_part.z_as_relative = true
 		new_part.z_index = 0
+		new_part.hoverable = true
 		new_part.set_offsets_preset(Control.PRESET_CENTER)
 		
 func get_current_wheel_selection()->WheelSelection:
@@ -160,8 +169,16 @@ func get_current_wheel_selection()->WheelSelection:
 			var slice = slice_gimbal.get_children()[x] as Slice
 			ws.mod = slice.mod
 			ws.slice_index = x
-	ws.effects = places[current_direction/60].get_child(2).get_effects()
+	ws.part = places[current_direction/60].get_child(2)
 	return ws
+
+func _on_wheel_place_entered(id: int):
+	var ws = get_current_wheel_selection()
+	ws.part.expand()
+
+func _on_wheel_place_exited(id: int):
+	var ws = get_current_wheel_selection()
+	ws.part.contract()
 #endregion
 
 #region helper functions

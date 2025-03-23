@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://qaivxspp2yqw" path="res://assets/Actions/player/axe_swipe_cleave.png" id="4_bmu6x"]
 
 [node name="DamageWeakOuterPart" instance=ExtResource("1_e1xxe")]
-text = "deals 10 damage, gives you 33 weakness"
+text = "Deals {0} damage, gives you {1} weakness"
 id = 3
 
 [node name="DamageEffect" type="Node" parent="EffectsList" index="0"]
