@@ -63,11 +63,7 @@ func remove_scene(scene_name: Scene):
 
 var switching = false
 
-func restart(to: Scene):
-	switch_scene(to)
-	GlobalGamestate.hard_reset()
-
-func switch_scene(to: Scene):
+func _switch_scene(to: Scene, restart_game: bool):
 	const scene_switching_pause = .8
 	whispers.pick_random().play()
 	scene_fadeout.visible = true
@@ -75,13 +71,26 @@ func switch_scene(to: Scene):
 	switching = true
 	await get_tree().create_timer(scene_switching_pause).timeout
 	remove_scene(current_scene)
+	if restart_game:
+		GlobalGamestate.hard_reset()
+		scenes[Scene.MAP].queue_free()
+		await get_tree().create_timer(0.04).timeout
+		scenes[Scene.MAP] = preload("res://scenes/map/map.tscn").instantiate()
 	go_to_scene(to)
 	scene_fadeout.visible = false
 	switching = false
 
+func switch_scene(to: Scene):
+	_switch_scene(to, false)
+
+func switch_scene_with_game_restart(to: Scene):
+	_switch_scene(to, true)
+
 func _ready():
 	EventBus.request_scene_change.connect(switch_scene)
-	EventBus.request_restart.connect(restart)
+	EventBus.request_scene_change_with_game_restart.connect(
+		switch_scene_with_game_restart
+	)
 	go_to_scene(Scene.MAIN_MENU)
 
 func _physics_process(delta: float) -> void:
