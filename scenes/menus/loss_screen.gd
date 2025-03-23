@@ -24,12 +24,12 @@ func reset():
 
 
 func _on_start_over_button_pressed():
-	EventBus.request_restart.emit(SceneManager.Scene.MAP)
+	EventBus.request_scene_change_with_game_restart.emit(SceneManager.Scene.MAP)
 	$ClickSFX.play()
 
 func _on_back_to_menu_button_pressed():
 	$ClickSFX.play()
-	EventBus.request_restart.emit(SceneManager.Scene.MAIN_MENU)
+	EventBus.request_scene_change_with_game_restart.emit(SceneManager.Scene.MAIN_MENU)
 
 func _on_back_to_menu_button_mouse_entered() -> void:
 	$HoverSFX.play()

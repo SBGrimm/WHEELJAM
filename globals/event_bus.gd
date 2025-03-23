@@ -9,6 +9,6 @@ signal wheel_place_exited(id: int)
 signal update_battle_preview()
 
 signal request_scene_change(scene_name: SceneManager.Scene)
-signal request_restart(scene_name: SceneManager.Scene)
+signal request_scene_change_with_game_restart(scene_name: SceneManager.Scene)
 
 signal encounter_selected(encounter: Node)
