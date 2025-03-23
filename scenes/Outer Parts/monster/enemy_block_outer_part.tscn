@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c0swhl524xrhq" path="res://assets/Actions/monster/monster_block.png" id="3_6v8jd"]
 
 [node name="EnemyBlockOuterPart" instance=ExtResource("1_dgkw1")]
+modulate = Color(1, 0, 0, 1)
 text = "Gives enemy {0} block"
 
 [node name="EnemyBlockEffect" type="Node" parent="EffectsList" index="0"]
@@ -12,5 +13,4 @@ script = ExtResource("2_wubtb")
 amount = 4.0
 
 [node name="art" parent="." index="1"]
-modulate = Color(1, 0, 0, 1)
 texture = ExtResource("3_6v8jd")

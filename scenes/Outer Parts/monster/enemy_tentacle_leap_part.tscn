@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://xbveh5j12u0a" path="res://assets/Actions/monster/tentacle_leap.png" id="4_g8hpq"]
 
 [node name="EnemyTentacleLeapPart" instance=ExtResource("1_nbp8e")]
+modulate = Color(1, 0, 0, 1)
 text = "Deals {0} damage and gives {1} weak to you"
 
 [node name="EnemyDamageEffect" type="Node" parent="EffectsList" index="0"]

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://1syeqt2ek41b" path="res://assets/Actions/monster/png_boss/strait_eye.png" id="4_o7gsh"]
 
 [node name="EnemyStraightEyeOuterPart" instance=ExtResource("1_k2ngn")]
+modulate = Color(1, 0, 0, 1)
 text = "Deals {0} damage and gives {1} strength to you"
 
 [node name="EnemyDamageEffect" type="Node" parent="EffectsList" index="0"]
@@ -17,5 +18,4 @@ script = ExtResource("3_xuxd0")
 amount = 66.0
 
 [node name="art" parent="." index="1"]
-modulate = Color(1, 0, 0, 1)
 texture = ExtResource("4_o7gsh")

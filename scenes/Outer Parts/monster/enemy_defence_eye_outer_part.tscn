@@ -5,13 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://7l3j5aj2hixn" path="res://assets/Actions/monster/png_boss/defence_eye.png" id="3_1hmu6"]
 
 [node name="EnemyDefenceEyeOuterPart" instance=ExtResource("1_c7v5w")]
+modulate = Color(1, 0, 0, 1)
 text = "Gives enemy {0} block"
-metadata/_edit_group_ = true
 
 [node name="EnemyBlockEffect" type="Node" parent="EffectsList" index="0"]
 script = ExtResource("2_ofpth")
 amount = 8.0
 
 [node name="art" parent="." index="1"]
-modulate = Color(1, 0, 0, 1)
 texture = ExtResource("3_1hmu6")

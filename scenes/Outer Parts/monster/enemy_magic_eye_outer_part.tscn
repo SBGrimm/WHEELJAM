@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c12d2aucxedp0" path="res://assets/Actions/monster/png_boss/debuff_eye.png" id="4_gj573"]
 
 [node name="EnemyMagicEyeOuterPart" instance=ExtResource("1_n2ih6")]
+modulate = Color(1, 0, 0, 1)
 text = "Gives enemy {1} strength, gives you {0} weak"
 
 [node name="WeakEffect" type="Node" parent="EffectsList" index="0"]
@@ -17,5 +18,4 @@ script = ExtResource("3_ajrhu")
 amount = 33.0
 
 [node name="art" parent="." index="1"]
-modulate = Color(1, 0, 0, 1)
 texture = ExtResource("4_gj573")
