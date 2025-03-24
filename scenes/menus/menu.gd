@@ -6,6 +6,9 @@ extends BaseScene
 @onready var sfx_click = $ClickSFX
 @onready var sfx_hover = $HoverSFX
 @onready var gradient = $Gradient
+@onready var animation_player = $AnimationPlayer
+
+@export var no_hover = true
 
 func scene_theme(): 
 	return preload("res://sounds/music/song-intro.mp3")
@@ -14,22 +17,7 @@ func _ready():
 	reset()
 
 func reset():
-	var tween = create_tween()
-	var tween2 = create_tween()
-	exit_button.disabled = true
-	start_button.disabled = true
-	menu_items.modulate = Color(255, 255, 255, 0)
-	gradient.set("texture:fill_to", Vector2(0.5, -0.3))
-	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.set_ease(Tween.EASE_IN)
-	tween2.set_trans(Tween.TRANS_QUAD)
-	tween2.set_ease(Tween.EASE_IN_OUT)
-	tween2.tween_property(gradient, "texture:fill_to", Vector2(0, 1), 2)
-	tween.tween_property(menu_items, "modulate:a", 1, 4)
-	tween.tween_callback(func(): exit_button.disabled = false;start_button.disabled = false;no_hover=false)
-	tween2.tween_callback(bounce_light_forward)
-
-var no_hover = true
+	animation_player.play("start")
 
 func bounce_light_forward():
 	var tween = create_tween()
