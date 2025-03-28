@@ -139,13 +139,33 @@ var generators = [
 	generate_large_section,
 ]
 
+var used_generator_count = [
+	0,
+	0
+]
+
+func pick_random_generator():
+	var probability_weights = [1, 1]
+	var total_weight = 0
+	for i in range(generators.size()):
+		probability_weights[i] /= (1 + used_generator_count[i])
+		total_weight += probability_weights[i]
+	var roll = randf_range(0, total_weight)
+	for i in range(generators.size()):
+		if roll < probability_weights[i]:
+			used_generator_count[i] += 1
+			return generators[i]
+	used_generator_count[generators.size() - 1] += 1
+	return generators[generators.size() - 1]
+	
+
 func generate_map() -> void:
 	var intro_passage = place_passage_at(%MapEntrance)
 	var last_encounter = place_encounter_at_passage(Encounter.Battle, intro_passage)
 	selectable_encounters.append(last_encounter)
 	last_encounter.selection_enabled = true
 	for section in range(number_sections):
-		last_encounter = generators.pick_random().call(last_encounter)
+		last_encounter = pick_random_generator().call(last_encounter)
 	var boss_passage = place_passage_at(last_encounter)
 	var boss = place_encounter_at_passage(Encounter.Boss, boss_passage)
 	last_encounter.available_next_encounters.append(boss)
