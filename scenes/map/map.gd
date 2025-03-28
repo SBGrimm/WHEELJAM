@@ -89,6 +89,19 @@ func generate_bifurcation(
 	bottom_encounter.available_next_encounters.append(closing_encounter)
 	return closing_encounter
 
+var used_long_passage_directions = {1: false, -1: false}
+
+func generate_long_passage_direction():
+	if used_long_passage_directions[1] and not used_long_passage_directions[-1]:
+		used_long_passage_directions[-1] = true
+		return -1
+	if not used_long_passage_directions[1] and used_long_passage_directions[-1]:
+		used_long_passage_directions[1] = true
+		return 1
+	var direction = 1 if randf() > .5 else -1
+	used_long_passage_directions[direction] = true
+	return direction
+
 func generate_large_section(starting_encounter: Node) -> Node:
 	#      -- noncombat --
 	#     /                \ 
@@ -101,8 +114,7 @@ func generate_large_section(starting_encounter: Node) -> Node:
 	bifurcation_end.available_next_encounters.append(bifurcation_tail)
 	var passage_down = place_passage_at(starting_encounter)
 	var angle = PI * 0.27
-	if randf() > .5:
-		angle *= -1
+	angle *= generate_long_passage_direction()
 	passage_down.rotate(angle)
 	passage_down.scale *= cos(PI / 7) / cos(angle) * 0.9
 	var bottom_encounter_1 = place_encounter_at_passage(
