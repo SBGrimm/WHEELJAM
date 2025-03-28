@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxlklmk3ea0bt"]
+[gd_scene load_steps=10 format=3 uid="uid://bxlklmk3ea0bt"]
 
 [ext_resource type="PackedScene" uid="uid://far3xviy2rnv" path="res://scenes/wheel/wheel.tscn" id="1_1f2s6"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_lo6wo"]
 [ext_resource type="Script" path="res://scenes/battle/label_manager.gd" id="2_w1p1h"]
 [ext_resource type="Theme" uid="uid://dl7i3i7wi8278" path="res://assets/themes/battle_display_theme.tres" id="3_napwm"]
-[ext_resource type="Script" path="res://scenes/battle/enemy_display.gd" id="4_8c7cc"]
 [ext_resource type="PackedScene" uid="uid://cmxdie8w8t606" path="res://scenes/battle/start_turn_screen.tscn" id="4_ntuqt"]
-[ext_resource type="Script" path="res://scenes/battle/player_display.gd" id="5_1qkrt"]
+[ext_resource type="PackedScene" uid="uid://bxtma63qrjbw7" path="res://scenes/elements/status_display.tscn" id="5_trfit"]
 
 [sub_resource type="Gradient" id="Gradient_414q1"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -20,6 +19,8 @@ fill_from = Vector2(0.517094, 1)
 fill_to = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8mqa"]
+content_margin_left = 5.0
+content_margin_top = 5.0
 bg_color = Color(1, 1, 1, 0)
 border_width_left = 5
 border_width_top = 5
@@ -71,52 +72,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_l8mqa")
 
-[node name="EnemyDisplay" type="HBoxContainer" parent="LabelManager/EnemyPanel"]
+[node name="EnemyDisplay" parent="LabelManager/EnemyPanel" instance=ExtResource("5_trfit")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("3_napwm")
-script = ExtResource("4_8c7cc")
-metadata/_edit_lock_ = true
-
-[node name="HP" type="RichTextLabel" parent="LabelManager/EnemyPanel/EnemyDisplay"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme = ExtResource("3_napwm")
-bbcode_enabled = true
-text = "123"
-metadata/_edit_lock_ = true
-
-[node name="Block" type="RichTextLabel" parent="LabelManager/EnemyPanel/EnemyDisplay"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme = ExtResource("3_napwm")
-bbcode_enabled = true
-text = "123"
-metadata/_edit_lock_ = true
-
-[node name="Status" type="RichTextLabel" parent="LabelManager/EnemyPanel/EnemyDisplay"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme = ExtResource("3_napwm")
-bbcode_enabled = true
-text = "123"
-metadata/_edit_lock_ = true
 
 [node name="PlayerPanel" type="Panel" parent="LabelManager"]
 layout_mode = 1
@@ -134,52 +92,9 @@ grow_vertical = 0
 theme = ExtResource("3_napwm")
 theme_override_styles/panel = SubResource("StyleBoxFlat_l8mqa")
 
-[node name="PlayerDisplay" type="HBoxContainer" parent="LabelManager/PlayerPanel"]
+[node name="PlayerDisplay" parent="LabelManager/PlayerPanel" instance=ExtResource("5_trfit")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("3_napwm")
-script = ExtResource("5_1qkrt")
-metadata/_edit_lock_ = true
-
-[node name="HP" type="RichTextLabel" parent="LabelManager/PlayerPanel/PlayerDisplay"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme = ExtResource("3_napwm")
-bbcode_enabled = true
-text = "123"
-metadata/_edit_lock_ = true
-
-[node name="Block" type="RichTextLabel" parent="LabelManager/PlayerPanel/PlayerDisplay"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme = ExtResource("3_napwm")
-bbcode_enabled = true
-text = "123"
-metadata/_edit_lock_ = true
-
-[node name="Status" type="RichTextLabel" parent="LabelManager/PlayerPanel/PlayerDisplay"]
-custom_minimum_size = Vector2(0, 44)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme = ExtResource("3_napwm")
-bbcode_enabled = true
-text = "123"
-metadata/_edit_lock_ = true
 
 [node name="Panel" type="Panel" parent="LabelManager"]
 custom_minimum_size = Vector2(170, 140)

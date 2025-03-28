@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkuwimgtyjjy2"]
+
+[ext_resource type="Script" path="res://scenes/elements/slot.gd" id="1_032em"]
+[ext_resource type="Theme" uid="uid://ddtec3f00yp6s" path="res://assets/themes/label_theme.tres" id="2_71y5f"]
+[ext_resource type="Texture2D" uid="uid://b5nqffi8yicri" path="res://assets/wheel/action_slot.png" id="3_3fumf"]
+
+[node name="Slot1" type="Control"]
+custom_minimum_size = Vector2(222, 182)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -91.0
+offset_right = 111.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+script = ExtResource("1_032em")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.78
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.012001
+offset_top = 3.65599
+offset_right = -0.0120087
+offset_bottom = 0.00398254
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+theme = ExtResource("2_71y5f")
+theme_override_constants/line_spacing = 10
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(132, 132)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_right = 66.0
+offset_bottom = 132.0
+grow_horizontal = 2
+pivot_offset = Vector2(66, 66)
+texture = ExtResource("3_3fumf")

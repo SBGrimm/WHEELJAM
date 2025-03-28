@@ -4,6 +4,7 @@ extends BaseScene
 @onready var slot_3 = $Slot3
 @onready var slots = [slot_1, slot_2, slot_3]
 @onready var drop_zone = $DropZone
+@onready var drop_nothing_button = $Button
 
 
 func scene_theme(): 
@@ -11,6 +12,7 @@ func scene_theme():
 
 func _ready():
 	reset()
+	drop_nothing_button.pressed.connect(_on_drop_nothing_button_pressed)
 
 func spawn(parts: Array[OuterPart]):
 	for i in range(3):
@@ -29,5 +31,9 @@ func reset():
 
 func _on_drop_zone_part_chosen(part: OuterPart):
 	GlobalGamestate.amounts[part.id] -= 1
+	EventBus.request_scene_change.emit(SceneManager.Scene.MAP)
+	wipe()
+
+func _on_drop_nothing_button_pressed():
 	EventBus.request_scene_change.emit(SceneManager.Scene.MAP)
 	wipe()

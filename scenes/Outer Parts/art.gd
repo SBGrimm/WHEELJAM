@@ -6,7 +6,7 @@ var lifted = false
 var lift_timeout = false
 @onready var root = $".."
 var drag_timer: Timer
-
+@onready var sfx = $LiftedPartSFX
 
 func _ready():
 	drag_timer = Timer.new()
@@ -33,7 +33,7 @@ func _gui_input(event):
 		return
 	if event is InputEventMouseButton and event.pressed:
 		if not lifted:
-			$LiftedPartSFX.play()
+			sfx.play()
 			EventBus.started_drag.emit(self)
 			lifted = true
 			lift_timeout = true

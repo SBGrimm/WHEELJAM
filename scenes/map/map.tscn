@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dm8crwojt34og"]
+[gd_scene load_steps=4 format=3 uid="uid://dm8crwojt34og"]
 
 [ext_resource type="Script" path="res://scenes/map/map.gd" id="1_53pfr"]
+[ext_resource type="Theme" uid="uid://brwb6odwkwryg" path="res://assets/themes/menu_theme.tres" id="2_433lc"]
+[ext_resource type="Theme" uid="uid://dl7i3i7wi8278" path="res://assets/themes/battle_display_theme.tres" id="3_w22jc"]
 
 [node name="Map" type="Control"]
 layout_mode = 3
@@ -10,7 +12,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("2_433lc")
 script = ExtResource("1_53pfr")
+should_reset = true
 
 [node name="MapEntrance" type="Control" parent="."]
 unique_name_in_owner = true
@@ -24,3 +28,50 @@ mouse_filter = 2
 [node name="Camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
 anchor_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera"]
+
+[node name="SettingsButton" type="Button" parent="Camera/CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = -1
+anchor_left = 0.85
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.135
+offset_bottom = 5.92
+grow_horizontal = 0
+theme = ExtResource("2_433lc")
+text = "settings"
+
+[node name="DeckButton" type="Button" parent="Camera/CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.85
+anchor_right = 0.95
+anchor_bottom = 0.95
+theme = ExtResource("2_433lc")
+text = "View Your Parts"
+
+[node name="HpPanel" type="Panel" parent="Camera/CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.45
+anchor_top = 0.85
+anchor_right = 0.55
+anchor_bottom = 0.95
+theme = ExtResource("3_w22jc")
+
+[node name="HpRichTextLabel" type="RichTextLabel" parent="Camera/CanvasLayer/HpPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_w22jc")
+bbcode_enabled = true
+fit_content = true

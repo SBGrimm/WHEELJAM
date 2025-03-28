@@ -1,13 +1,15 @@
 extends Control
+class_name Slot
 
 @onready var label = $Label
+@onready var texture_rect = $TextureRect
 
 func reset():
-	for child in get_children():
+	for child in texture_rect.get_children():
 		if child is OuterPart:
 			child.queue_free()
 
 func set_part(part: OuterPart):
-	add_child(part)
+	texture_rect.add_child(part)
 	part.draggable_component.draggable = true
 	label.text = part.get_formatted_text()

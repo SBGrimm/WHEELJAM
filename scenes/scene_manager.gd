@@ -19,7 +19,8 @@ enum Scene {
 	CAMPFIRE,
 	ANTILOOT,
 	SHRINE,
-	VICTORY
+	VICTORY,
+	DECK
 }
 
 var current_scene: Scene = Scene.MAP
@@ -33,6 +34,7 @@ var scenes: Dictionary = {
 	Scene.ANTILOOT: preload("res://scenes/antiloot/antiloot_screen.tscn").instantiate(),
 	Scene.SHRINE: preload("res://scenes/shrine/shrine.tscn").instantiate(),
 	Scene.VICTORY: preload("res://scenes/menus/VictoryScreen.tscn").instantiate(),
+	Scene.DECK: preload("res://scenes/deck/deck.tscn").instantiate(),
 }
 
 func start_track(theme):

@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://blrxcjv0uljw"]
+
+[ext_resource type="Script" path="res://scenes/deck/deck.gd" id="1_yd4gl"]
+[ext_resource type="Theme" uid="uid://ddtec3f00yp6s" path="res://assets/themes/label_theme.tres" id="2_elly2"]
+[ext_resource type="Theme" uid="uid://brwb6odwkwryg" path="res://assets/themes/menu_theme.tres" id="3_crep1"]
+
+[node name="Deck" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yd4gl")
+should_reset = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.15
+grow_horizontal = 2
+theme = ExtResource("2_elly2")
+theme_override_font_sizes/font_size = 36
+text = "Your Wheel Parts"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.15
+anchor_right = 0.95
+anchor_bottom = 0.95
+offset_left = -0.232002
+offset_top = 0.287994
+offset_right = 0.160034
+offset_bottom = 0.151978
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.85
+anchor_right = 0.95
+anchor_bottom = 0.95
+offset_left = 0.447937
+offset_top = -0.256012
+offset_right = -2.64001
+offset_bottom = 0.207947
+theme = ExtResource("3_crep1")
+text = "Go Back"

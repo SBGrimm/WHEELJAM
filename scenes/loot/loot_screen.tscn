@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://hhhsyqdb8lhq"]
+[gd_scene load_steps=8 format=3 uid="uid://hhhsyqdb8lhq"]
 
 [ext_resource type="Script" path="res://scenes/loot/loot_screen.gd" id="1_l2qfs"]
-[ext_resource type="Script" path="res://scenes/loot/slot.gd" id="3_c251a"]
-[ext_resource type="Texture2D" uid="uid://b5nqffi8yicri" path="res://assets/wheel/action_slot.png" id="3_hry4h"]
+[ext_resource type="PackedScene" uid="uid://bkuwimgtyjjy2" path="res://scenes/elements/slot.tscn" id="3_ucbqj"]
 [ext_resource type="AudioStream" uid="uid://cwclvhohslx1k" path="res://sounds/sfx/Select in.mp3" id="4_2at6b"]
-[ext_resource type="Theme" uid="uid://ddtec3f00yp6s" path="res://assets/themes/label_theme.tres" id="4_64n88"]
 [ext_resource type="Script" path="res://scenes/loot/drop_zone.gd" id="4_lleu8"]
+[ext_resource type="Theme" uid="uid://brwb6odwkwryg" path="res://assets/themes/menu_theme.tres" id="6_fi7ah"]
 [ext_resource type="Texture2D" uid="uid://2gw3yv82684j" path="res://assets/sack/sack0000.png" id="6_ha2wo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iv4lw"]
@@ -35,133 +34,6 @@ mouse_filter = 1
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Slot1" type="Control" parent="."]
-layout_mode = 1
-anchor_left = 0.1
-anchor_top = 0.25
-anchor_right = 0.3
-anchor_bottom = 0.45
-mouse_filter = 1
-script = ExtResource("3_c251a")
-
-[node name="TextureRect" type="TextureRect" parent="Slot1"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -66.0
-offset_top = -66.0
-offset_right = 66.0
-offset_bottom = 66.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_hry4h")
-
-[node name="Label" type="Label" parent="Slot1"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 30.4
-offset_right = -5.20001
-offset_bottom = 75.4
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 1
-theme = ExtResource("4_64n88")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Slot2" type="Control" parent="."]
-layout_mode = 1
-anchor_left = 0.4
-anchor_top = 0.1
-anchor_right = 0.6
-anchor_bottom = 0.3
-grow_horizontal = 2
-mouse_filter = 1
-script = ExtResource("3_c251a")
-
-[node name="TextureRect" type="TextureRect" parent="Slot2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -66.0
-offset_top = -68.0
-offset_right = 66.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_hry4h")
-
-[node name="Label" type="Label" parent="Slot2"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 30.4
-offset_right = -5.20001
-offset_bottom = 75.4
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 1
-theme = ExtResource("4_64n88")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Slot3" type="Control" parent="."]
-layout_mode = 1
-anchor_left = 0.7
-anchor_top = 0.25
-anchor_right = 0.9
-anchor_bottom = 0.45
-mouse_filter = 1
-script = ExtResource("3_c251a")
-
-[node name="TextureRect" type="TextureRect" parent="Slot3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -66.0
-offset_top = -66.0
-offset_right = 66.0
-offset_bottom = 66.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_hry4h")
-
-[node name="Label" type="Label" parent="Slot3"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 30.4
-offset_right = -5.20001
-offset_bottom = 75.4
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 1
-theme = ExtResource("4_64n88")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
 [node name="SackArt" type="TextureRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
@@ -179,6 +51,37 @@ grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 mouse_filter = 2
 texture = ExtResource("6_ha2wo")
+
+[node name="Slot1" parent="." instance=ExtResource("3_ucbqj")]
+layout_mode = 1
+anchors_preset = 4
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 48.0
+offset_top = -114.924
+offset_right = 180.0
+offset_bottom = 17.076
+grow_horizontal = 1
+
+[node name="Slot2" parent="." instance=ExtResource("3_ucbqj")]
+layout_mode = 1
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 60.0
+offset_bottom = 230.0
+grow_vertical = 1
+
+[node name="Slot3" parent="." instance=ExtResource("3_ucbqj")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -299.0
+offset_top = -164.0
+offset_right = -106.0
+offset_bottom = 12.0
+grow_horizontal = 0
 
 [node name="DropZone" type="Control" parent="."]
 z_index = -1
@@ -206,5 +109,18 @@ volume_db = -5.0
 position = Vector2(96, 49)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_iv4lw")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.85
+anchor_right = 0.95
+anchor_bottom = 0.95
+offset_left = 0.447937
+offset_top = -0.256012
+offset_bottom = 0.207947
+theme = ExtResource("6_fi7ah")
+text = "Take Nothing"
 
 [connection signal="part_chosen" from="DropZone" to="." method="_on_drop_zone_part_chosen"]

@@ -54,7 +54,7 @@ func get_battle_state():
 	battlestate.amounts = amounts
 	return battlestate
 
-func get_rewards():
+func get_rewards() -> Array[OuterPart]:
 	var rng = RandomNumberGenerator.new()
 	var rewards: Array[OuterPart] = []
 	var tmp_missing_amounts = missing_amounts.duplicate()
@@ -64,7 +64,7 @@ func get_rewards():
 		tmp_missing_amounts[choice] -= 1
 	return rewards
 
-func get_antirewards():
+func get_antirewards() -> Array[OuterPart]:
 	var rng = RandomNumberGenerator.new()
 	var rewards: Array[OuterPart] = []
 	var tmp_amounts = amounts.duplicate()
@@ -73,3 +73,11 @@ func get_antirewards():
 		rewards.append(parts[choice].instantiate())
 		tmp_amounts[choice]
 	return rewards
+
+func get_deck() -> Array[OuterPart]:
+	var deck: Array[OuterPart] = []
+	for i in range(len(amounts)):
+		for j in range(amounts[i]):
+			deck.append(parts[i].instantiate())
+	return deck
+	

@@ -5,10 +5,21 @@ var selectable_encounters: Array[Node]
 
 @onready var left_border = %MapEntrance.global_position[0] + 55
 @onready var right_border = %MapEntrance.global_position[0]
+@onready var settings_button = %SettingsButton
+@onready var deck_button = %DeckButton
+@onready var hp_rich_text_label = %HpRichTextLabel
+@onready var hp_panel = %HpPanel
 
 func scene_theme(): 
 	return preload("res://sounds/music/song-Menu.mp3")
-	
+
+func reset():
+	hp_rich_text_label.text = "[center]" + str(GlobalGamestate.player_hp) + "[img={40}x{40}]res://assets/icons/hearts.png[/img][/center]"
+	var frac: float = float(GlobalGamestate.player_hp)/float(GlobalGamestate.player_max_hp)
+	if frac < 0.5:
+		hp_panel.modulate = Color(1, frac, frac, 1)
+	pass
+
 enum Encounter {
 	Battle,
 	DarkShrine,
@@ -168,6 +179,8 @@ func _ready() -> void:
 	generate_map()
 	set_selection(selectable_encounters, true)
 	EventBus.encounter_selected.connect(handle_encounter_selected)
+	deck_button.pressed.connect(_on_deck_button_pressed)
+	settings_button.pressed.connect(_on_settings_button_pressed)
 
 var scroll_speed = Vector2(0., 0)
 const scroll_decel_time = .2
@@ -219,3 +232,9 @@ func _physics_process(delta: float) -> void:
 		scroll_speed = lerp(scroll_speed, Vector2(0., 0.), 1 - exp(-delta / scroll_decel_time))
 	if abs(scroll_speed.x) < scroll_min_speed:
 		scroll_speed = Vector2(0, 0)
+
+func _on_deck_button_pressed():
+	EventBus.request_scene_change.emit(SceneManager.Scene.DECK)
+
+func _on_settings_button_pressed():
+	EventBus.request_scene_change.emit(SceneManager.Scene.DECK)
