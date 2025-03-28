@@ -64,10 +64,18 @@ func generate_bifurcation(
 	starting_encounter: Node,
 	passage_length: float = 1,
 	angle: float = PI / 5) -> Node:
+	#      ---- rand -----
+	#     /                \ 
+	# ---*                   -- combat ----
+	#     \                /
+	#      -- noncombat -- 
 	var bifurcation_encounter_types = [
 		peacefull_encounters.pick_random(),
-		common_encounters.pick_random(),
+		#common_encounters.pick_random(),
 	]
+	var possible_other_encounter = common_encounters.duplicate()
+	possible_other_encounter.erase(bifurcation_encounter_types[0])
+	bifurcation_encounter_types.append(possible_other_encounter.pick_random())
 	bifurcation_encounter_types.shuffle()
 	var bottom_passage = place_passage_at(starting_encounter)
 	var top_passage = place_passage_at(starting_encounter)
@@ -92,20 +100,32 @@ func generate_bifurcation(
 	bottom_encounter.available_next_encounters.append(closing_encounter)
 	return closing_encounter
 
+var used_long_passage_directions = {1: false, -1: false}
+
+func generate_long_passage_direction():
+	if used_long_passage_directions[1] and not used_long_passage_directions[-1]:
+		used_long_passage_directions[-1] = true
+		return -1
+	if not used_long_passage_directions[1] and used_long_passage_directions[-1]:
+		used_long_passage_directions[1] = true
+		return 1
+	var direction = 1 if randf() > .5 else -1
+	used_long_passage_directions[direction] = true
+	return direction
+
 func generate_large_section(starting_encounter: Node) -> Node:
-	#      --- noncombat
-	#     /             \ 
-	# ---*---- rand ------- combat ---combat--
-	#     \                       /
-	#      --- rand --- rand ----
+	#      -- noncombat --
+	#     /                \ 
+	# ---*---- rand -------- combat --- combat--
+	#     \                         /
+	#      -- noncombat -- noncombat
 	var bifurcation_end = generate_bifurcation(starting_encounter, .9,  PI / 7)
 	var bifurcation_tail_passage = place_passage_at(bifurcation_end)
 	var bifurcation_tail = place_encounter_at_passage(Encounter.Battle, bifurcation_tail_passage)
 	bifurcation_end.available_next_encounters.append(bifurcation_tail)
 	var passage_down = place_passage_at(starting_encounter)
 	var angle = PI * 0.27
-	if randf() > .5:
-		angle *= -1
+	angle *= generate_long_passage_direction()
 	passage_down.rotate(angle)
 	passage_down.scale *= cos(PI / 7) / cos(angle) * 0.9
 	var bottom_encounter_1 = place_encounter_at_passage(
@@ -115,7 +135,7 @@ func generate_large_section(starting_encounter: Node) -> Node:
 	starting_encounter.available_next_encounters.append(bottom_encounter_1)
 	var passage_horizontal = place_passage_at(bottom_encounter_1)
 	var bottom_encounter_2 = place_encounter_at_passage(
-		common_encounters.pick_random(),
+		peacefull_encounters.pick_random(),
 		passage_horizontal,
 	)
 	bottom_encounter_1.available_next_encounters.append(bottom_encounter_2)
@@ -130,13 +150,33 @@ var generators = [
 	generate_large_section,
 ]
 
+var used_generator_count = [
+	0,
+	0
+]
+
+func pick_random_generator():
+	var probability_weights = [1, 1]
+	var total_weight = 0
+	for i in range(generators.size()):
+		probability_weights[i] /= (1 + used_generator_count[i])
+		total_weight += probability_weights[i]
+	var roll = randf_range(0, total_weight)
+	for i in range(generators.size()):
+		if roll < probability_weights[i]:
+			used_generator_count[i] += 1
+			return generators[i]
+	used_generator_count[generators.size() - 1] += 1
+	return generators[generators.size() - 1]
+	
+
 func generate_map() -> void:
 	var intro_passage = place_passage_at(%MapEntrance)
 	var last_encounter = place_encounter_at_passage(Encounter.Battle, intro_passage)
 	selectable_encounters.append(last_encounter)
 	last_encounter.selection_enabled = true
 	for section in range(number_sections):
-		last_encounter = generators.pick_random().call(last_encounter)
+		last_encounter = pick_random_generator().call(last_encounter)
 	var boss_passage = place_passage_at(last_encounter)
 	var boss = place_encounter_at_passage(Encounter.Boss, boss_passage)
 	last_encounter.available_next_encounters.append(boss)
