@@ -53,10 +53,18 @@ func generate_bifurcation(
 	starting_encounter: Node,
 	passage_length: float = 1,
 	angle: float = PI / 5) -> Node:
+	#      ---- rand -----
+	#     /                \ 
+	# ---*                   -- combat ----
+	#     \                /
+	#      -- noncombat -- 
 	var bifurcation_encounter_types = [
 		peacefull_encounters.pick_random(),
-		common_encounters.pick_random(),
+		#common_encounters.pick_random(),
 	]
+	var possible_other_encounter = common_encounters.duplicate()
+	possible_other_encounter.erase(bifurcation_encounter_types[0])
+	bifurcation_encounter_types.append(possible_other_encounter.pick_random())
 	bifurcation_encounter_types.shuffle()
 	var bottom_passage = place_passage_at(starting_encounter)
 	var top_passage = place_passage_at(starting_encounter)
@@ -82,11 +90,11 @@ func generate_bifurcation(
 	return closing_encounter
 
 func generate_large_section(starting_encounter: Node) -> Node:
-	#      --- noncombat
-	#     /             \ 
-	# ---*---- rand ------- combat ---combat--
-	#     \                       /
-	#      --- rand --- rand ----
+	#      -- noncombat --
+	#     /                \ 
+	# ---*---- rand -------- combat --- combat--
+	#     \                         /
+	#      -- noncombat -- noncombat
 	var bifurcation_end = generate_bifurcation(starting_encounter, .9,  PI / 7)
 	var bifurcation_tail_passage = place_passage_at(bifurcation_end)
 	var bifurcation_tail = place_encounter_at_passage(Encounter.Battle, bifurcation_tail_passage)
@@ -104,7 +112,7 @@ func generate_large_section(starting_encounter: Node) -> Node:
 	starting_encounter.available_next_encounters.append(bottom_encounter_1)
 	var passage_horizontal = place_passage_at(bottom_encounter_1)
 	var bottom_encounter_2 = place_encounter_at_passage(
-		common_encounters.pick_random(),
+		peacefull_encounters.pick_random(),
 		passage_horizontal,
 	)
 	bottom_encounter_1.available_next_encounters.append(bottom_encounter_2)
