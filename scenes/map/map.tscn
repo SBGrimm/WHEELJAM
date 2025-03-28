@@ -47,20 +47,20 @@ text = "settings"
 [node name="DeckButton" type="Button" parent="Camera/CanvasLayer"]
 unique_name_in_owner = true
 anchors_preset = -1
-anchor_left = 0.75
-anchor_top = 0.85
-anchor_right = 0.95
-anchor_bottom = 0.95
+anchor_left = 0.77
+anchor_top = 0.05
+anchor_right = 0.97
+anchor_bottom = 0.15
 theme = ExtResource("2_433lc")
 text = "View Your Parts"
 
 [node name="HpPanel" type="Panel" parent="Camera/CanvasLayer"]
 unique_name_in_owner = true
 anchors_preset = -1
-anchor_left = 0.45
-anchor_top = 0.85
-anchor_right = 0.55
-anchor_bottom = 0.95
+anchor_left = 0.64
+anchor_top = 0.05
+anchor_right = 0.74
+anchor_bottom = 0.15
 theme = ExtResource("3_w22jc")
 
 [node name="HpRichTextLabel" type="RichTextLabel" parent="Camera/CanvasLayer/HpPanel"]
